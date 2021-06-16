@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../images/logo.png';
+import logo from '../../../images/logoKhandani.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,19 +18,19 @@ const Navbar = () => {
           <div class="collapse navbar-collapse mx-5 " id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item mx-3">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#">হোম</a>
               </li>
               <li class="nav-item mx-3">
-                <a class="nav-link" href="#">Shop</a>
+                <a class="nav-link" href="#">শপ</a>
               </li>
               <li class="nav-item mx-3">
-                <a class="nav-link" href="#">Blog</a>
+                <a class="nav-link" href="#">ব্লগ</a>
               </li>
               <li className="nav-item mx-3">
                 <span className="nav-link"><FontAwesomeIcon icon={faShoppingCart} /></span>
               </li>
               <li class="nav-item mx-3">
-                <a class="nav-link btn btn-danger text-white px-2 py-2" href="#">Login</a>
+                <a class="nav-link btn btn-danger text-white px-2 py-2" href="#">লগ ইন</a>
               </li>
             </ul>
           </div>
