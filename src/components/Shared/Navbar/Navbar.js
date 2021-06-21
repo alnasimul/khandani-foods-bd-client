@@ -6,7 +6,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 const Navbar = () => {
   return (
     <div className="container">
-      <nav class="navbar navbar-expand-lg navbar-light .bg-white">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
           <img src={logo} alt="" className="navbar-brand" style={{
             width: '150px',

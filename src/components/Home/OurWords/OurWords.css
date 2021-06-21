@@ -1,0 +1,8 @@
+.ourWords{
+    background-image: url('../../../images/OurWordsBg.png');
+    background-size: cover;
+    padding: 50px;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+}

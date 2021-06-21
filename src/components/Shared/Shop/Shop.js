@@ -16,7 +16,7 @@ const Shop = () => {
     const currentCategory = items.filter(item => item.category === category)
     console.log(category);
     return (
-        <div className="container ">
+        <div className="container text-center ">
              <h1>শপ</h1>
             <div className="dropdown d-flex align-items-start ">
                 <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -29,6 +29,7 @@ const Shop = () => {
                     <li onClick={() => setCategory('Dates')}><a className={category === 'Dates' ? "dropdown-item active" : "dropdown-item "}href="#">Dates</a></li>
                 </ul>
             </div>
+            <br />
                 <div className='row'>
                  {currentCategory.map( item => <Products item={item}></Products>)}
                 </div>

@@ -1,9 +1,13 @@
+import maryam from '../images/maryam.png';
+import azwa from '../images/azwa.png';
+import safawi from '../images/safawi.png';
+
 const dates = [
     {
         id: 'KD01-1000',
         category:  'Dates',
         title: 'মদিনার প্রিমিয়াম মারিয়াম খেজুর',
-        img: 'https://drive.google.com/file/d/17DSHxgjJl9jntiTa-fB6Iij5-xDd4HSK/view?usp=sharing',
+        img: maryam,
         description: 'মারিয়াম খেজুর খুবই উন্নতমানের খেজুর খেতে খুবই সুস্বাদু, নানান খাদ্য গুনে ভরপুর এবং বল বর্ধক',
         price: 675,
         quantity: '1 Kg'
@@ -12,7 +16,7 @@ const dates = [
         id: 'KD02-1000',
         category:  'Dates',
         title: 'মদিনার প্রিমিয়াম আজওয়া খেজুর',
-        img: 'https://drive.google.com/file/d/1vJv56I1G_FuFNV0wLFTqcaJ6H2gH8wRI/view?usp=sharing',
+        img: azwa,
         description: 'আমিষ, শর্করা, প্রয়োজনীয় খাদ্য আঁশ ও স্বাস্থ্যসম্মত ফ্যাট। এছাড়া ভিটামিন এ, বি সিক্স, সি এবং কে দ্বারা ভরপুর। ভিটামিন এ - এর গুরুত্বপূর্ণ উপাদান ক্যারোটিন ও রয়েছে এতে। ক্যারোটিন চোখের সুস্থতার জন্য অত্যন্ত উপকারী। আরও রয়েছে স্বাস্থ্যকর উপাদান ফলেট, নিয়াসিন, থিয়ামিন ও রিবোফ্লেভিন। এছারাও আমরা এর উপকারিতা কুরআন এবং সহিহ হাদিস থেকে জানতে পারি যেমনঃ সা‘দ (রাঃ) হতে বর্ণিত। তিনি বলেন, আমি রসূলুল্লাহ সাল্লাল্লাহু আলাইহি ওয়াসাল্লাম-কে বলতে শুনেছি- যে ব্যক্তি ভোরে সাতটি আজওয়া খেজুর খাবে, সেদিন কোন বিষ ও যাদু-টোনা তার ক্ষতি করতে পারবে না। (বুখারী ও মুসলিম) - বুখারী ৫৪৪৫, ৫৭৬৮, ৫৭৬৯, ৫৭৭৯; মুসলিম (২০৪৭)-১৫৫',
         price: 630,
         quantity: '1 Kg'
@@ -21,7 +25,7 @@ const dates = [
         id: 'KD03-1000',
         category:  'Dates',
         title: 'সাফায়ী / কলমি খেজুর',
-        img: 'https://drive.google.com/file/d/1fwU18BN1qoqC85O-qzFAehBQU2VoEiPu/view?usp=sharing',
+        img: safawi,
         description: 'আমিষ, শর্করা, প্রয়োজনীয় খাদ্য আঁশ ও স্বাস্থ্যসম্মত ফ্যাট। এছাড়া ভিটামিন এ, বি সিক্স, সি এবং কে দ্বারা ভরপুর। ভিটামিন এ - এর গুরুত্বপূর্ণ উপাদান ক্যারোটিন ও রয়েছে এতে। ক্যারোটিন চোখের সুস্থতার জন্য অত্যন্ত উপকারী',
         price: 540,
         quantity: '1 Kg'
