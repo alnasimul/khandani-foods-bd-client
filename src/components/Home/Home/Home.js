@@ -4,6 +4,7 @@ import Slider from '../Slider/Slider';
 import Shop from '../../Shared/Shop/Shop';
 import OurAim from '../OurAim/OurAim';
 import OurWords from '../OurWords/OurWords';
+import Footer from '../../Shared/Footer/Footer';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <Shop></Shop>
             <OurAim></OurAim>
             <OurWords></OurWords>
+            <Footer></Footer>
         </div>
     );
 };

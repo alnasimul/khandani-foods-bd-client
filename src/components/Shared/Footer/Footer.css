@@ -1,0 +1,12 @@
+footer{
+
+    border-radius: 5px;
+}
+
+a:hover{
+    color: lightgray !important;
+}
+
+.sm{
+    margin-left:35px !important;
+}
