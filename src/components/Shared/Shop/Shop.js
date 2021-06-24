@@ -14,7 +14,6 @@ const Shop = () => {
     },[data])
 
     const currentCategory = items.filter(item => item.category === category)
-    console.log(category);
     return (
         <div className="container text-center ">
              <h1>শপ</h1>
@@ -31,7 +30,7 @@ const Shop = () => {
             </div>
             <br />
                 <div className='row'>
-                 {currentCategory.map( item => <Products item={item}></Products>)}
+                 {currentCategory.map( item => <Products item={item} key={item.id}></Products>)}
                 </div>
            </div>
     );

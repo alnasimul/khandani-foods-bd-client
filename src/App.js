@@ -1,10 +1,35 @@
 import './App.css';
 import Home from './components/Home/Home/Home';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import ProductDetails from './components/Shared/Shop/ProductDetails/ProductDetails';
+import Navbar from './components/Shared/Navbar/Navbar';
+import Footer from './components/Shared/Footer/Footer';
+
+
 
 function App() {
   return (
     <div className="App">
-        <Home></Home>
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <Home></Home>
+          </Route>
+          <Route path='/home'>
+            <Home></Home>
+          </Route>
+          <Route path='/product/:productKey'>
+              <Navbar></Navbar>
+              <ProductDetails></ProductDetails>
+              <Footer></Footer>
+          </Route>
+        </Switch>
+          
+      </Router>  
     </div>
   );
 }
