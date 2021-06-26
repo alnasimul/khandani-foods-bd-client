@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../../../images/logoKhandani.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -18,10 +19,12 @@ const Navbar = () => {
           <div class="collapse navbar-collapse mx-5 " id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item mx-3">
-                <a class="nav-link active" aria-current="page" href="#">হোম</a>
+                <a class="nav-link active" aria-current="page" href="/">হোম</a>
               </li>
               <li class="nav-item mx-3">
-                <a class="nav-link" href="#">শপ</a>
+                <a class="nav-link" href="">  <Link  to='/shop'>
+                শপ
+                </Link></a>
               </li>
               <li class="nav-item mx-3">
                 <a class="nav-link" href="#">ব্লগ</a>

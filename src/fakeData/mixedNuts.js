@@ -9,16 +9,16 @@ const mixedNuts = [
         title: 'Mixed Nuts With Honey',
         img: mixedNuts500,
         description: 'আমাদের এই প্রোডাক্ট এর মধ্য বিভিন্ন ধরনের বাদাম, কিসমিস, খুরমা খেজুর এবং মধুর সংমিশ্রণ ব্যাবহার করা হয়েছে যা খুবই পুস্টিদায়ক এবং বলবর্ধক',
-        quantity: '500 gram',
+        weight: '500 gram',
         price: '600'
     },
     {
-        id: 'KMNH02-250',
+        id: 'KMNH01-250',
         category: 'MixedNuts',
         title: 'Mixed Nuts With Honey',
         img: mixedNuts250,
         description: 'আমাদের এই প্রোডাক্ট এর মধ্য বিভিন্ন ধরনের বাদাম, কিসমিস, খুরমা খেজুর এবং মধুর সংমিশ্রণ ব্যাবহার করা হয়েছে যা খুবই পুস্টিদায়ক এবং বলবর্ধক',
-        quantity: '250 gram',
+        weight: '250 gram',
         price: '300'
     }
 ]

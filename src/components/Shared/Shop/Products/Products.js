@@ -10,7 +10,7 @@ const Products = ({ item }) => {
             <br />
             <br />
             <h6><strong>{title}</strong></h6>
-            <p> <strong>  ৳ {price} টাকা । </strong> </p>
+            <p> <strong>  ৳ {price} টাকা । (প্রতি ৫০০ গ্রাম) </strong> </p>
             
                 <Link to={'/product/' + id}>
                      <button className="btn btn-danger">View Product</button>

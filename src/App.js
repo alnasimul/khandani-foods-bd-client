@@ -8,6 +8,8 @@ import {
 import ProductDetails from './components/Shared/Shop/ProductDetails/ProductDetails';
 import Navbar from './components/Shared/Navbar/Navbar';
 import Footer from './components/Shared/Footer/Footer';
+import Shop from './components/Shared/Shop/Shop';
+import Slider from './components/Home/Slider/Slider';
 
 
 
@@ -21,6 +23,12 @@ function App() {
           </Route>
           <Route path='/home'>
             <Home></Home>
+          </Route>
+          <Route path='/shop'>
+            <Navbar></Navbar>
+            <Slider></Slider>
+            <Shop></Shop>
+            <Footer></Footer>
           </Route>
           <Route path='/product/:productKey'>
               <Navbar></Navbar>
