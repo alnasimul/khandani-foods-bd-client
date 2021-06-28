@@ -5,11 +5,12 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import ProductDetails from './components/Shared/Shop/ProductDetails/ProductDetails';
+import ProductDetails from './components/Shop/Shop/ProductDetails/ProductDetails';
 import Navbar from './components/Shared/Navbar/Navbar';
 import Footer from './components/Shared/Footer/Footer';
-import Shop from './components/Shared/Shop/Shop';
-import Slider from './components/Home/Slider/Slider';
+import Shop from './components/Shop/Shop/Shop';
+import Slider from './components/Shared/Slider/Slider';
+import Cart from './components/Shop/Cart/Cart';
 
 
 
@@ -34,6 +35,11 @@ function App() {
               <Navbar></Navbar>
               <ProductDetails></ProductDetails>
               <Footer></Footer>
+          </Route>
+          <Route path="/cart">
+            <Navbar></Navbar>
+            <Cart></Cart>
+            <Footer></Footer>
           </Route>
         </Switch>
           

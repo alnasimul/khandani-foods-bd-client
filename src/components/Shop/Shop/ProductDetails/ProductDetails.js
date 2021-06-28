@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import fakeData from '../../../../fakeData';
+import { addToDatabaseCart, getDatabaseCart } from '../../../../utilities/databaseManager';
 
 const ProductDetails = () => {
    const {productKey} = useParams();
@@ -34,7 +35,13 @@ const ProductDetails = () => {
          setKey(key);
          setProduct(fakeData.find( pd => pd.id === key));
     }
-    console.log(key);
+
+    const addToCart = (key) => {
+        quantity > 0 && addToDatabaseCart(key, quantity);
+    }
+
+    
+    //console.log(key);
    // console.log(product);
     return (
         <div className="container">
@@ -59,6 +66,9 @@ const ProductDetails = () => {
                     </div>
                     <br />
                     <p> <strong>Price: </strong> ৳ {price * quantity}  টাকা । </p>
+                    <Link to='/cart'>
+                         <button className='btn btn-danger' onClick={() => addToCart(key)}>Add to cart</button>
+                    </Link>
                 </div>
                 <div className="col-md-4 my-5 text-center">
                     <img src={img} alt="" style={{ borderRadius: '10px',width:'420px'}} />

@@ -39,6 +39,8 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      <br />
+      <hr className="me-4" />
     </div>
   );
 };
