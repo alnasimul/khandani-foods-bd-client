@@ -39,7 +39,6 @@ function App() {
           <Route path="/cart">
             <Navbar></Navbar>
             <Cart></Cart>
-            <Footer></Footer>
           </Route>
         </Switch>
           

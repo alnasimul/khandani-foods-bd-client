@@ -2,38 +2,45 @@ import React, { useState } from 'react';
 import fakeData from '../../../../fakeData';
 import { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart } from '../../../../utilities/databaseManager';
 
-const CartItem = ({ item }) => {
-    const { title, img, quantity, id } = item;
+const CartItem = ({ item, cartPlusChange, cartSubChange }) => {
+    const { title, img, quantity, id, price } = item;
 
     const [quantityCount, setQuantityCount] = useState(quantity);
 
     const handleAdd = clickedId => {
 
+    
+
         const currentItem = fakeData.find(item => item.id === clickedId);
 
         const updatedQuantity = quantityCount + 1;
-        setQuantityCount(updatedQuantity);
         currentItem.quantity = updatedQuantity;
+        updatedQuantityCount(updatedQuantity,clickedId);
 
         console.log(currentItem);
 
-        addToDatabaseCart(clickedId, quantityCount);
+        
         getDatabaseCart();
+        cartPlusChange();
+        
+    }
+    const updatedQuantityCount = (updatedQuantity,clickedId) => {
+        setQuantityCount(updatedQuantity);
+        addToDatabaseCart(clickedId, updatedQuantity);
     }
     const handleSub = clickedId => {
-        if (quantityCount > 0) {
-            const currentItem = fakeData.find(item => item.id === clickedId);
 
-            const updatedQuantity = quantityCount - 1;
-
-            setQuantityCount(updatedQuantity);
-            currentItem.quantity = updatedQuantity;
-
-            console.log(currentItem);
-
-            addToDatabaseCart(clickedId, quantityCount);
-            getDatabaseCart();
-        }
+            if( quantityCount > 1){
+                
+                const currentItem = fakeData.find(item => item.id === clickedId);
+                const updatedQuantity = quantityCount - 1;
+                currentItem.quantity = updatedQuantity;
+                updatedQuantityCount(updatedQuantity,clickedId)
+                console.log(currentItem);
+                getDatabaseCart();
+                cartSubChange();
+            }
+        
     }
 
     const removeItemFromCart = clickedId => {
@@ -43,7 +50,7 @@ const CartItem = ({ item }) => {
     const refresh = () => {
         return window.location.reload();
     }
-
+    console.log(quantityCount)
     return (
         <div className="d-flex my-3" >
             <div>
@@ -52,9 +59,10 @@ const CartItem = ({ item }) => {
             <div className='ms-3' >
                 <h4>{title}</h4>
                 <br />
+                <p>Price : {price * quantityCount} </p>
                 <div className='d-flex'>
                     <button className='btn btn-danger ' onClick={() => handleSub(id)}>-</button>
-                    <p className='mx-2 my-1 px-3' style={{ border: '1px solid lightgray', borderRadius: '5px' }}>{quantity}</p>
+                    <p className='mx-2 my-1 px-3' style={{ border: '1px solid lightgray', borderRadius: '5px' }}>{quantityCount}</p>
                     <button className="btn btn-danger " onClick={() => handleAdd(id)}>+</button>
                     <button className="btn btn-danger ms-3" onClick={() => removeItemFromCart(id)}>Remove</button>
                 </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import fakeData from '../../../../fakeData';
-import { addToDatabaseCart, getDatabaseCart } from '../../../../utilities/databaseManager';
+import { addToDatabaseCart } from '../../../../utilities/databaseManager';
 
 const ProductDetails = () => {
    const {productKey} = useParams();
