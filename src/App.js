@@ -11,6 +11,7 @@ import Footer from './components/Shared/Footer/Footer';
 import Shop from './components/Shop/Shop/Shop';
 import Slider from './components/Shared/Slider/Slider';
 import Cart from './components/Shop/Cart/Cart';
+import Shipment from './components/Shop/Shipment/Shipment';
 
 
 
@@ -39,6 +40,10 @@ function App() {
           <Route path="/cart">
             <Navbar></Navbar>
             <Cart></Cart>
+          </Route>
+          <Route path='/shipment'>
+            <Navbar></Navbar>
+            <Shipment></Shipment>
           </Route>
         </Switch>
           
