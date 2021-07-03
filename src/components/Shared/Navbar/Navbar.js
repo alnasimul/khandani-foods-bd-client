@@ -30,7 +30,9 @@ const Navbar = () => {
                 <a class="nav-link" href="#">ব্লগ</a>
               </li>
               <li className="nav-item mx-3">
-                <span className="nav-link"><FontAwesomeIcon icon={faShoppingCart} /></span>
+                <Link to='/cart'>
+                  <span className="nav-link"><FontAwesomeIcon icon={faShoppingCart} /></span>
+                </Link>
               </li>
               <li class="nav-item mx-3">
                 <a class="nav-link btn btn-danger text-white px-2 py-2" href="#">লগ ইন</a>
