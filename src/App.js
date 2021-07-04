@@ -12,6 +12,7 @@ import Shop from './components/Shop/Shop/Shop';
 import Slider from './components/Shared/Slider/Slider';
 import Cart from './components/Shop/Cart/Cart';
 import Shipment from './components/Shop/Shipment/Shipment';
+import Login from './components/Auth/Login/Login';
 
 
 
@@ -44,6 +45,9 @@ function App() {
           <Route path='/shipment'>
             <Navbar></Navbar>
             <Shipment></Shipment>
+          </Route>
+          <Route path='/login'>
+            <Login></Login>
           </Route>
         </Switch>
           
