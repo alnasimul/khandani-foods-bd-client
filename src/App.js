@@ -13,6 +13,7 @@ import Slider from './components/Shared/Slider/Slider';
 import Cart from './components/Shop/Cart/Cart';
 import Shipment from './components/Shop/Shipment/Shipment';
 import Login from './components/Auth/Login/Login';
+import LoginTest from './components/Auth/Login/LoginTest';
 
 
 
@@ -49,9 +50,11 @@ function App() {
           <Route path='/login'>
             <Login></Login>
           </Route>
+          <Route path='/loginTest'>
+              <LoginTest></LoginTest>
+          </Route>
         </Switch>
-          
-      </Router>  
+       </Router>  
     </div>
   );
 }

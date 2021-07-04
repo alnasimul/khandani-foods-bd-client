@@ -3,6 +3,7 @@ import logo from '../../../images/logo.png'
 import { useContext } from 'react';
 import { UserContext } from '../../../App';
 import { useHistory, useLocation } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword, handleGoogleSignIn, handleSignOut, initializeLoginFramework, signInWithEmailAndPassword, storeAuthToken } from './loginManager';
 
 const Login = () => {
@@ -19,13 +20,28 @@ const Login = () => {
 
     initializeLoginFramework();
 
+    const [fieldValid, setFieldValid] = useState(true);
+
     //const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
 
     const history = useHistory();
     const location = useLocation();
 
-    let { from } = location.state || { from: { pathname: "/" } };
+    const { register, handleSubmit, formState: { errors }  } = useForm();
+   
+    const onSubmit = data => {
+
+        const newUserInfo = { ...user, ...data }
+
+        console.log(newUserInfo)
+
+        setUser(newUserInfo);
+
+    };
+
+
+    // let { from } = location.state || { from: { pathname: "/" } };
 
     const googleSignIn = () => {
         handleGoogleSignIn()
@@ -33,28 +49,47 @@ const Login = () => {
                 handleResponse(res, true);
             })
     }
-    const handleChange = (e) => {
-        let isFieldValid = true;
-        if (e.target.name === "email") {
-            const re = /\S+@\S+\.\S+/;
-            isFieldValid = re.test(e.target.value);
-            console.log(isFieldValid);
-        } else if (e.target.name === "password") {
-            const isPasswordValid = e.target.value.length > 6;
-            const re = /\d{1}/;
-            const passwordHasNumber = re.test(e.target.value);
-            isFieldValid = isPasswordValid && passwordHasNumber;
-            console.log(isFieldValid);
-        }
-        if (isFieldValid) {
-            const newUserInfo = { ...user }
-            newUserInfo[e.target.name] = e.target.value;
-            setUser(newUserInfo);
-            console.log(user);
 
-        }
-    }
-    const handleSubmit = (e) => {
+
+    // const handleChange = (e) => {
+    //     let isFieldValid = true;
+    //     if (e.target.name === "email") {
+    //         const re = /\S+@\S+\.\S+/;
+    //         isFieldValid = re.test(e.target.value);
+    //         console.log(isFieldValid);
+    //     } else if (e.target.name === "password") {
+    //         const isPasswordValid = e.target.value.length > 6;
+    //         const re = /\d{1}/;
+    //         const passwordHasNumber = re.test(e.target.value);
+    //         isFieldValid = isPasswordValid && passwordHasNumber;
+    //         setFieldValid(isFieldValid);
+    //         console.log(isFieldValid);
+    //     }
+    //     if (isFieldValid) {
+    //         const newUserInfo = { ...user }
+    //         newUserInfo[e.target.name] = e.target.value;
+    //         setUser(newUserInfo);
+    //         console.log(user);
+
+    //     }
+    // }
+    // const handleSubmit = (e) => {
+    //     if (newUser && user.email && user.password) {
+    //         createUserWithEmailAndPassword(user.name, user.email, user.password)
+    //             .then(res => {
+    //                 handleResponse(res, true);
+    //             })
+    //     }
+    //     if (!newUser && user.email && user.password) {
+    //         signInWithEmailAndPassword(user.email, user.password)
+    //             .then(res => {
+    //                 handleResponse(res, true);
+    //             })
+    //     }
+    //     e.preventDefault();
+    // }
+
+    const signInOrSignUp = () => {
         if (newUser && user.email && user.password) {
             createUserWithEmailAndPassword(user.name, user.email, user.password)
                 .then(res => {
@@ -67,9 +102,9 @@ const Login = () => {
                     handleResponse(res, true);
                 })
         }
-        e.preventDefault();
-    }
 
+        console.log('hitted')
+    }
     const signOut = () => {
         handleSignOut()
         const signedOutUser = {
@@ -86,13 +121,14 @@ const Login = () => {
 
     const handleResponse = (res, redirect) => {
         setUser(res);
-       // setLoggedInUser(res);
+        // setLoggedInUser(res);
 
         if (redirect) {
-            storeAuthToken();
-            history.replace(from)
+           // storeAuthToken();
+            // history.replace(from)
         }
     }
+
 
     return (
         <div className="login-page container">
@@ -100,23 +136,30 @@ const Login = () => {
                 <div className="col-md-6 shadow p-5 mt-5 col-sm-12">
                     <h4>{newUser ? 'Create an account' : 'Login'}</h4>
                     <br />
-                    <form action="" onSubmit={handleSubmit}>
+                    <form action="" onSubmit={handleSubmit(onSubmit, signInOrSignUp())}>
                         {
                             newUser && <div className="form-group">
                                 <label htmlFor="">Your Name</label>
-                                <input type="text" className="form-control" placeholder="Enter name" name="name" required onBlur={handleChange} />
+                                <input className='form-control' {...register("name", { required: true, maxLength: 30 })} />
+                                {errors.name && <span className="text-danger">This field is required</span>}
                                 <br />
                             </div>
                         }
 
                         <div className="form-group">
                             <label htmlFor="">Email</label>
-                            <input type="text" className="form-control" placeholder="Enter email" name="email" required onBlur={handleChange} />
+                            <input className='form-control' {...register("email",  { required: true, pattern: /\S+@\S+\.\S+/ })} />
+                            {errors.email && <span className="text-danger">This field is required</span>}
                         </div>
                         <br />
                         <div className="form-group">
                             <label htmlFor="">Password</label>
-                            <input type="password" className="form-control" placeholder="Enter password" name="password" required onBlur={handleChange} />
+                            <input type="password" className='form-control'{...register("password", {required: true , pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/ })} />
+                            {errors.password && <span className="text-danger">This field is required</span>}
+                            {/* <input type="password" className="form-control" placeholder="Enter password" name="password" required onFocus={handleChange} />
+                            { (!fieldValid  && newUser ) && <p className='text-danger'>your password need to remain at least one digit and password should contain at least 7 character  </p>}
+                            {user.error && <p style={{ color: 'red' }}>{user.error}</p>}
+                            { !fieldValid && <p className='text-danger'>your password field is invalid or incorrect password</p>} */}
                         </div>
                         <div className="form-group mt-2">
                             <label htmlFor="" className="text-danger">Forgot your password?</label>
@@ -128,18 +171,17 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-group">
-                            <input type="submit" value={newUser ? 'Sign up' : 'Sign in'} className=" btn btn-success"  />
+                            <input type="submit" value={newUser ? 'Sign up' : 'Sign in'} className=" btn btn-success" />
                         </div>
                         <hr />
                         <div className="from-group mt-3">
                             <button className="btn btn-success text-white" onClick={googleSignIn}>Google Sign in</button>
                         </div>
                     </form>
-                    {user.error && <p style={{ color: 'red' }}>{user.error}</p>}
                     {user.success && <p style={{ color: 'green' }}>User {newUser ? 'Created' : 'Logged in'} Successfully</p>}
                 </div>
                 <div className="col-md-5 d-none d-md-block align-self-end m-5 p-5 " >
-                    <img className="img-fluid" src={logo} alt="" style={{width:'800px'}}/>
+                    <img className="img-fluid" src={logo} alt="" style={{ width: '800px' }} />
                 </div>
             </div>
         </div>
