@@ -22,7 +22,7 @@ const Navbar = () => {
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse mx-5 " id="navbarNav">
+          <div class="collapse navbar-collapse mx-2 " id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item mx-3">
                 <a class="nav-link active" aria-current="page" href="/">হোম</a>

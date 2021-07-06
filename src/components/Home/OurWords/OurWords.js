@@ -5,12 +5,12 @@ const OurWords = () => {
     return (
         <>
             <section className="container ">
-                <div className="row ourWords text-white text-left my-5">
-                    <div className="col-md-12">
+                <div className="row ourWords text-white text-left">
+                    <div className="col-md-12 col-sm-12">
                         <h2 style={{
                             backgroundColor: "black",
                             padding: '10px',
-                            width: '230px',
+                            width: '',
                             opacity: "60%",
                             borderRadius: '10px',
                         }}>আমাদের কথা: </h2>

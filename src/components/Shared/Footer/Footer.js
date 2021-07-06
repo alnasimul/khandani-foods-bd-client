@@ -9,17 +9,17 @@ const Footer = () => {
     return (
         <footer className="container bg-dark pt-5 pb-2 px-5 text-white my-2" >
             <div className="row" >
-                <div id="companyinfo" className="col-md-3 my-5 mx-5">
+                <div id="companyinfo" className="col-md-3 my-5 mx-3">
                     <img src={logo} alt="" style={{ width: '250px', height: '250px' }} className="img-fluid" />
                 </div>
-                <div className="col-md-3 my-3 mx-4 sm ">
+                <div className="col-md-3 my-3 mx-2 m ">
                     <h3 className="mx-3 my-3">Follow us on</h3>
                     <br />
                     <a class="nav-link text-white" href="https://www.facebook.com/khandaniFoodsBd/?ref=pages_you_manage" target="_blank"><FontAwesomeIcon icon={faFacebookF} className="mx-2"></FontAwesomeIcon>fb.com/khandaniFoodsBd</a>
                     <br />
                     <a class="nav-link text-white " href="https://www.instagram.com/khandanifoodsbd" target="_blank" ><FontAwesomeIcon icon={faInstagram} className="mx-2" ></FontAwesomeIcon>Khandani Foods BD</a>
                 </div>
-                <div className="col-md-3 my-3 mx-5">
+                <div className="col-md-3 my-3 mx-3">
                     <h3 className="my-3">Contact us</h3>
                     <br />
                     <div className="d-flex">

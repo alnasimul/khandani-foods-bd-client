@@ -87,16 +87,16 @@ const Cart = () => {
         <div className='container'>
            { cart.length > 0 ?
             <div className="row">
-                <div className="col-md-4 me-5 pe-5">
+                <div className="col-md-4 mx-5 pe-5">
                    {cart.map(item => <CartItem item={item} key={item.id} cartPlusChange={cartPlusChanges} cartSubChange={cartSubChanges}></CartItem>)}
                 </div>
-                <div className="col-md-5 mx-5 px-5 my-3">
+                <div className="col-md-5 ms-5 ps-5 my-3">
                    <p>total : {subtotal}</p>
                    <p>tax: {tax} </p>
                    <p>Shiping fee: {shippingCost} </p>
                    <p>Subtotal : {subtotal + shippingCost} </p>
                    <div className='d-flex'>
-                       <p className=''>Shipping Location: <button className='btn btn-success me-1' required onClick={() => shippingForSylhet()}> সিলেট সিটি </button>
+                       <p className=''>Shipping Location: <button className='btn btn-success mx-1' required onClick={() => shippingForSylhet()}> সিলেট সিটি </button>
                            <button className='btn btn-success' onClick={() => shippingForOutside() }>সিলেট সিটি এর বাইরে </button> </p>
                    </div>
                    <br />

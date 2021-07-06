@@ -12,7 +12,7 @@ const ShipmentForm = ({orderInfo,closeModal}) => {
     return (
         <div className='col-md-12'>
               <h2 className="text-center text-success">Order Id: #{orderId}</h2>
-                <form className="p-5" onSubmit={handleSubmit(onSubmit)}>
+                <form className="p-2" onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group">
                         <input type="text" {...register('name', { required: true })} name="name" placeholder="Your full name" className="form-control" />
                         {errors.name && <span className="text-danger">This field is required</span>}
