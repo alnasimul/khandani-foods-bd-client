@@ -13,48 +13,51 @@ import Slider from './components/Shared/Slider/Slider';
 import Cart from './components/Shop/Cart/Cart';
 import Shipment from './components/Shop/Shipment/Shipment';
 import Login from './components/Auth/Login/Login';
-import LoginTest from './components/Auth/Login/LoginTest';
+import { createContext } from 'react';
+import { useState } from 'react';
+import PrivateRoute from './components/Auth/PrivateRoute/PrivateRoute';
 
 
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path='/'>
-            <Home></Home>
-          </Route>
-          <Route path='/home'>
-            <Home></Home>
-          </Route>
-          <Route path='/shop'>
-            <Navbar></Navbar>
-            <Slider></Slider>
-            <Shop></Shop>
-            <Footer></Footer>
-          </Route>
-          <Route path='/product/:productKey'>
+      <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+        <Router>
+          <Switch>
+            <Route exact path='/'>
+              <Home></Home>
+            </Route>
+            <Route path='/home'>
+              <Home></Home>
+            </Route>
+            <Route path='/shop'>
+              <Navbar></Navbar>
+              <Slider></Slider>
+              <Shop></Shop>
+              <Footer></Footer>
+            </Route>
+            <Route path='/product/:productKey'>
               <Navbar></Navbar>
               <ProductDetails></ProductDetails>
               <Footer></Footer>
-          </Route>
-          <Route path="/cart">
-            <Navbar></Navbar>
-            <Cart></Cart>
-          </Route>
-          <Route path='/shipment'>
-            <Navbar></Navbar>
-            <Shipment></Shipment>
-          </Route>
-          <Route path='/login'>
-            <Login></Login>
-          </Route>
-          <Route path='/loginTest'>
-              <LoginTest></LoginTest>
-          </Route>
-        </Switch>
-       </Router>  
+            </Route>
+            <Route path="/cart">
+              <Navbar></Navbar>
+              <Cart></Cart>
+            </Route>
+            <PrivateRoute path='/shipment'>
+              <Navbar></Navbar>
+              <Shipment></Shipment>
+            </PrivateRoute>
+            <Route path='/login'>
+              <Login></Login>
+            </Route>
+          </Switch>
+        </Router>
+      </UserContext.Provider>
     </div>
   );
 }

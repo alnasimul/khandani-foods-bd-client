@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import logo from '../../../images/logo.png'
-import { useContext } from 'react';
-import { UserContext } from '../../../App';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword, handleGoogleSignIn, handleSignOut, initializeLoginFramework, signInWithEmailAndPassword, storeAuthToken } from './loginManager';
+import { useContext } from 'react';
+import { UserContext } from '../../../App';
 
 const Login = () => {
     const [newUser, setNewUser] = useState(false);
@@ -20,13 +20,13 @@ const Login = () => {
 
     initializeLoginFramework();
 
-    const [fieldValid, setFieldValid] = useState(true);
-
-    //const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
 
     const history = useHistory();
     const location = useLocation();
+
+    let { from } = location.state || { from: { pathname: "/" } };
 
     const { register, handleSubmit, formState: { errors }  } = useForm();
    
@@ -40,9 +40,6 @@ const Login = () => {
 
     };
 
-
-    // let { from } = location.state || { from: { pathname: "/" } };
-
     const googleSignIn = () => {
         handleGoogleSignIn()
             .then(res => {
@@ -51,49 +48,13 @@ const Login = () => {
     }
 
 
-    // const handleChange = (e) => {
-    //     let isFieldValid = true;
-    //     if (e.target.name === "email") {
-    //         const re = /\S+@\S+\.\S+/;
-    //         isFieldValid = re.test(e.target.value);
-    //         console.log(isFieldValid);
-    //     } else if (e.target.name === "password") {
-    //         const isPasswordValid = e.target.value.length > 6;
-    //         const re = /\d{1}/;
-    //         const passwordHasNumber = re.test(e.target.value);
-    //         isFieldValid = isPasswordValid && passwordHasNumber;
-    //         setFieldValid(isFieldValid);
-    //         console.log(isFieldValid);
-    //     }
-    //     if (isFieldValid) {
-    //         const newUserInfo = { ...user }
-    //         newUserInfo[e.target.name] = e.target.value;
-    //         setUser(newUserInfo);
-    //         console.log(user);
-
-    //     }
-    // }
-    // const handleSubmit = (e) => {
-    //     if (newUser && user.email && user.password) {
-    //         createUserWithEmailAndPassword(user.name, user.email, user.password)
-    //             .then(res => {
-    //                 handleResponse(res, true);
-    //             })
-    //     }
-    //     if (!newUser && user.email && user.password) {
-    //         signInWithEmailAndPassword(user.email, user.password)
-    //             .then(res => {
-    //                 handleResponse(res, true);
-    //             })
-    //     }
-    //     e.preventDefault();
-    // }
+  
 
     const signInOrSignUp = () => {
         if (newUser && user.email && user.password) {
             createUserWithEmailAndPassword(user.name, user.email, user.password)
                 .then(res => {
-                    handleResponse(res, true);
+                    handleResponse(res, false);
                 })
         }
         if (!newUser && user.email && user.password) {
@@ -121,11 +82,14 @@ const Login = () => {
 
     const handleResponse = (res, redirect) => {
         setUser(res);
-        // setLoggedInUser(res);
+        setLoggedInUser(res);
 
         if (redirect) {
-           // storeAuthToken();
-            // history.replace(from)
+            storeAuthToken(res);
+            setTimeout( () => {
+                history.replace(from)
+            },2000);
+           
         }
     }
 
@@ -134,6 +98,11 @@ const Login = () => {
         <div className="login-page container">
             <div className="row">
                 <div className="col-md-6 shadow p-5 mt-5 col-sm-12">
+                    <Link to='/Home'>
+                        <button className="btn btn-danger">Home</button>
+                        <br />
+                    </Link>
+                    <br />
                     <h4>{newUser ? 'Create an account' : 'Login'}</h4>
                     <br />
                     <form action="" onSubmit={handleSubmit(onSubmit, signInOrSignUp())}>
@@ -148,17 +117,18 @@ const Login = () => {
 
                         <div className="form-group">
                             <label htmlFor="">Email</label>
-                            <input className='form-control' {...register("email",  { required: true, pattern: /\S+@\S+\.\S+/ })} />
-                            {errors.email && <span className="text-danger">This field is required</span>}
+                            <input className='form-control' required {...register("email",  { required: true, pattern: /\S+@\S+\.\S+/ })} />
+                            {errors.email && <span className="text-danger">This field is required and try again with valid email address.</span>}
                         </div>
                         <br />
                         <div className="form-group">
                             <label htmlFor="">Password</label>
                             <input type="password" className='form-control'{...register("password", {required: true , pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/ })} />
-                            {errors.password && <span className="text-danger">This field is required</span>}
+                            { (newUser && errors.password) && <span className="text-danger">password field is required and password should contain at least 6 character and one number</span>}
+                            {  errors.password && <span className="text-danger">This field is required and try again with valid password</span>}
+                            {user.error && <p style={{ color: 'red' }}>{user.error}</p>}
                             {/* <input type="password" className="form-control" placeholder="Enter password" name="password" required onFocus={handleChange} />
                             { (!fieldValid  && newUser ) && <p className='text-danger'>your password need to remain at least one digit and password should contain at least 7 character  </p>}
-                            {user.error && <p style={{ color: 'red' }}>{user.error}</p>}
                             { !fieldValid && <p className='text-danger'>your password field is invalid or incorrect password</p>} */}
                         </div>
                         <div className="form-group mt-2">
@@ -174,11 +144,11 @@ const Login = () => {
                             <input type="submit" value={newUser ? 'Sign up' : 'Sign in'} className=" btn btn-success" />
                         </div>
                         <hr />
-                        <div className="from-group mt-3">
-                            <button className="btn btn-success text-white" onClick={googleSignIn}>Google Sign in</button>
-                        </div>
                     </form>
-                    {user.success && <p style={{ color: 'green' }}>User {newUser ? 'Created' : 'Logged in'} Successfully</p>}
+                    <button className="btn btn-success text-white" onClick={googleSignIn}>Google Sign in</button>
+                    {(user.success && newUser) && <p style={{ color: 'green' }}>User Created Successfully </p>}
+                    {user.isSignedIn && <p className='text-success'>User Logged in successfully</p>}
+                    { (newUser && user.success) && <p className='text-success'>A verification email sent to your email address please verify your email address to access your account</p> } 
                 </div>
                 <div className="col-md-5 d-none d-md-block align-self-end m-5 p-5 " >
                     <img className="img-fluid" src={logo} alt="" style={{ width: '800px' }} />

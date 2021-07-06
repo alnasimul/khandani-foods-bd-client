@@ -12,13 +12,14 @@ export const handleGoogleSignIn = () => {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
     return firebase.auth().signInWithPopup(googleProvider)
     .then(res => {
-      const {displayName, photoURL, email} = res.user;
+      const {displayName, photoURL, email,emailVerified} = res.user;
       const signedInUser = {
         isSignedIn: true,
         name: displayName,
         email: email,
         photo: photoURL,
-        success: true
+        success: true,
+        emailVerified
       };
       return signedInUser;
     })
@@ -41,9 +42,11 @@ export const createUserWithEmailAndPassword = (name,email,password) => {
     return firebase.auth().createUserWithEmailAndPassword(email,password)
      .then((res) => {
        const newUserInfo = res.user;
+       newUserInfo.name = name
        newUserInfo.error = '';
        newUserInfo.success = true;
        updateUserName(name);
+       verifyEmail();
        return newUserInfo;
        //  setLoggedInUser(newUserInfo);
        //console.log('sign in user info',res.user);
@@ -63,9 +66,22 @@ export const createUserWithEmailAndPassword = (name,email,password) => {
  export const signInWithEmailAndPassword = (email,password) => {
     return firebase.auth().signInWithEmailAndPassword(email,password)
      .then(res => {
-       const newUserInfo = res.user;
-       newUserInfo.error = '';
-       newUserInfo.success = true;
+       const {displayName,email,emailVerified} = res.user;
+
+       const newUserInfo = {
+         name: displayName,
+         email: email,
+         error: '' ,
+         success: true,
+         emailVerified
+       }
+      //  newUserInfo.error = '';
+      //  newUserInfo.success = true;
+      //  newUserInfo.emailVerified = res.user.emailVerified;
+
+       if(!emailVerified){
+         verifyEmail();
+       }
        return newUserInfo;
       // updateUserName(name);
      })
@@ -91,10 +107,18 @@ export const createUserWithEmailAndPassword = (name,email,password) => {
      });
 }
 
-export const storeAuthToken = () => {
+const verifyEmail = () => {
+  var user = firebase.auth().currentUser;
+  user.sendEmailVerification().then(function () {
+  }).catch(error => {
+  });
+}
+
+export const storeAuthToken = (user) => {
     firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
       .then(function (idToken) {
         sessionStorage.setItem('token', idToken);
+        sessionStorage.setItem('userInfo',JSON.stringify(user));
       }).catch(function (error) {
         // Handle error
       });
