@@ -37,7 +37,7 @@ function App() {
               <Navbar></Navbar>
               <Slider></Slider>
               <Shop></Shop>
-              <Footer></Footer>
+              <Footer></Footer> 
             </Route>
             <Route path='/product/:productKey'>
               <Navbar></Navbar>
