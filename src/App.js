@@ -42,7 +42,6 @@ function App() {
             <Route path='/product/:productKey'>
               <Navbar></Navbar>
               <ProductDetails></ProductDetails>
-              <Footer></Footer>
             </Route>
             <Route path="/cart">
               <Navbar></Navbar>
