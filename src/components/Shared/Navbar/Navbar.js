@@ -1,13 +1,10 @@
 import React from 'react';
-import logo from '../../../images/logoKhandani.png';
+import logo from '../../../images/logo1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { UserContext } from '../../../App';
 
 const Navbar = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
   return (
     <div className="container">
