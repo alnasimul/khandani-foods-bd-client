@@ -6,8 +6,23 @@ const ShipmentForm = ({orderInfo,closeModal}) => {
     const { register, handleSubmit,formState: { errors }   } = useForm();
     const {orderId} = orderInfo;
     const onSubmit = data => {
+        data.created = new Date().toDateString();
+        const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+        const orderData = { ...userInfo , shipment: data, orderInfo: orderInfo};
+        fetch('http://localhost:4000/addOrder',{
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(orderData)
+
+        })
+        .then( res => res.json() )
+        .then( success => {
+            closeModal();
+            alert('Your order has been received, your order will deliver within 2-3 days')
+        })
         console.log(data)
-        closeModal();
     };
     return (
         <div className='col-md-12'>

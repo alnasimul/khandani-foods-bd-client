@@ -80,7 +80,7 @@ const Cart = () => {
     }
 
     const proceedForShipment = () => {
-        setOrderDetails(cart, orderId, shippingCost);
+        setOrderDetails(cart, orderId, shippingCost,subtotal);
     }
 
     return (
