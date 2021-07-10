@@ -7,19 +7,19 @@ import logo from '../../../images/logo.png';
 
 const Footer = () => {
     return (
-        <footer className="container bg-dark pt-5 pb-2 px-5 text-white my-2" >
+        <footer className="container footerContainer bg-dark pt-5 pb-2 px-5 text-white my-2" >
             <div className="row" >
-                <div id="companyinfo" className="col-md-3 my-5 mx-3">
+                <div className="col-md-3 my-5 mx-3 companyLogo">
                     <img src={logo} alt="" style={{ width: '250px', height: '250px' }} className="img-fluid" />
                 </div>
-                <div className="col-md-3 my-3 mx-2 m ">
+                <div className="col-md-3 my-3 mx-2 followSection ">
                     <h3 className="mx-3 my-3">Follow us on</h3>
                     <br />
-                    <a class="nav-link text-white" href="https://www.facebook.com/khandaniFoodsBd/?ref=pages_you_manage" target="_blank"><FontAwesomeIcon icon={faFacebookF} className="mx-2"></FontAwesomeIcon>fb.com/khandaniFoodsBd</a>
+                    <a className="nav-link text-white d-flex" href="https://www.facebook.com/khandaniFoodsBd/?ref=pages_you_manage" target="_blank"><FontAwesomeIcon icon={faFacebookF} className="mx-2"></FontAwesomeIcon>fb.com/khandaniFoodsBd</a>
                     <br />
-                    <a class="nav-link text-white " href="https://www.instagram.com/khandanifoodsbd" target="_blank" ><FontAwesomeIcon icon={faInstagram} className="mx-2" ></FontAwesomeIcon>Khandani Foods BD</a>
+                    <a className="nav-link text-white " href="https://www.instagram.com/khandanifoodsbd" target="_blank" ><FontAwesomeIcon icon={faInstagram} className="mx-2" ></FontAwesomeIcon>Khandani Foods BD</a>
                 </div>
-                <div className="col-md-3 my-3 mx-3">
+                <div className="col-md-3 my-3 mx-3 contactSection">
                     <h3 className="my-3">Contact us</h3>
                     <br />
                     <div className="d-flex">
@@ -35,11 +35,11 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="d-flex my-3 justify-content-center ">
+            <div className="d-flex my-3 justify-content-center copyrightSection ">
                 <br />
                 <FontAwesomeIcon icon={faTruck} className=" mx-2 mt-1"></FontAwesomeIcon> <p> <strong> Home delivery available </strong> </p>
             </div>
-            <p className="text-center text-white mt-3"> © Copyright {(new Date()).getFullYear()} - Khandani Foods BD All Rights Reserved</p>
+            <p className="text-center text-white mt-3 copyrightSection"> © Copyright {(new Date()).getFullYear()} - Khandani Foods BD All Rights Reserved</p>
         </footer>
     );
 };

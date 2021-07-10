@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import fakeData from '../../../../fakeData';
 import { addToDatabaseCart } from '../../../../utilities/databaseManager';
+import './ProductDetails.css';
 
 const ProductDetails = () => {
    const {productKey} = useParams();
@@ -46,7 +47,7 @@ const ProductDetails = () => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-md-7 my-5 mx-2 bg-light p-5" style={{ borderRadius: '5px '}}>
+                <div className="col-md-7 my-5 mx-2 bg-light p-5 productDescription" style={{ borderRadius: '5px '}}>
                     <h2 className="">{title}</h2>
                     <br />
                     <p>{description}</p>
@@ -70,7 +71,7 @@ const ProductDetails = () => {
                          <button className='btn btn-danger' onClick={() => addToCart(key)}>Add to cart</button>
                     </Link>
                 </div>
-                <div className="col-md-4 my-5 text-center">
+                <div className="col-md-4 my-5 text-center productImg">
                     <img src={img} alt="" className='img-fluid' style={{ borderRadius: '10px',width:'420x'}} />
                 </div>
             </div>

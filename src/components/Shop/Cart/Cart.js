@@ -5,6 +5,7 @@ import { getDatabaseCart } from '../../../utilities/databaseManager';
 import { setOrderDetails } from '../../../utilities/orderDetailsManager';
 import CartItem from './CartItem/CartItem';
 import { Link } from 'react-router-dom';
+import './Cart.css'
 
 const Cart = () => {
     const [cart, setCart] = useState([]);
@@ -87,17 +88,17 @@ const Cart = () => {
         <div className='container'>
            { cart.length > 0 ?
             <div className="row">
-                <div className="col-md-4 mx-5 pe-5">
+                <div className="col-md-4 mx-5 pe-5 cartItems">
                    {cart.map(item => <CartItem item={item} key={item.id} cartPlusChange={cartPlusChanges} cartSubChange={cartSubChanges}></CartItem>)}
                 </div>
-                <div className="col-md-5 ms-5 ps-5 my-3">
+                <div className="col-md-5 ms-5 ps-5 my-3 cartCalculator">
                    <p>total : {subtotal}</p>
                    <p>tax: {tax} </p>
                    <p>Shiping fee: {shippingCost} </p>
                    <p>Subtotal : {subtotal + shippingCost} </p>
-                   <div className='d-flex'>
+                   <div className='d-flex shippingLocation'>
                        <p className=''>Shipping Location: <button className='btn btn-success mx-1' required onClick={() => shippingForSylhet()}> সিলেট সিটি </button>
-                           <button className='btn btn-success' onClick={() => shippingForOutside() }>সিলেট সিটি এর বাইরে </button> </p>
+                           <button className='btn btn-success outsideSylhet' onClick={() => shippingForOutside() }>সিলেট সিটি এর বাইরে </button> </p>
                    </div>
                    <br />
                    <Link to='/shipment'>

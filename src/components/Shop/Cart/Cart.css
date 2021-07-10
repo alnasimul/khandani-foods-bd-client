@@ -1,0 +1,49 @@
+@media only screen and (max-width: 767.9px){
+    [class*="cartItems"]{
+        width: 400px !important;
+        margin-left: 0 !important ;
+        margin-right: 0 !important;
+        border-bottom: 1px solid lightgray !important;
+    }
+    [class*="cartCalculator"]{
+        width:fit-content;
+        margin-left: 0px !important;
+    }
+    [class*="shippingLocation"]{
+        width: 400px;
+        display:  inline-flex !important;
+    }
+    [class*="outsideSylhet"]{
+        margin-top: 10px !important;
+    }
+}
+@media only screen and (min-width: 768px){
+    [class*="cartItems"]{
+        width: 300px;
+        margin-left: 0px !important;
+        
+    }
+    [class*="cartCalculator"]{
+        width:370px;
+        margin-left: 2px !important;
+    }
+    [class*="outsideSylhet"]{
+        margin-top: 10px !important;
+    }
+    
+}
+@media only screen and (min-width: 992px){
+    [class*="cartItems"]{
+        width: 450px;
+        margin-left: 0px !important;
+        
+    }
+    [class*="cartCalculator"]{
+        width:fit-content;
+        margin-left: 200px !important;
+        border-left: 1px solid lightgray ;
+    }
+    [class*="outsideSylhet"]{
+        margin-top: 0px !important;
+    }
+}

@@ -1,0 +1,27 @@
+@media only screen and (max-width: 768px){
+    [class*="productDescription"]{
+        width:fit-content;
+    }
+    [class*="productImg"]{
+        width:fit-content;
+    }
+}
+@media only screen and (min-width: 768px) {
+    [class*="productDescription"]{
+        width:fit-content;
+    }
+    [class*="productImg"]{
+        width: 330px;
+    }
+    
+
+
+}
+@media only screen and (min-width: 992px) {
+    [class*="productDescription"]{
+        width: 750px;
+    }
+    [class*="productImg"]{
+        width:fit-content;
+    }
+}

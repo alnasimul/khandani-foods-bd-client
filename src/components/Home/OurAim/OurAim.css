@@ -1,0 +1,21 @@
+
+  @media only screen and (min-width: 768px)  {
+    /* Medium devices (landscape tablets, 768px and up) */
+     [class*="ourAim"] img {
+        max-width: 230px;
+        max-height: 240px;
+        margin-right: 10px;
+        margin-left: 10px;
+       }
+   }
+
+   @media only screen and (min-width: 992px) {
+    /* Large devices (laptops/desktops, 992px and up) */
+
+    [class*="ourAim"] img {
+        min-width: 400px;
+        margin-right: 10px;
+        margin-left: 10px;
+       }
+   }
+ 

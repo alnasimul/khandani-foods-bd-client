@@ -3,6 +3,7 @@ import logo from '../../../images/logo1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import './Navbar.css';
 
 const Navbar = () => {
   const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
@@ -58,7 +59,7 @@ const Navbar = () => {
          <strong> <small className='mx-3'> Welcome, {loggedInUser.name ? loggedInUser.name : loggedInUser.email} </small> </strong>
         </div>
       } */}
-      <hr className="me-4" />
+      <hr className="me-3" />
     </div>
   );
 };

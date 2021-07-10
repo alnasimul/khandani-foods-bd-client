@@ -1,0 +1,6 @@
+@media only screen and (max-width: 768px){
+    [class*="navbar-brand"] {
+        max-width: 90px;
+        max-height: 90px;
+    }
+}

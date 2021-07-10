@@ -1,8 +1,47 @@
 .ourWords{
     background-image: url('../../../images/OurWordsBg.png');
     background-size: cover;
-    padding: 50px;
     border-radius: 10px;
-    margin-left: 50px;
+    margin-left: 10px;
     margin-right: 50px;
+    padding: 20px;
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="ourWords"]  {
+        background-image: url('../../../images/OurWordsBg.png');
+        min-width: 320px;
+        padding: 20px;
+        background-size: cover;
+        border-radius: 10px;
+        font-size: small;
+        margin-right: 5px !important;
+        padding: 5px;
+      
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="ourWords"] h2 {
+        width: 100% !important;
+    }
+  }
+  @media only screen and (min-width: 768px)  {
+    /* Medium devices (landscape tablets, 768px and up) */
+     [class*="ourWords"]  {
+        max-width: 1100px !important;
+        max-height: 450px !important;
+        margin-left: 40px !important;
+       }
+   }
+   @media only screen and (min-width: 992px)  {
+    /* Medium devices (landscape tablets, 768px and up) */
+     [class*="ourWords"]  {
+        min-width: 1200px;
+        max-height: 450px;
+        margin-left: 10px;
+       }
+   }
+ 
+ 

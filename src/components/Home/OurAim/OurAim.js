@@ -2,10 +2,11 @@ import React from 'react';
 import organic from '../../../images/organic .png';
 import quality from '../../../images/quality .png';
 import quickDelivery from '../../../images/quickDelivery.png';
+import './OurAim.css';
 
 const OurAim = () => {
     return (
-        <section className="container my-3 py-5 " >
+        <section className="container my-3 py-5 ourAim" >
             <h3 className="text-danger text-center">আমাদের লক্ষ্য</h3>
                 <div className=" row d-flex justify-content-center  my-5">
                     <div className="col-md-4 my-3">

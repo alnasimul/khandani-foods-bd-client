@@ -10,3 +10,85 @@ a:hover{
 .sm{
     margin-left:35px !important;
 }
+
+@media only screen and (max-width: 768px) {
+    [class*="companyLogo"] img {
+        max-height: 170px;
+        max-width: 170px;
+        margin-left: 38px; 
+        
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    [class*="followSection"] h3{
+      font-size: 20px;
+    }
+    [class*="followSection"] {
+        font-size: small;
+        margin-left:26px !important;
+     }
+}
+@media only screen and (max-width: 768px) {
+    [class*="contactSection"] {
+       font-size: small;
+       margin-left: 40px !important;
+       
+    }
+    [class*="contactSection"] h3 {
+        font-size: 20px;
+       }
+}
+
+
+@media only screen and (max-width: 768px) {
+    [class*="copyrightSection"]{
+        font-size: small;
+       }
+}
+
+@media only screen and (min-width: 768px) {
+    [class*="companyLogo"] img {
+        max-height: 130px;
+        max-width: 130px;
+        margin-top: 60px !important;
+        margin-right: 0px;
+        margin-left: 0;
+        }
+        [class*="footerContainer"] {
+            margin-right: 0;
+        }
+        [class*="followSection"]{
+            margin-left: 0px !important;
+            margin-right: 15px !important;
+          
+            display: inline-block;
+        }
+        [class*="contactSection"]{
+            margin-left: 40px !important;
+            margin-right: 20px !important;
+        }
+        
+}
+
+@media only screen and (min-width: 992px) {
+    [class*="companyLogo"] img {
+        max-height: 250px;
+        max-width: 250px;
+        margin-right: 50px;
+        margin-left: 20px;
+        margin-top: 30px;
+        
+    }
+}
+
+@media only screen and (min-width: 992px){
+    [class*="footerContainer"] {
+        margin-right: auto;
+    }
+    [class*="followSection"]{
+        margin-left: 70px !important;
+        margin-right: 90px !important;
+    }
+}
