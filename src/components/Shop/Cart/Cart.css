@@ -8,6 +8,8 @@
     [class*="cartCalculator"]{
         width:fit-content;
         margin-left: 0px !important;
+        margin-top: 40px !important;
+        text-align: left;
     }
     [class*="shippingLocation"]{
         width: 400px;
