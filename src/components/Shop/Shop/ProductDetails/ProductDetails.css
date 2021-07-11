@@ -1,9 +1,9 @@
 @media only screen and (max-width: 768px){
     [class*="productDescription"]{
-        width:fit-content;
+        width: 400px !important;
     }
     [class*="productImg"]{
-        width:fit-content;
+        width:400px !important;
     }
 }
 @media only screen and (min-width: 768px) {
