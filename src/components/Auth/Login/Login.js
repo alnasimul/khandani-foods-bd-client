@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword, handleGoogleSignIn, handleSignOut, initializeLoginFramework, signInWithEmailAndPassword, storeAuthToken } from './loginManager';
 import { useContext } from 'react';
 import { UserContext } from '../../../App';
+import './Login.css';
 
 const Login = () => {
     const [newUser, setNewUser] = useState(false);
@@ -97,7 +98,7 @@ const Login = () => {
     return (
         <div className="login-page container">
             <div className="row">
-                <div className="col-md-6 shadow p-5 mt-5 col-sm-12">
+                <div className="col-md-6 shadow p-5 mt-5 loginArea">
                     <Link to='/Home'>
                         <button className="btn btn-danger">Home</button>
                         <br />
@@ -150,8 +151,8 @@ const Login = () => {
                     {user.isSignedIn && <p className='text-success'>User Logged in successfully</p>}
                     { (newUser && user.success) && <p className='text-success'>A verification email sent to your email address please verify your email address to access your account</p> } 
                 </div>
-                <div className="col-md-5 d-none d-md-block align-self-end m-5 p-5 " >
-                    <img className="img-fluid" src={logo} alt="" style={{ width: '800px' }} />
+                <div className="col-md-5 brandLogo  d-md-block align-self-end m-5 p-5 " >
+                    <img className="" src={logo} alt="" style={{ width: '700px' }} />
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import './ShipmentForm.css';
 
 
 const ShipmentForm = ({orderInfo,closeModal}) => {
@@ -23,6 +24,7 @@ const ShipmentForm = ({orderInfo,closeModal}) => {
             alert('Your order has been received, your order will deliver within 2-3 days')
         })
         console.log(data)
+        closeModal();
     };
     return (
         <div className='col-md-12'>

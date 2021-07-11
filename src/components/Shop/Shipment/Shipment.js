@@ -3,13 +3,15 @@ import { getOrderDetails } from '../../../utilities/orderDetailsManager';
 import ShipmentForm from './ShipmentForm/ShipmentForm';
 import Modal from 'react-modal';
 import PaymentGateway from './PaymentGateway/PaymentGateway';
+import './Shipment.css';
 
 const customStyles = {
     content: {
         top: '50%',
         left: '50%',
         right: 'auto',
-        width:'90%',
+        width:'80%',
+        padding: '20px',
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
@@ -47,8 +49,9 @@ const Shipment = () => {
                     onRequestClose=''
                     style={customStyles}
                     contentLabel="Example Modal"
+                   
                 >
-                <ShipmentForm orderInfo={orderInfo} closeModal={closeModal}></ShipmentForm>
+                <ShipmentForm orderInfo={orderInfo} closeModal={closeModal}  ></ShipmentForm>
                 </Modal>
                 <PaymentGateway></PaymentGateway>
             </div>

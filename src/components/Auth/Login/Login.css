@@ -1,0 +1,37 @@
+@media only screen and (max-width: 767.9px){
+    [class*="loginArea"]{
+        width: 365px !important;
+        margin-left: 5px;
+    }
+    [class*="brandLogo"]{
+        display: none;
+    }
+}   
+@media only screen and (min-width: 768px){
+    [class*="loginArea"]{
+        min-width: 700px !important;
+        min-height: 700px !important;
+    }
+    [class*="brandLogo"]{
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 992px){
+    [class*="loginArea"]{
+        width: 440px !important;
+        height: 440px !important;
+        margin-right: 0px;
+        margin-top: 100px !important;
+    }
+    [class*="brandLogo"]{
+        display: inline-block !important;
+        width: fit-content !important;
+    }
+    [class*="brandLogo"] img{
+        max-width: 420px;
+        max-height: 420px;
+        margin-bottom: 50px;
+    }
+
+}
