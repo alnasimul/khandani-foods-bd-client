@@ -1,6 +1,6 @@
 
 export const setOrderDetails = (cart,orderId,shippingCost,totalBill) => {
-    const orderDetails = {...cart,orderId, shippingCost,totalBill};
+    const orderDetails = {cart,orderId, shippingCost,totalBill};
     localStorage.setItem('orderDetails', JSON.stringify(orderDetails));
 }
 

@@ -40,7 +40,7 @@ const Shipment = () => {
     }
 
 
-    console.log(orderInfo)
+    //console.log(orderInfo)
     return (
         <div className='container'>
             <div className="row">

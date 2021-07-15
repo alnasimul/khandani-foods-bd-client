@@ -16,6 +16,8 @@ import Login from './components/Auth/Login/Login';
 import { createContext } from 'react';
 import { useState } from 'react';
 import PrivateRoute from './components/Auth/PrivateRoute/PrivateRoute';
+import Dashboard from './components/Dashboard/Dashboard/Dashboard';
+import Orders from './components/Dashboard/Orders/Orders';
 
 
 export const UserContext = createContext();
@@ -53,6 +55,12 @@ function App() {
             </PrivateRoute>
             <Route path='/login'>
               <Login></Login>
+            </Route>
+            <Route path='/admin-panel/dashboard'>
+              <Dashboard></Dashboard>
+            </Route>
+            <Route path='/admin-panel/orders'>
+              <Orders></Orders>
             </Route>
           </Switch>
         </Router>
