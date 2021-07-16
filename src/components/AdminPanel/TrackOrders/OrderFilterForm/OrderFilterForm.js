@@ -19,7 +19,7 @@ const OrderFilterForm = ({getSearchData}) => {
     }
    
     return (
-        <div className="col-md-3 mt-3 p-5  bg-light" style={{borderRadius:'5px'}}>
+        <div className="col-md-3 mt-3 p-5  bg-light" style={{borderRadius:'5px',height:'450px'}}>
             <h5 className="text-light bg-danger p-3 mx-2 my-2 w-50" style={{borderRadius:'5px'}} > <strong> Track order</strong> </h5>
             <form className=" mx-2" style={{borderRadius:'5px'}} onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">

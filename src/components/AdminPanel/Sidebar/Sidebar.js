@@ -4,7 +4,7 @@ import './Sidebar.css';
 
 const Sidebar = () => {
     return (
-        <section id="body-pd" className="col-md-2">
+        <section id="body-pd" className="">
             <div className="header" id="header">
                 <div className="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
             </div>
@@ -18,6 +18,9 @@ const Sidebar = () => {
                             <a href="#" className="nav_link active"> <i className='bx bx-grid-alt nav_icon'></i> <span className="">Dashboard</span> </a>
                             <Link to='/admin-panel/orders' className="nav_link">
                                 <i className='bx bx-box nav_icon'></i> <span className="nav_name">Orders</span>
+                            </Link>
+                            <Link to='/admin-panel/track-orders' className="nav_link">
+                                <i className='bx bx-search nav_icon'></i> <span className="nav_name"> Track Orders</span>
                             </Link> 
                             <a href="#" className="nav_link"> <i className='bx bx-user nav_icon'></i> <span className="nav_name">Users</span> </a>
                             <a href="#" className="nav_link"> <i className='bx bx-message-square-detail nav_icon'></i> <span className="nav_name">Messages</span> </a>

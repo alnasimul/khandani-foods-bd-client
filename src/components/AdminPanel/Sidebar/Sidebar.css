@@ -39,7 +39,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1rem;
+    padding: 0 0rem;
     background-color: var(--white-color);
     z-index: var(--z-fixed);
     transition: .5s
@@ -67,11 +67,11 @@ a {
 .l-navbar {
     position: fixed;
     top: 0;
-    left: -30%;
+    left: -20px;
     width: var(--nav-width);
     height: 100vh;
     background-image:  linear-gradient(90deg, #ad121a, #c22830);
-    padding: .5rem 1rem 0 0;
+    padding: .5rem .1rem 0 0;
     transition: .5s;
     z-index: var(--z-fixed)
 }
@@ -155,7 +155,7 @@ a {
 
     .header {
         height: calc(var(--header-height) + 1rem);
-        padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
+        padding: 0 2rem 0 calc(var(--nav-width) + 1rem)
     }
 
     .header_img {
@@ -169,11 +169,11 @@ a {
 
     .l-navbar {
         left: 0;
-        padding: 1rem 1rem 0 0
+        padding: .5rem .5rem 0 0
     }
 
     .show {
-        width: calc(var(--nav-width) + 156px)
+        width: calc(var(--nav-width) + 170px)
     }
 
     .body-pd {

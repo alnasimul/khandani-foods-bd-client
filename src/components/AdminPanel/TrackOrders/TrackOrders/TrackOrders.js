@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import Sidebar from '../Sidebar/Sidebar';
-import OrderFilterForm from './OrderFilterForm';
-import OrdersShortList from './OrdersShortLIst/OrdersShortList';
+import Sidebar from '../../Sidebar/Sidebar';
+import OrderFilterForm from '../OrderFilterForm/OrderFilterForm';
+import OrdersShortList from '../TrackOrdersShortLIst/TrackOrdersShortList';
 
-const Orders = () => {
-    const [searchData, setSearchData] = useState({});
+const TrackOrders = () => {
+    const [searchData, setSearchData] = useState(null);
     const [trackedOrders,setTrackedOrders] = useState([])
 
-   const getSearchData = (data) => {
-    setSearchData(data);
-  }
+    const getSearchData = (data) => {
+        setSearchData(data);
+    }
     useEffect(() => {
         fetch('http://localhost:4000/trackOrder',{
         method: 'POST',
@@ -27,12 +27,14 @@ const Orders = () => {
     
     
     return (
+        <>
+        <Sidebar></Sidebar>
         <div className='row'>
-            <Sidebar></Sidebar>
             <OrderFilterForm getSearchData={getSearchData}></OrderFilterForm>
             <OrdersShortList trackedOrders = {trackedOrders}></OrdersShortList>
         </div>
+        </>
     );
 };
 
-export default Orders;
+export default TrackOrders;

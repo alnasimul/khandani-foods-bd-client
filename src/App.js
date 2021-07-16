@@ -16,8 +16,9 @@ import Login from './components/Auth/Login/Login';
 import { createContext } from 'react';
 import { useState } from 'react';
 import PrivateRoute from './components/Auth/PrivateRoute/PrivateRoute';
-import Dashboard from './components/Dashboard/Dashboard/Dashboard';
-import Orders from './components/Dashboard/Orders/Orders';
+import Dashboard from './components/AdminPanel/Dashboard/Dashboard';
+import TrackOrders from './components/AdminPanel/TrackOrders/TrackOrders';
+import Orders from './components/AdminPanel/Orders/Orders/Orders';
 
 
 export const UserContext = createContext();
@@ -58,6 +59,9 @@ function App() {
             </Route>
             <Route path='/admin-panel/dashboard'>
               <Dashboard></Dashboard>
+            </Route>
+            <Route path='/admin-panel/track-orders'>
+              <TrackOrders></TrackOrders>
             </Route>
             <Route path='/admin-panel/orders'>
               <Orders></Orders>
