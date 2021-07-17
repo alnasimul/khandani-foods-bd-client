@@ -67,7 +67,7 @@
 .react-calendar__tile--active{
   background-image: linear-gradient(75deg, #19D3AE,#0fcfec) ;
   border-radius: 5px;
-  color: #ffffff ;
+  color: #ebebeb ;
 }
 .react-calendar__navigation__prev2-button,
 .react-calendar__navigation__next2-button

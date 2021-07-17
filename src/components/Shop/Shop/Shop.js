@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import fakeData from '../../../fakeData';
-import Products from './Products/Products';
+import Products from '../Products/Products';
 
 const Shop = () => {
     const data = fakeData;

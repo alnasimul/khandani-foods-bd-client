@@ -1,14 +1,14 @@
 import React from 'react';
-import OrdersShortList from '../OrdersShortList/OrdersShortList';
+import OrdersByDateShortList from '../OrdersByDateShortList/OrdersByDateShortList';
 
-const OrdersByDate = ({orders}) => {
+const OrdersByDateTable = ({orders}) => {
     return (
         <div className="col-md-9 col-sm-12 ">
               <div className='mt-5'>
                 <h2 className="text-brand text-center mb-5">Orders</h2>
                 {
                     orders.length ?
-                        <OrdersShortList orders={orders}></OrdersShortList>
+                        <OrdersByDateShortList orders={orders}></OrdersByDateShortList>
                         :
                         <div className="p-5">
                             <h4 className="lead text-center">No Orders for this Date</h4>
@@ -19,4 +19,4 @@ const OrdersByDate = ({orders}) => {
     );
 };
 
-export default OrdersByDate;
+export default OrdersByDateTable;

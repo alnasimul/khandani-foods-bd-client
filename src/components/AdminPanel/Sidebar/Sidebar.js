@@ -15,12 +15,9 @@ const Sidebar = () => {
                         <i className='bx bx-layer nav_logo-icon'></i>
                         <span className="nav_logo-name">Khandani team</span> </a>
                         <div className="nav_list">
-                            <a href="#" className="nav_link active"> <i className='bx bx-grid-alt nav_icon'></i> <span className="">Dashboard</span> </a>
+                            <a href="#" className="nav_link active-sidebar"> <i className='bx bx-grid-alt nav_icon'></i> <span className="">Dashboard</span> </a>
                             <Link to='/admin-panel/orders' className="nav_link">
                                 <i className='bx bx-box nav_icon'></i> <span className="nav_name">Orders</span>
-                            </Link>
-                            <Link to='/admin-panel/track-orders' className="nav_link">
-                                <i className='bx bx-search nav_icon'></i> <span className="nav_name"> Track Orders</span>
                             </Link> 
                             <a href="#" className="nav_link"> <i className='bx bx-user nav_icon'></i> <span className="nav_name">Users</span> </a>
                             <a href="#" className="nav_link"> <i className='bx bx-message-square-detail nav_icon'></i> <span className="nav_name">Messages</span> </a>

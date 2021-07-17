@@ -5,7 +5,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import ProductDetails from './components/Shop/Shop/ProductDetails/ProductDetails';
+import ProductDetails from './components/Shop/ProductDetails/ProductDetails';
 import Navbar from './components/Shared/Navbar/Navbar';
 import Footer from './components/Shared/Footer/Footer';
 import Shop from './components/Shop/Shop/Shop';
@@ -17,8 +17,10 @@ import { createContext } from 'react';
 import { useState } from 'react';
 import PrivateRoute from './components/Auth/PrivateRoute/PrivateRoute';
 import Dashboard from './components/AdminPanel/Dashboard/Dashboard';
-import TrackOrders from './components/AdminPanel/TrackOrders/TrackOrders';
+import TrackOrders from './components/AdminPanel/TrackOrders/TrackOrders/TrackOrders';
+import OrdersByDate from './components/AdminPanel/OrdersByDate/OrdersByDate/OrdersByDate';
 import Orders from './components/AdminPanel/Orders/Orders/Orders';
+
 
 
 export const UserContext = createContext();
@@ -60,12 +62,16 @@ function App() {
             <Route path='/admin-panel/dashboard'>
               <Dashboard></Dashboard>
             </Route>
+            <Route path="/admin-panel/orders">
+                <Orders></Orders>
+            </Route>
+            <Route path='/admin-panel/orders-by-date'>
+              <OrdersByDate></OrdersByDate>
+            </Route>
             <Route path='/admin-panel/track-orders'>
               <TrackOrders></TrackOrders>
             </Route>
-            <Route path='/admin-panel/orders'>
-              <Orders></Orders>
-            </Route>
+            
           </Switch>
         </Router>
       </UserContext.Provider>

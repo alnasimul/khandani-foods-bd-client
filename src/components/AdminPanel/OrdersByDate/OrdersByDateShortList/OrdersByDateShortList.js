@@ -1,32 +1,29 @@
 import React from 'react';
-import OrderShortListDetail from '../OrderShortListDetail/OrderShortListDetail';
+import OrderByDateShortListDetail  from '../OrderByDateShortListDetail/OrderByDateShortListDetail';
 
-const OrdersShortList = ({orders}) => {
-    return (
-        <table style={{ borderRadius: '7px' }} className="table bg-success ">
-        <thead className="fixed-postition">
+const OrdersByDateShortList = ({orders}) => {
+  return (
+     <table style={{ borderRadius: '7px' }} className="table bg-success">
+        <thead>
           <tr className=" text-white">
             <th scope="col">#OrderID</th>
             <th scope="col">Name</th>
-            <th scope="col">Email</th>
             <th scope="col">Phone</th>
             <th scope="col">City</th>
             <th scope="col">Address</th>
-            <th scope="col">Date</th>
             <th scope="col">Total</th>
-            <th scope="col">Action</th>
             <th scope="col">Item Bought</th>
           </tr>
         </thead>
         <tbody>
           {
             orders.map((order) =>
-              <OrderShortListDetail order={order}></OrderShortListDetail>
+              <OrderByDateShortListDetail order={order}></OrderByDateShortListDetail>
             )
           }
         </tbody>
       </table> 
-    );
+  );
 };
 
-export default OrdersShortList;
+export default OrdersByDateShortList;

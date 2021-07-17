@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import fakeData from '../../../../fakeData';
-import { addToDatabaseCart } from '../../../../utilities/databaseManager';
+import fakeData from '../../../fakeData';
+import { addToDatabaseCart } from '../../../utilities/databaseManager';
 import './ProductDetails.css';
 
 const ProductDetails = () => {
