@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { processOrder, removeFromDatabaseCart } from '../../../../utilities/databaseManager';
+import { processOrder } from '../../../../utilities/databaseManager';
 import './ShipmentForm.css';
 
 
@@ -10,6 +10,9 @@ const ShipmentForm = ({orderInfo,closeModal}) => {
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     const onSubmit = data => {
         data.created = new Date().toDateString();
+        data.paymentStatus = 'pending';
+        data.deliveryStatus = 'pending';
+        data.orderStatus = 'open';
 
       
         
@@ -38,7 +41,7 @@ const ShipmentForm = ({orderInfo,closeModal}) => {
               <h2 className="text-center text-success">Order Id: #{orderId}</h2>
                 <form className="p-2" onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group">
-                        <input type="text" {...register('name', { required: true })} name="name" placeholder="Your full name" className="form-control" value={userInfo.name}/>
+                        <input type="text" {...register('name', { required: true })} name="name" placeholder="Your full name" className="form-control" defaultValue={userInfo.name}/>
                         {errors.name && <span className="text-danger">This field is required</span>}
 
                     </div>
@@ -49,8 +52,8 @@ const ShipmentForm = ({orderInfo,closeModal}) => {
                     </div>
                     <br />
                     <div className="form-group">
-                        <input type="text" {...register('email',{ required: true })}name="email" placeholder="Email" className="form-control" value={userInfo.email} />
-                        {errors.email && <span className="text-danger">This field is required</span>}
+                        <input type="text" {...register('email',{ required: true, pattern: /\S+@\S+\.\S+/ })}name="email" placeholder="Email" className="form-control" defaultValue={userInfo.email} />
+                        {errors.email && <span className="text-danger">This field is required and please enter valid email address</span>}
                     </div>
                     <br />
                     <div className="form-group">

@@ -1,17 +1,22 @@
 import React from 'react';
 import './OrderShortListDetail.css';
 
-const OrderShortListDetail = ({ order, getPaidStatus, getDeliveredStatus }) => {
-    const { _id, orderId, name, email, phone, city, address, totalBill, shippingCost, created, cart,paidStatus,deliveredStatus } = order;
+const OrderShortListDetail = ({ order, getPaymentStatus, getDeliveryStatus,getOrderStatus }) => {
+    const { _id, orderId, name, email, phone, city, address, totalBill, shippingCost, created, cart,paymentStatus,deliveryStatus } = order;
 
     const alertForPayment = (status) => {
         if(window.confirm('Are you sure want to update payment status for order id # '+orderId + ' ?')){
-            getPaidStatus(_id,status)
+            getPaymentStatus(_id,status)
         }
     }
     const alertForDelivery = (status) => {
         if(window.confirm('Are you sure want to update delivery status for order id # '+orderId + ' ?')){
-            getDeliveredStatus(_id,status)
+            getDeliveryStatus(_id,status)
+        }
+    }
+    const alertForCloseOrder = (status) => {
+        if(window.confirm('Are you sure want to '+status+' order status for order id # '+orderId + ' ?')){
+            getOrderStatus(_id,status)
         }
     }
     return (
@@ -35,12 +40,14 @@ const OrderShortListDetail = ({ order, getPaidStatus, getDeliveredStatus }) => {
                             <li> <a className="dropdown-item" href="#" onClick={ () => alertForPayment('paid') } >Paid</a></li>
                             <li><a className="dropdown-item" href="#" onClick={ () =>  alertForDelivery('delivered') } >Delivered</a></li>
                             <hr />
-                            <li> <a className="dropdown-item" href="#" onClick={ () => alertForPayment('none') } >Undo Paid</a></li>
-                            <li><a className="dropdown-item" href="#" onClick={ () =>  alertForDelivery('none') } >Undo Delivered</a></li>
+                            <li> <a className="dropdown-item" href="#" onClick={ () => alertForPayment('pending') } >Undo Paid</a></li>
+                            <li><a className="dropdown-item" href="#" onClick={ () =>  alertForDelivery('pending') } >Undo Delivered</a></li>
+                            <hr />
+                            <li><a className="dropdown-item" href="#" onClick={ () =>  alertForCloseOrder('close') } >Close order</a></li>
                         </ul>
                     </div>
                 </td>
-                <td><small style={{ fontSize: '13px', backgroundColor:'#ad121a', color:'#fff', padding: '6px',border: 'none', borderRadius: '4px' }}> <strong>{ paidStatus ? paidStatus + ',' : 'none,'} {deliveredStatus ? deliveredStatus : 'none'}</strong> </small></td>
+                <td><small style={{ fontSize: '15px',  borderRadius: '4px' }} className='bg-danger p-1 text-white'> <strong>{ paymentStatus}, {deliveryStatus}</strong> </small></td>
                 <td>
                     <table className="table" style={{ borderRadius: '7px !important' }} >
                         <thead >

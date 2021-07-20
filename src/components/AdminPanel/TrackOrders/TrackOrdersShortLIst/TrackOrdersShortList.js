@@ -3,16 +3,21 @@ import TrackOrderShortListDetail from '../TrackOrderShortListDetail/TrackOrderSh
 
 const TrackOrdersShortList = ({ trackedOrders }) => {
   return (
-  <div className="col-md-7 mt-3">
+  <div className="col-md-9 mt-3">
      { trackedOrders.length > 0 ? 
-      <table style={{ borderRadius: '7px' }} className="table bg-success">
+      <table style={{ borderRadius: '7px' }} className="table bg-danger table-striped table-bordered">
         <thead>
-          <tr className=" text-white">
-            <th scope="col">#OrderID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Total Bill</th>
-            <th scope="col">Item Bought</th>
+          <tr className="text-white">
+            <th scope="col" style={{ fontSize: '14px'}} >#OrderID</th>
+            <th scope="col" style={{ fontSize: '14px'}} >Name</th>
+            <th scope="col" style={{ fontSize: '14px'}} >Phone</th>
+            <th scope="col" style={{ fontSize: '14px'}} >Email</th>
+            <th scope="col" style={{ fontSize: '14px'}} >City</th>
+            <th scope="col" style={{ fontSize: '14px'}} >Address</th>
+            <th scope="col" style={{ fontSize: '13px'}} >Total</th>
+            <th scope="col" style={{ fontSize: '13px'}} >Status(Payment, Delivery, Order)</th>
+            <th scope="col" style={{ fontSize: '13px'}} >Action</th>
+            <th scope="col" style={{ fontSize: '14px'}} >Item Bought</th>
           </tr>
         </thead>
         <tbody>

@@ -1,9 +1,9 @@
 import React from 'react';
 import OrderShortListDetail from '../OrderShortListDetail/OrderShortListDetail';
 
-const OrdersShortList = ({orders,getPaidStatus, getDeliveredStatus }) => {
+const OrdersShortList = ({orders,getPaymentStatus, getDeliveryStatus,getOrderStatus }) => {
     return (
-        <table style={{ borderRadius: '7px' }} className="table bg-info ">
+        <table style={{ borderRadius: '7px' }} className="table bg-light table-striped table-bordered">
         <thead className="fixed-postition">
           <tr className=" text-dark">
             <th scope="col">#OrderID</th>
@@ -22,7 +22,7 @@ const OrdersShortList = ({orders,getPaidStatus, getDeliveredStatus }) => {
         <tbody>
           {
             orders.map((order) =>
-              <OrderShortListDetail order={order} getPaidStatus={getPaidStatus} getDeliveredStatus={getDeliveredStatus}></OrderShortListDetail>
+              <OrderShortListDetail order={order} getPaymentStatus={getPaymentStatus} getDeliveryStatus={getDeliveryStatus} getOrderStatus={getOrderStatus}></OrderShortListDetail>
             )
           }
         </tbody>

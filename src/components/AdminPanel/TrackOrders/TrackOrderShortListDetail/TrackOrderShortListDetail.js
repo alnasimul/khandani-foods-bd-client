@@ -1,15 +1,32 @@
 import React from 'react';
+import { useState } from 'react';
+import Update from '../../Shared/Update/Update';
 
 const TrackOrderShortListDetail = ({ order }) => {
-    const { orderId, name, phone, totalBill, shippingCost, cart } = order;
-    console.log(cart)
+    const { orderId, name, phone, email, city, address, totalBill, shippingCost, cart, paymentStatus, deliveryStatus, orderStatus } = order;
+
+    const [modalIsOpen, setIsOpen] = useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
     return (
         <>
             <tr className="text-white">
-                <td>{orderId}</td>
-                <td>{name}</td>
-                <td>{phone}</td>
-                <td>{totalBill + shippingCost}</td>
+                <td><small style={{ fontSize: '13px'}} > <strong> #{orderId} </strong> </small></td>
+                <td><small style={{ fontSize: '13px'}} > <strong> {name} </strong> </small></td>
+                <td><small style={{ fontSize: '13px'}} > <strong> {phone} </strong> </small></td>
+                <td><small style={{ fontSize: '13px'}} > <strong> {email}</strong> </small></td>
+                <td><small style={{ fontSize: '13px'}} > <strong> {city} </strong> </small></td>
+                <td><small style={{ fontSize: '13px'}} > <strong> {address} </strong> </small></td>
+                <td><small style={{ fontSize: '13px'}} > <strong> {totalBill + shippingCost} </strong> </small></td>
+                <td><small style={{ fontSize: '15px'}} className="bg-warning p-1 text-dark" > <strong> {paymentStatus}, {deliveryStatus}, {orderStatus}  </strong> </small></td>
+                <td> <button className="btn btn-warning  btn-sm" onClick={() => openModal() }> Update</button></td>
                 <td>
                     <table className="table" style={{ borderRadius: '7px !important' }} >
                         <thead >
@@ -35,6 +52,10 @@ const TrackOrderShortListDetail = ({ order }) => {
                     </table>
                 </td>
             </tr>
+            {
+            modalIsOpen &&
+                <Update order={order} modalIsOpen={modalIsOpen} closeModal={closeModal}></Update>
+            }
         </>
 
 

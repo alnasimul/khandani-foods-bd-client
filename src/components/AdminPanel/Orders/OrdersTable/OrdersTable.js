@@ -2,7 +2,7 @@ import React from 'react';
 import OrdersShortList from '../OrdersShortList/OrdersShortList';
 import { Link } from 'react-router-dom';
 
-const OrdersTable = ({orders,getPaidStatus,getDeliveredStatus}) => {
+const OrdersTable = ({orders,getPaymentStatus,getDeliveryStatus,getOrderStatus}) => {
     return (
         <div className="col-md-12 mt-5">
                <div class="btn-group text-white" role="group" aria-label="Basic example">
@@ -14,7 +14,7 @@ const OrdersTable = ({orders,getPaidStatus,getDeliveredStatus}) => {
                         </Link>
                     </div>
              <h2 className="text-danger text-center mb-5">Orders</h2>
-            <OrdersShortList orders={orders} getPaidStatus={getPaidStatus} getDeliveredStatus={getDeliveredStatus}></OrdersShortList>
+            <OrdersShortList orders={orders} getPaymentStatus={getPaymentStatus} getDeliveryStatus={getDeliveryStatus} getOrderStatus={getOrderStatus}></OrdersShortList>
         </div>
     );
 };

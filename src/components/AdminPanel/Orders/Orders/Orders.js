@@ -4,33 +4,47 @@ import OrdersTable from '../OrdersTable/OrdersTable';
 
 const Orders = () => {
     const [orders,setOrders] = useState([]);
-    const [paidStatus,setPaidStatus] = useState('');
-    const [deliveredStatus,setDeliveredStatus] = useState('');
+    const [paymentStatus,setPaymentStatus] = useState('');
+    const [deliveryStatus,setDeliveryStatus] = useState('');
 
-    const getPaidStatus= (id,status) => {
+    const getPaymentStatus= (id,status) => {
         if(id){
-            setPaidStatus(status);
+            setPaymentStatus(status);
             fetch(`http://localhost:4000/updateStatus/${id}`,{
                 method:'PATCH',
                 headers: {
                     'Content-Type' : 'application/json'
                 },
-                body: JSON.stringify({paidStatus: status})
+                body: JSON.stringify({paymentStatus: status})
             })
             .then( res => res.json() )
             .then( data => refresh())
         }
        
     }
-    const getDeliveredStatus = (id,status) => {
+    const getDeliveryStatus = (id,status) => {
         if(id){
-            setDeliveredStatus(status);
+            setDeliveryStatus(status);
             fetch(`http://localhost:4000/updateStatus/${id}`,{
                 method:'PATCH',
                 headers: {
                     'Content-Type' : 'application/json'
                 },
-                body: JSON.stringify({deliveredStatus: status})
+                body: JSON.stringify({deliveryStatus: status})
+            })
+            .then( res => res.json() )
+            .then( data => refresh() )
+        }
+    }
+
+    const getOrderStatus = (id,status) => {
+        if(id){
+            fetch(`http://localhost:4000/updateStatus/${id}`,{
+                method:'PATCH',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify({orderStatus: status})
             })
             .then( res => res.json() )
             .then( data => refresh() )
@@ -39,7 +53,7 @@ const Orders = () => {
     const refresh = () => {
         return window.location.reload();
     }
-    console.log(paidStatus,deliveredStatus);
+    console.log(paymentStatus,deliveryStatus);
 
     useEffect(() => {
         fetch('http://localhost:4000/getOrders')
@@ -51,7 +65,7 @@ const Orders = () => {
         <>
           <Sidebar></Sidebar>
         <section className="row">
-            <OrdersTable orders={orders} getPaidStatus={getPaidStatus} getDeliveredStatus={getDeliveredStatus}></OrdersTable>
+            <OrdersTable orders={orders} getPaymentStatus={getPaymentStatus} getDeliveryStatus={getDeliveryStatus} getOrderStatus={getOrderStatus}></OrdersTable>
         </section>
         </>
     );

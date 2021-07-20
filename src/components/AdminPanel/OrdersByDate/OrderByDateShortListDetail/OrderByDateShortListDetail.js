@@ -1,16 +1,18 @@
 import React from 'react';
 
 const OrderByDateShortListDetail = ({ order }) => {
-    const { orderId, name, totalBill, shippingCost, cart, phone, city, address } = order;
+    const { orderId, name, totalBill, shippingCost, cart, phone, city, address, email, paymentStatus, deliveryStatus, orderStatus } = order;
     return (
         <>
-            <tr className="text-white">
-                <td><small style={{ fontSize: '13px' }}>{orderId}</small></td>
-                <td> <small style={{ fontSize: '13px' }}>{name}</small></td>
-                <td><small style={{ fontSize: '13px' }}>{phone}</small></td>
-                <td> <small style={{ fontSize: '13px' }}>{city}</small></td>
-                <td><small style={{ fontSize: '13px' }}>{address} </small></td>
-                <td><small style={{ fontSize: '13px' }}>{totalBill + shippingCost} BDT</small> </td>
+            <tr className="text-dark">
+            <td><small style={{ fontSize: '13px'}} > <strong> #{orderId} </strong> </small></td>
+                <td><small style={{ fontSize: '13px'}} > <strong> {name} </strong> </small></td>
+                <td><small style={{ fontSize: '13px'}} > <strong> {phone} </strong> </small></td>
+                <td><small style={{ fontSize: '13px'}} > <strong> {email}</strong> </small></td>
+                <td><small style={{ fontSize: '13px'}} > <strong> {city} </strong> </small></td>
+                <td><small style={{ fontSize: '13px'}} > <strong> {address} </strong> </small></td>
+                <td><small style={{ fontSize: '13px'}} > <strong> {totalBill + shippingCost} </strong> </small></td>
+                <td><small style={{ fontSize: '15px'}} className="bg-warning p-1" > <strong> {paymentStatus}, {deliveryStatus}, {orderStatus}  </strong> </small></td>
                 <td>
                     <table className="table" style={{ borderRadius: '7px !important' }} >
                         <thead >
