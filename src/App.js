@@ -20,6 +20,8 @@ import Dashboard from './components/AdminPanel/Dashboard/Dashboard';
 import TrackOrders from './components/AdminPanel/TrackOrders/TrackOrders/TrackOrders';
 import OrdersByDate from './components/AdminPanel/OrdersByDate/OrdersByDate/OrdersByDate';
 import Orders from './components/AdminPanel/Orders/Orders/Orders';
+import Products from './components/AdminPanel/Products/Products/Products';
+import AddProduct from './components/AdminPanel/Products/AddProduct/AddProduct';
 
 
 
@@ -71,7 +73,12 @@ function App() {
             <Route path='/admin-panel/track-orders'>
               <TrackOrders></TrackOrders>
             </Route>
-            
+            <Route path='/admin-panel/products'>
+              <Products></Products>
+            </Route>
+            <Route path='/admin-panel/addProduct'>
+              <AddProduct></AddProduct>
+            </Route>
           </Switch>
         </Router>
       </UserContext.Provider>

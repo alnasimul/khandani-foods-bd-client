@@ -17,10 +17,14 @@ const Sidebar = () => {
                         <div className="nav_list">
                             <a href="#" className="nav_link active-sidebar"> <i className='bx bx-grid-alt nav_icon'></i> <span className="">Dashboard</span> </a>
                             <Link to='/admin-panel/orders' className="nav_link">
-                                <i className='bx bx-box nav_icon'></i> <span className="nav_name">Orders</span>
+                                <i className='bx bx-shopping-bag nav_icon'></i> <span className="nav_name">Orders</span>
                             </Link> 
-                            <a href="#" className="nav_link"> <i className='bx bx-user nav_icon'></i> <span className="nav_name">Users</span> </a>
-                            <a href="#" className="nav_link"> <i className='bx bx-message-square-detail nav_icon'></i> <span className="nav_name">Messages</span> </a>
+                            <Link to='/admin-panel/products' className="nav_link">
+                                <i className='bx bx-package nav_icon'></i> <span className="nav_name">Products</span>
+                            </Link>
+                            <Link to='/admin-panel/addProduct' className="nav_link">
+                                <i className='bx bx-plus nav_icon'></i> <span className="nav_name">Add Product</span>
+                            </Link>  
                             <a href="#" className="nav_link"> <i className='bx bx-bookmark nav_icon'></i> <span className="nav_name">Bookmark</span> </a>
                             <a href="#" className="nav_link"> <i className='bx bx-folder nav_icon'></i> <span className="nav_name">Files</span> </a>
                             <a href="#" className="nav_link"> <i className='bx bx-bar-chart-alt-2 nav_icon'></i> <span className="nav_name">Stats</span> </a>

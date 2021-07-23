@@ -43,7 +43,7 @@ const OrderShortListDetail = ({ order, getPaymentStatus, getDeliveryStatus,getOr
                             <li> <a className="dropdown-item" href="#" onClick={ () => alertForPayment('pending') } >Undo Paid</a></li>
                             <li><a className="dropdown-item" href="#" onClick={ () =>  alertForDelivery('pending') } >Undo Delivered</a></li>
                             <hr />
-                            <li><a className="dropdown-item" href="#" onClick={ () =>  alertForCloseOrder('close') } >Close order</a></li>
+                            <li><a className="dropdown-item" href="#" onClick={ () =>  alertForCloseOrder('closed') } >Close order</a></li>
                         </ul>
                     </div>
                 </td>
