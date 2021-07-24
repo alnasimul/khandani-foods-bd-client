@@ -44,7 +44,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
+  document.addEventListener("DOMContentLoaded", function (event) {
 
       const showNavbar = (toggleId, navId, bodyId, headerId) => {
         const toggle = document.getElementById(toggleId),
@@ -60,7 +60,7 @@
             // change icon
             toggle.classList.toggle('bx-x')
             // add padding to body
-           bodypd.classList.toggle('body-pd')
+            bodypd.classList.toggle('body-pd')
             // add padding to header
             headerpd.classList.toggle('body-pd')
           })
@@ -69,7 +69,7 @@
 
       showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
 
-      /*===== LINK active-sidebar =====*/
+      /*===== LINK ACTIVE =====*/
       const linkColor = document.querySelectorAll('.nav_link')
 
       function colorLink() {

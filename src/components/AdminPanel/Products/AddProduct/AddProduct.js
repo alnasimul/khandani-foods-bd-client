@@ -29,17 +29,20 @@ const AddProduct = () => {
         formData.append('image',data.image[0]);
        // formData.append('file',file);
 
+       if(window.confirm('Are you sure want to add this product to database ?')){
         fetch('http://localhost:4000/addProduct', {
             method: 'POST',
             body: formData
         })
             .then(response => response.json())
             .then(data => {
+                alert('Product successfully added to database..');
                 console.log(data)
             })
             .catch(error => {
                 console.error(error)
             })
+       }
     
         console.log(data);
 
@@ -78,7 +81,7 @@ const AddProduct = () => {
                         </div>
                         <br />
                         <label className='mb-2 text-success' for="exampleFormControProductDescription"> <strong> Product Description </strong></label>
-                        <textarea className="form-control" placeholder="Enter Product Description" id="exampleFormControlProductDescription" rows="4" {...register("description", { required: true })}></textarea>
+                        <textarea className="form-control" placeholder="Enter Product Description" id="exampleFormControlProductDescription" rows="4" {...register("description", { required: false })}></textarea>
                         {errors.description && <span className='text-danger' >This field is required</span>}
                         <br />
                         <div className="form-group row">
