@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import Update from '../../Shared/Update/Update';
+import Update from '../Update/Update';
 
 const TrackOrderShortListDetail = ({ order }) => {
     const { orderId, name, phone, email, city, address, totalBill, shippingCost, cart, paymentStatus, deliveryStatus, orderStatus } = order;
