@@ -15,13 +15,13 @@ const customStyles = {
 };
 
 Modal.setAppElement('#root')
-const ViewImageModal = ({ product, modalForProductImage, closeModalForProductImage }) => {
+const ViewImageModal = ({ product, modalForProduct, closeModalForProduct }) => {
     const { image, title, weight, productType, regularPrice, salePrice } = product;
     return (
         <div className='mt-3'>
             <Modal
-                isOpen={modalForProductImage}
-                onRequestClose={closeModalForProductImage}
+                isOpen={modalForProduct}
+                onRequestClose={closeModalForProduct}
                 style={customStyles}
                 contentLabel="Example Modal"
 
@@ -34,7 +34,7 @@ const ViewImageModal = ({ product, modalForProductImage, closeModalForProductIma
                         <p> Weight: {weight}</p>
                         <p> Regular Price: {regularPrice} BDT</p>
                         {salePrice && <p> Sale Price: {salePrice}</p>}
-                        <button className='btn btn-danger' onClick={closeModalForProductImage}>Close</button>
+                        <button className='btn btn-danger' onClick={closeModalForProduct}>Close</button>
                     </div>
                 </div>
 

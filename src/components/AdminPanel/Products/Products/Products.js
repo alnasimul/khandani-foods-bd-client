@@ -8,17 +8,28 @@ const Products = () => {
     const [products, setProducts] = useState([]);
     const [category, setCategory] = useState('Honey')
 
+     const deleteProduct = id => {
+        fetch(`http://localhost:4000/deleteProduct/${id}`,{
+            method: 'DELETE'
+        })
+        .then( res => res.json() )
+        .then( data => {
+            alert('Product successfully deleted from database.. ')
+            window.location.reload();
+        })
+    }
     useEffect(() => {
-            fetch('http://localhost:4000/getProducts')
-            .then( res => res.json() )
-            .then( data => setProducts(data))
-    },[products])
+        fetch('http://localhost:4000/getProducts')
+        .then( res => res.json() )
+        .then( data => setProducts(data))
+    },[])
 
-    console.log(products)
-
+    
     if(category){
         var selectedProducts = products.filter(product => product.category === category);
     }
+    
+    console.log(products)
     return (
         <div>
             <Sidebar></Sidebar>
@@ -35,7 +46,7 @@ const Products = () => {
                     <li onClick={() => setCategory('Dates')}><a className={category === 'Dates' ? "dropdown-item active" : "dropdown-item "}>Dates</a></li>
                 </ul>
             </div>
-                <ProductsTable products={category ? selectedProducts : products}></ProductsTable>
+                <ProductsTable products={category ? selectedProducts : products} deleteProduct={deleteProduct}></ProductsTable>
             </div>
         </div>
     );

@@ -1,10 +1,10 @@
 import React from 'react';
 import ProductsShortlist from '../ProductsShortList/ProductsShortlist';
 
-const ProductsTable = ({products}) => {
+const ProductsTable = ({products, deleteProduct}) => {
     return (
         <div className='col-md-12'>
-            <ProductsShortlist products={products}></ProductsShortlist>
+            <ProductsShortlist products={products} deleteProduct={deleteProduct}></ProductsShortlist>
         </div>
     );
 };

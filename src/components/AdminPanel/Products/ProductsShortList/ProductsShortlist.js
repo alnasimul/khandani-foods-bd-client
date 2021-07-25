@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductShortListDetail from '../ProductShortListDetail/ProductShortListDetail';
 
-const ProductsShortlist = ({products}) => {
+const ProductsShortlist = ({products,deleteProduct}) => {
     return (
         <table className='table bg-light table-striped table-bordered'>
             <thead>
@@ -21,7 +21,7 @@ const ProductsShortlist = ({products}) => {
             </thead>
             <tbody>
                     {
-                        products.map( (product, index) => <ProductShortListDetail product={product} key={product._id} index={index + 1}></ProductShortListDetail>)
+                        products.map( (product, index) => <ProductShortListDetail product={product} key={product._id} index={index + 1} deleteProduct={deleteProduct}></ProductShortListDetail>)
                     }
             </tbody>
         </table>

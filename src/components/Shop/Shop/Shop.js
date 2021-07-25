@@ -1,21 +1,31 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import fakeData from '../../../fakeData';
 import Products from '../Products/Products';
 
 const Shop = () => {
-    const data = fakeData;
-    const [items, setItems] = useState([]);
+    const [products, setProducts] = useState([])
     const [category,setCategory] = useState('Honey');
 
     useEffect(() => {
-        setItems(data);
-    },[data])
+        fetch('http://localhost:4000/getProducts')
+        .then( res => res.json())
+        .then( data => setProducts(data) )
+    },[])
 
-    const currentCategory = items.filter(item => item.category === category);
-    const selectedProducts = currentCategory.filter(item => item.weight === '500 gram');
+    if(products){
+        const shuffle = a => {
+            for (let i = a.length; i; i--) {
+                let j = Math.floor(Math.random() * i);
+                [a[i - 1], a[j]] = [a[j], a[i - 1]];
+            }
+        }
+        shuffle(products);
+        const currentCategory = products.filter(product => product.category === category);
+        var selectedProducts = currentCategory.filter(item => item.weight === '500 gram');
+    }
 
+    console.log(products)
     return (
         <div className="container text-center " id="shopArea">
              <h1>শপ</h1>
