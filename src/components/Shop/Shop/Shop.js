@@ -5,15 +5,15 @@ import Products from '../Products/Products';
 
 const Shop = () => {
     const [products, setProducts] = useState([])
-    const [category,setCategory] = useState('Honey');
+    const [category, setCategory] = useState('Honey');
 
     useEffect(() => {
         fetch('http://localhost:4000/getProducts')
-        .then( res => res.json())
-        .then( data => setProducts(data) )
-    },[])
+            .then(res => res.json())
+            .then(data => setProducts(data))
+    }, [])
 
-    if(products){
+    if (products) {
         const shuffle = a => {
             for (let i = a.length; i; i--) {
                 let j = Math.floor(Math.random() * i);
@@ -28,23 +28,36 @@ const Shop = () => {
     console.log(products)
     return (
         <div className="container text-center " id="shopArea">
-             <h1>শপ</h1>
+            <h1>শপ</h1>
             <div className="dropdown d-flex align-items-start ">
                 <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  ক্যাটাগরি - {category === 'MixedNuts' ? 'Honey Nuts' : category}
+                    ক্যাটাগরি - {category === 'MixedNuts' ? 'Honey Nuts' : category}
                 </button>
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li onClick={() => setCategory('Honey')}><a className= {category === 'Honey' ? "dropdown-item active" : "dropdown-item "} href="#shopArea">Honey</a></li>
+                    <li onClick={() => setCategory('Honey')}><a className={category === 'Honey' ? "dropdown-item active" : "dropdown-item "} href="#shopArea">Honey</a></li>
                     <li onClick={() => setCategory('Tea')}><a className={category === 'Tea' ? "dropdown-item active" : "dropdown-item "} href="#shopArea">Tea Leaves</a></li>
                     <li onClick={() => setCategory('MixedNuts')}><a className={category === 'MixedNuts' ? "dropdown-item active" : "dropdown-item "} href="#shopArea">Honey Nuts</a></li>
-                    <li onClick={() => setCategory('Dates')}><a className={category === 'Dates' ? "dropdown-item active" : "dropdown-item "}href="#shopArea">Dates</a></li>
+                    <li onClick={() => setCategory('Dates')}><a className={category === 'Dates' ? "dropdown-item active" : "dropdown-item "} href="#shopArea">Dates</a></li>
                 </ul>
             </div>
             <br />
-                <div className='row'>
-                 { selectedProducts.map( item => <Products item={item} key={item.id}></Products>)}
-                </div>
-           </div>
+            {
+                products.length ?
+                    <div className='row'>
+                        {selectedProducts.map(item => <Products item={item} key={item.id}></Products>)}
+                    </div>
+                    :
+                    <div class="d-flex justify-content-center m-5">
+                        <div class="spinner-border" style={{ width: '3rem', height: '3rem',  }} role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow" style={{ width: '3rem', height: '3rem', }} role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>}
+
+
+        </div>
     );
 };
 
