@@ -8,7 +8,9 @@ import { Link } from 'react-router-dom';
 import './Cart.css'
 
 const Cart = () => {
+    const [loadedCartData, setLoadedCartData ] = useState([])
     const [cart, setCart] = useState([]);
+
     const [cartPlusChange, setCartPlusChange] = useState(false);
     const [cartSubChange, setCartSubChange] = useState(false);
     const [tax, setTax] = useState(0);
@@ -29,7 +31,7 @@ const Cart = () => {
 
     const calculateSubtotal = () => {
         cart.map(item => {
-            subtotal = subtotal + (item.quantity * item.price);
+            subtotal = subtotal + (item.quantity * (item.salePrice ? item.salePrice : item.regularPrice) );
         })
         return subtotal;
     }
@@ -41,24 +43,53 @@ const Cart = () => {
 
         console.log(cart)
 
-        const cartFoodKeys = Object.keys(previousCart);
+        const productKeys = Object.keys(previousCart);
 
-        const currentCartFoods = cartFoodKeys.map(key => {
-            const food = fakeData.find(food => food.id === key);
-            food.quantity = previousCart[key];
+        console.log(productKeys)
+
+        fetch('http://localhost:4000/getCartProducts',{
+            method:"POST",
+            headers:{
+                "Content-Type" : "application/json"
+            },
+            body:JSON.stringify(productKeys)
+
+        })
+        .then( res => res.json() )
+        .then( data => {
+            setLoadedCartData(data)
+        } );
 
 
-            return food;
+        const currentCartFoods =  loadedCartData.map( item => {
+            item.quantity = previousCart[item.id]
+
+            return item;
         })
 
+        console.log(currentCartFoods)
 
-        calculateSubtotal();
-        setCart(currentCartFoods);
+        
+        setCart(currentCartFoods)
+        // const currentCartFoods = cartFoodKeys.map(key => {
+        //     const food = fakeData.find(food => food.id === key);
+        //     food.quantity = previousCart[key];
 
-    }, [cart.length, cartPlusChange, cartSubChange])
+
+        //     return food;
+        // })
 
 
-    console.log(cart);
+        // calculateSubtotal();
+        // setCart(currentCartFoods);
+
+    }, [loadedCartData.length, cartPlusChange, cartSubChange])
+
+
+    
+
+
+   console.log(loadedCartData);
 
     const generateOrderId = () => {
         return Math.floor(Math.random().toFixed(4) * 10000);

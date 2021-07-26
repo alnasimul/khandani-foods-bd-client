@@ -1,3 +1,5 @@
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
@@ -72,19 +74,22 @@ const ProductDetails = () => {
                             <button className="btn btn-danger" onClick={() => keyChangerFor500Gram(key)}>500 gram</button>
                         </div>
                         <br />
-                        <p> <strong>Price: </strong> ৳ {parseInt(regularPrice) * quantity}  টাকা । </p>
+                        <p> <strong>  { productType === 'Sale' ? <del className='text-danger'> Price: ৳   {parseInt(regularPrice) * quantity } টাকা । </del> : <span> Price: ৳ {parseInt(regularPrice) * quantity } টাকা । </span> }   </strong> </p>
+                        {
+                          productType === 'Sale' && <p> <strong className='text-success'>Sale Price: ৳ {parseInt(salePrice) * quantity} টাকা । </strong></p>
+                        }
                         <Link to='/cart'>
-                            <button className='btn btn-danger' onClick={() => addToCart(key)}>Add to cart</button>
+                            <button className='btn btn-danger' onClick={() => addToCart(key)}> <FontAwesomeIcon style={{marginBottom: '1px'}} className='mx-1' icon={faShoppingBag}></FontAwesomeIcon> Add to cart</button>
                         </Link>
                     </div>
                     <div className="col-md-4 my-5 text-center productImg">
                         <img src={`data:image/png;base64,${image.img}`} alt="" className='' style={{ borderRadius: '10px', width: '440px' }} />
                     </div>
-                </div> : <div class="d-flex justify-content-center m-5">
-                    <div class="spinner-border" style={{width: '3rem', height: '3rem', marginTop:'200px'}} role="status">
+                </div> : <div class="d-flex justify-content-center m-5 bg-light" style={{height: '500px'}}>
+                    <div class="spinner-border text-danger" style={{width: '3rem', height: '3rem', marginTop:'200px'}} role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
-                    <div class="spinner-grow" style={{width: '3rem', height: '3rem', marginTop:'200px'}} role="status">
+                    <div class="spinner-grow text-danger" style={{width: '3rem', height: '3rem', marginTop:'200px'}} role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
                 </div>
