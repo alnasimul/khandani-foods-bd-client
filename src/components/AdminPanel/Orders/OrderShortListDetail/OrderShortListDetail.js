@@ -63,7 +63,7 @@ const OrderShortListDetail = ({ order, getPaymentStatus, getDeliveryStatus,getOr
                                     <tr className="text-dark bg-light p-5">
                                         <td> <small style={{ fontSize: '13px' }}>{item.title}</small></td>
                                         <td> <small style={{ fontSize: '13px' }}>{item.quantity}</small>  </td>
-                                        <td> <small style={{ fontSize: '13px' }}>{item.price} BDT</small>  <small style={{ fontSize: '11px' }}> ({item.weight}) </small></td>
+                                        <td> <small style={{ fontSize: '13px' }}>{ item.salePrice ?  <del>{item.regularPrice}</del> : <span>{item.regularPrice} BDT </span> }</small>  <small style={{ fontSize: '11px' }}> ({item.weight}) </small> <br/> <small > { item.salePrice && <span style={{fontSize: '11px'}} > {item.salePrice} BDT  </span>} </small>  </td>
                                     </tr>
                                 )
                             }
