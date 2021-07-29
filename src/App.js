@@ -22,6 +22,8 @@ import OrdersByDate from './components/AdminPanel/OrdersByDate/OrdersByDate/Orde
 import Orders from './components/AdminPanel/Orders/Orders/Orders';
 import Products from './components/AdminPanel/Products/Products/Products';
 import AddProduct from './components/AdminPanel/Products/AddProduct/AddProduct';
+import Blog from './components/AdminPanel/Blog/Blog/Blog';
+import AddBlog from './components/AdminPanel/Blog/AddBlog/AddBlog';
 
 
 
@@ -78,6 +80,12 @@ function App() {
             </Route>
             <Route path='/admin-panel/addProduct'>
               <AddProduct></AddProduct>
+            </Route>
+            <Route path='/admin-panel/blog'>
+                <Blog></Blog>
+            </Route>
+            <Route path='/admin-panel/addBlog'>
+                <AddBlog></AddBlog>
             </Route>
           </Switch>
         </Router>

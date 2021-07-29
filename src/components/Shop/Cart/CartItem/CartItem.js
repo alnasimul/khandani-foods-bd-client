@@ -44,8 +44,10 @@ const CartItem = ({ item, cartPlusChange, cartSubChange }) => {
     }
 
     const removeItemFromCart = clickedId => {
-        removeFromDatabaseCart(clickedId);
-        refresh();
+        if( window.confirm('Are you sure want to remove this product from your cart ?') ){
+            removeFromDatabaseCart(clickedId);
+            refresh();
+        }
     }
     const refresh = () => {
         return window.location.reload();
