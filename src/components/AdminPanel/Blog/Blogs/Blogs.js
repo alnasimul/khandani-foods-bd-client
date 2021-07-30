@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import BlogDetail from '../BlogDetail/BlogDetail';
 
-const BlogTable = () => {
+const Blogs = ({blogs,getPublish}) => {
     return (
         <div className='col-md-12 mt-5'>
              <div class="btn-group text-white" role="group" aria-label="Basic example">
@@ -10,10 +11,14 @@ const BlogTable = () => {
                         </Link>
                         <Link to='/admin-panel/addBlog' className="btn btn-danger bx bx-plus nav_link p-2  ">
                         Add Blog
-                        </Link>
+                        </Link>  
             </div>
+
+            {
+                    blogs.map( (blog, index) => <BlogDetail blog={blog} key={blog._id} index={index+1} getPublish={getPublish}></BlogDetail>)
+            }      
         </div>
     );
 };
 
-export default BlogTable;
+export default Blogs;
