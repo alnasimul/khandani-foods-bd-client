@@ -68,7 +68,7 @@ const UpdateBlogInfo = ({ blog, closeModal }) => {
                         <div className="form-group">
                             <label className='mb-3 text-success' for="exampleFormControProductDescription"> <strong> Upload File </strong></label>
                             <br />
-                            <input type='file' className="form-control-file mb-2" {...register('file', { required: false })} />
+                            <input type='file' className="form-control-file mb-2" {...register('file', { required: true })} />
                             <br />
                             {errors.file && <span className='text-danger' >file is required</span>}
                         </div>

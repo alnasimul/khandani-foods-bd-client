@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import UpdateBlog from '../UpdateBlog/UpdateBlog';
 import './BlogDetail.css';
 
-const BlogDetail = ({blog,index,getPublish}) => {
+const BlogDetail = ({blog,index,getPublish,deleteBlog}) => {
     const {_id, title, description, location, image} = blog;
 
     const [modalIsOpen, setIsOpen] = useState(false);
@@ -35,6 +35,12 @@ const BlogDetail = ({blog,index,getPublish}) => {
             }
         }
     }
+
+    const alertForDelete = id => {
+            if(window.confirm('Are you sure want to delete this blog from database ?')){
+                deleteBlog(id);
+            }
+    }
     return (
         <div className='col-md-11 blogBg p-3 '>
             <div className='d-flex'>
@@ -49,7 +55,7 @@ const BlogDetail = ({blog,index,getPublish}) => {
                             <li><a className="dropdown-item" href="#" onClick={ () => openModal() } >Edit</a></li>
                             <hr />
                             <li><a className="dropdown-item" href="#" onClick={ () => alertForPublish(false, _id) } >Undo Publish</a></li>
-                            <li> <a className="dropdown-item" href="#" onClick={ '' } >Delete</a></li>
+                            <li> <a className="dropdown-item" href="#" onClick={ () => alertForDelete(_id) } >Delete</a></li>
                         </ul>
                     </div>
             </div>

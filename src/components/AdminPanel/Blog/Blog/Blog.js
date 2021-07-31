@@ -28,6 +28,20 @@ const Blog = () => {
         console.log(status,id)
     }
 
+    const deleteBlog = id => {
+        console.log(id);
+
+        fetch(`http://localhost:4000/deleteBlog/${id}`,{
+            method: 'DELETE'
+        })
+        .then( res => res.json() )
+        .then( data => {
+            alert('Successfully deleted this blog from database .');
+            window.location.reload();
+            console.log(data);
+        })
+    }
+
     useEffect(() => {
         fetch('http://localhost:4000/getBlogs')
         .then( res => res.json() )
@@ -40,7 +54,7 @@ const Blog = () => {
             <Sidebar></Sidebar>
             <h1>Blog Area</h1>
             <div className='row'>
-                <Blogs blogs={blogs} getPublish={getPublish}></Blogs>
+                <Blogs blogs={blogs} getPublish={getPublish} deleteBlog={deleteBlog}></Blogs>
             </div>
         </div>
     );
