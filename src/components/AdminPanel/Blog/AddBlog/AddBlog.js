@@ -7,6 +7,7 @@ const AddBlog = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         data.publish = false;
+        data.created = new Date().toDateString();
 
         const formData = new FormData();
 
@@ -14,6 +15,7 @@ const AddBlog = () => {
         formData.append('location',data.location);
         formData.append('description',data.description);
         formData.append('publish',data.publish);
+        formData.append('created',data.created);
         formData.append('file',data.file[0]);
 
         if(window.confirm('Are you sure want to add this blog to database ?')){

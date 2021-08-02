@@ -6,6 +6,23 @@ const Orders = () => {
     const [orders,setOrders] = useState([]);
     const [paymentStatus,setPaymentStatus] = useState('');
     const [deliveryStatus,setDeliveryStatus] = useState('');
+    const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [ordersPerPage, setOrdersPerPage] = useState(10);
+
+    const pagesVisited = currentPage * ordersPerPage;
+
+    //console.log(pagesVisited);
+
+    const displayOrders = orders.slice(pagesVisited, pagesVisited + ordersPerPage)
+
+
+    const pageCount = Math.ceil(orders.length / ordersPerPage);
+
+    const changePage = ({ selected }) => {
+        console.log(selected);
+        setCurrentPage(selected);
+    };
 
     const getPaymentStatus= (id,status) => {
         if(id){
@@ -58,14 +75,17 @@ const Orders = () => {
     useEffect(() => {
         fetch('http://localhost:4000/getOrders')
         .then( res => res.json())
-        .then( data => setOrders(data) )
+        .then( data => {
+            setOrders(data);
+            setLoading(false);
+        } )
     },[])
     console.log(orders)
     return (
         <>
           <Sidebar></Sidebar>
         <section className="row">
-            <OrdersTable orders={orders} getPaymentStatus={getPaymentStatus} getDeliveryStatus={getDeliveryStatus} getOrderStatus={getOrderStatus}></OrdersTable>
+            <OrdersTable orders={displayOrders} getPaymentStatus={getPaymentStatus} getDeliveryStatus={getDeliveryStatus} getOrderStatus={getOrderStatus} pageCount={pageCount} changePage={changePage} loading={loading}></OrdersTable>
         </section>
         </>
     );

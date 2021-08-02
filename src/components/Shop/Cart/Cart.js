@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import fakeData from '../../../fakeData';
 import exclamatoryMark from '../../../images/exclamatory.png';
 import { getDatabaseCart } from '../../../utilities/databaseManager';
 import { setOrderDetails } from '../../../utilities/orderDetailsManager';
@@ -11,6 +10,7 @@ const Cart = () => {
     const [loadedCartData, setLoadedCartData] = useState([])
     const [cart, setCart] = useState([]);
     const [isCartEmpty, setIsCartEmpty] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [cartPlusChange, setCartPlusChange] = useState(false);
     const [cartSubChange, setCartSubChange] = useState(false);
     const [display, setDisplay ] = useState('');
@@ -50,6 +50,7 @@ const Cart = () => {
 
         setIsCartEmpty(productKeys);
 
+
         fetch('http://localhost:4000/getCartProducts', {
             method: "POST",
             headers: {
@@ -60,7 +61,9 @@ const Cart = () => {
         })
             .then(res => res.json())
             .then(data => {
-                setLoadedCartData(data)
+                setLoadedCartData(data);
+                setLoading(false);
+                setDisplay('d-none')
 
             });
 
@@ -76,12 +79,7 @@ const Cart = () => {
 
         setCart(currentCartFoods)
 
-        if(isCartEmpty.length === 0){
-            setDisplay('d-none');
-        }
-        else if(isCartEmpty.length > 0){
-            setDisplay('');
-        }
+        
         
      
         // const currentCartFoods = cartFoodKeys.map(key => {
@@ -145,7 +143,6 @@ const Cart = () => {
     }
 
    
-   
     
 
     console.log(display)
@@ -154,33 +151,36 @@ const Cart = () => {
         <div className='container'>
             {
 
-                loadedCartData.length > 0 ? <div className="row">
-                    <div className="col-md-4 mx-5 pe-5 cartItems">
-                        {cart.map(item => <CartItem item={item} key={item.id} cartPlusChange={cartPlusChanges} cartSubChange={cartSubChanges}></CartItem>)}
-                    </div>
-                    <div className="col-md-5 ms-5 ps-5 my-3 cartCalculator">
-                        <p>total : {subtotal}</p>
-                        <p>tax: {tax} </p>
-                        <p>Shiping fee: {shippingCost} </p>
-                        <p>Subtotal : {subtotal + shippingCost} </p>
-                        <div className='d-flex shippingLocation'>
-                            <p className=''>Shipping Location: <button className='btn btn-success mx-1' required onClick={() => shippingForSylhet()}> সিলেট সিটি </button>
-                                <button className='btn btn-success outsideSylhet' onClick={() => shippingForOutside()}>সিলেট সিটি এর বাইরে </button> </p>
-                        </div>
-                        <br />
-                        <Link to='/shipment'>
-                            <button className='btn btn-danger' onClick={() => proceedForShipment()}>Procced to checkout</button>
-                        </Link>
-                    </div>
-                </div> :
-                 <div className={` d-flex justify-content-center m-5 bg-light ${display}`} style={{ height: '500px' }}>
-                 <div class="spinner-border text-danger" style={{ width: '3rem', height: '3rem', marginTop: '200px' }} role="status">
-                     <span class="visually-hidden">Loading...</span>
-                 </div>
-                 <div class="spinner-grow text-danger" style={{ width: '3rem', height: '3rem', marginTop: '200px' }} role="status">
-                     <span class="visually-hidden">Loading...</span>
-                 </div>
+                ( loading === true ) ?  <div className={` d-flex justify-content-center m-5 bg-light ${display}`} style={{ height: '500px' }}>
+                <div class="spinner-border text-danger" style={{ width: '3rem', height: '3rem', marginTop: '200px' }} role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow text-danger" style={{ width: '3rem', height: '3rem', marginTop: '200px' }} role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div> 
+            
+            :
+                
+             <div className="row">
+             <div className="col-md-4 mx-5 pe-5 cartItems">
+                 {cart.map(item => <CartItem item={item} key={item.id} cartPlusChange={cartPlusChanges} cartSubChange={cartSubChanges}></CartItem>)}
              </div>
+             <div className="col-md-5 ms-5 ps-5 my-3 cartCalculator">
+                 <p>total : {subtotal}</p>
+                 <p>tax: {tax} </p>
+                 <p>Shiping fee: {shippingCost} </p>
+                 <p>Subtotal : {subtotal + shippingCost} </p>
+                 <div className='d-flex shippingLocation'>
+                     <p className=''>Shipping Location: <button className='btn btn-success mx-1' required onClick={() => shippingForSylhet()}> সিলেট সিটি </button>
+                         <button className='btn btn-success outsideSylhet' onClick={() => shippingForOutside()}>সিলেট সিটি এর বাইরে </button> </p>
+                 </div>
+                 <br />
+                 <Link to='/shipment'>
+                     <button className='btn btn-danger' onClick={() => proceedForShipment()}>Procced to checkout</button>
+                 </Link>
+             </div>
+         </div> 
             }
 
             {

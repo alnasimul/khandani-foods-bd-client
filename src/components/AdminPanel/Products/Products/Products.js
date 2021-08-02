@@ -7,6 +7,23 @@ import ProductsTable from '../ProductsTable/ProductsTable';
 const Products = () => {
     const [products, setProducts] = useState([]);
     const [category, setCategory] = useState('Honey')
+    const [loading, setLoading] = useState(true);
+    // const [currentPage, setCurrentPage] = useState(0);
+    // const [productsPerPage, setProductsPerPage] = useState(10);
+
+    // const pagesVisited = currentPage * productsPerPage;
+
+    // //console.log(pagesVisited);
+
+    // const displayProducts = products.slice(pagesVisited, pagesVisited + productsPerPage)
+
+
+    // const pageCount = Math.ceil(products.length / productsPerPage);
+
+    // const changePage = ({ selected }) => {
+    //     console.log(selected);
+    //     setCurrentPage(selected);
+    // };
 
      const deleteProduct = id => {
         fetch(`http://localhost:4000/deleteProduct/${id}`,{
@@ -19,9 +36,12 @@ const Products = () => {
         })
     }
     useEffect(() => {
-        fetch('http://localhost:4000/getProducts')
+        fetch(`http://localhost:4000/getProducts/`)
         .then( res => res.json() )
-        .then( data => setProducts(data))
+        .then( data => {
+            setProducts(data)
+            setLoading(false)
+        })
     },[])
 
     
@@ -46,7 +66,7 @@ const Products = () => {
                     <li onClick={() => setCategory('Dates')}><a className={category === 'Dates' ? "dropdown-item active" : "dropdown-item "}>Dates</a></li>
                 </ul>
             </div>
-                <ProductsTable products={category ? selectedProducts : products} deleteProduct={deleteProduct}></ProductsTable>
+                <ProductsTable products={category ? selectedProducts : products} deleteProduct={deleteProduct} loading={loading} ></ProductsTable>
             </div>
         </div>
     );
