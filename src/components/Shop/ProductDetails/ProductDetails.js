@@ -25,9 +25,6 @@ const ProductDetails = () => {
 
     const { title, image, regularPrice, description, productType, salePrice, category } = product;
 
-    const reload = () => {
-        window.location.reload()
-    }
 
     const keyChangerFor250Gram = (key) => {
         const newKey = key.slice(0, -4).concat('-250');
@@ -47,6 +44,11 @@ const ProductDetails = () => {
         quantity > 0 && addToDatabaseCart(key, quantity);
     }
 
+    const getPercentage = (value1, value2) => {
+        return 100 - (value1/value2 ) * 100
+     } 
+ 
+    const percent = getPercentage(salePrice, regularPrice)
 
     console.log(key);
     //  console.log(product);
@@ -76,7 +78,7 @@ const ProductDetails = () => {
                         <br />
                         <p> <strong>  { productType === 'Sale' ? <del className='text-danger'> Price: ৳   {parseInt(regularPrice) * quantity } টাকা । </del> : <span> Price: ৳ {parseInt(regularPrice) * quantity } টাকা । </span> }   </strong> </p>
                         {
-                          productType === 'Sale' && <p> <strong className='text-success'>Sale Price: ৳ {parseInt(salePrice) * quantity} টাকা । </strong></p>
+                          productType === 'Sale' && <p> <strong className='text-success'>Sale Price: ৳ {parseInt(salePrice) * quantity} টাকা । </strong> <span className='text-danger'> Your save {regularPrice - salePrice} Taka ({ Math.round(percent)} % Off)</span></p>
                         }
                         <Link to='/cart'>
                             <button className='btn btn-danger' onClick={() => addToCart(key)}> <FontAwesomeIcon style={{marginBottom: '1px'}} className='mx-1' icon={faShoppingBag}></FontAwesomeIcon> Add to cart</button>

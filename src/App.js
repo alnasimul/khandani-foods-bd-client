@@ -24,6 +24,7 @@ import Products from './components/AdminPanel/Products/Products/Products';
 import AddProduct from './components/AdminPanel/Products/AddProduct/AddProduct';
 import Blog from './components/AdminPanel/Blog/Blog/Blog';
 import AddBlog from './components/AdminPanel/Blog/AddBlog/AddBlog';
+import UserProfile from './components/User/UserProfile/UserProfile';
 
 
 
@@ -62,6 +63,9 @@ function App() {
             </PrivateRoute>
             <Route path='/login'>
               <Login></Login>
+            </Route>
+            <Route path='/userProfile'>
+              <UserProfile></UserProfile>
             </Route>
             <Route path='/admin-panel/dashboard'>
               <Dashboard></Dashboard>

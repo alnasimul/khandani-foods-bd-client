@@ -33,6 +33,12 @@ const Navbar = () => {
               <li class="nav-item mx-3">
                 <a class="nav-link" href="#">ব্লগ</a>
               </li>
+               <li class="nav-item mx-3">
+                 <Link to='/userProfile'>
+                    <a class="nav-link" href="#">আপনার প্রোফাইল </a>
+                 </Link> 
+              </li>
+              
               <li className="nav-item mx-3">
                 <Link to='/cart'>
                   <span className="nav-link"><FontAwesomeIcon icon={faShoppingCart} /></span>
