@@ -1,16 +1,16 @@
 import React from 'react';
 
 const OrderShortListDetail = ({order, userDetail}) => {
-    const { orderId, cart, totalBill, shippingCost, created } = order;
+    const { orderId, cart, totalBill, shippingCost, created, paymentStatus, confirmStatus, deliveryStatus, completeStatus } = order;
     const { name, phone, address, city } = userDetail;
     return (
        <tr>
            <td><small><strong> #{orderId} </strong></small></td>
-           <td><small><strong> {phone} </strong></small></td>
            <td><small><strong> {address} </strong></small></td>
            <td><small><strong> {city} </strong></small></td>
            <td><small><strong> {created} </strong></small></td>
            <td><small><strong> {totalBill + shippingCost} </strong></small></td>
+           <td><small><strong> ({paymentStatus}, {confirmStatus}, {deliveryStatus}, {completeStatus}) </strong></small></td>
            <td>
            <table className="table" style={{ borderRadius: '7px !important' }} >
                         <thead >

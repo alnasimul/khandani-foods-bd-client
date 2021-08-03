@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { getOrderDetails } from '../../../utilities/orderDetailsManager';
-import ShipmentForm from './ShipmentForm/ShipmentForm';
 import PaymentGateway from './PaymentGateway/PaymentGateway';
 import AddUser from './AddUser/AddUser';
 import UpdateUser from './UpdateUser/UpdateUser';
@@ -73,7 +72,7 @@ const Shipment = () => {
                     </div>
                 }
             </div>
-            <PaymentGateway></PaymentGateway>
+            <PaymentGateway orderInfo={orderInfo} userDetail={userDetail}></PaymentGateway>
         </div>
 
         {

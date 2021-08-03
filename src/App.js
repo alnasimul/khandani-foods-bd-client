@@ -64,9 +64,9 @@ function App() {
             <Route path='/login'>
               <Login></Login>
             </Route>
-            <Route path='/userProfile'>
+            <PrivateRoute path='/userProfile'>
               <UserProfile></UserProfile>
-            </Route>
+            </PrivateRoute>
             <Route path='/admin-panel/dashboard'>
               <Dashboard></Dashboard>
             </Route>

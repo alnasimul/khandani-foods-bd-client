@@ -7,11 +7,12 @@ const OrdersShortLists = ({orders,userDetail}) => {
            <thead>
                <tr>
                    <th scope='col'># OrderID</th>
-                   <th scope='col'>Phone</th>
+                  
                    <th scope='col'>Address</th>
                    <th scope='col'>City</th>
                    <th scope='col'>Order Date</th>
                    <th scope='col'>Total Bill</th>
+                   <th scope='col'>Status (Payment, Confirm, Delivery, Complete )</th>
                    <th scope='col'>Item Bought</th>
                 </tr>
            </thead>

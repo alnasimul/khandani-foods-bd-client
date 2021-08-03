@@ -58,7 +58,10 @@ const UserProfile = () => {
             }
         })
             .then(res => res.json())
-            .then(data => setOrders(data))
+            .then(data => {
+                const newData = [ ...data.reverse() ]
+                setOrders(newData)
+            })
 
         fetch(`http://localhost:4000/getUser?email=${userInfo.email}`, {
             method: "GET",
@@ -69,6 +72,7 @@ const UserProfile = () => {
         })
             .then(res => res.json())
             .then(data => {
+              
                 setUserDetail(data)
             })
     }, [])
