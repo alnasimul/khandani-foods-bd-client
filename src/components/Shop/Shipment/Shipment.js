@@ -1,36 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { getOrderDetails } from '../../../utilities/orderDetailsManager';
 import ShipmentForm from './ShipmentForm/ShipmentForm';
-import Modal from 'react-modal';
 import PaymentGateway from './PaymentGateway/PaymentGateway';
+import AddUser from './AddUser/AddUser';
+import UpdateUser from './UpdateUser/UpdateUser';
 import './Shipment.css';
 
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        width:'80%',
-        padding: '20px',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-    },
-};
 
-
-
-Modal.setAppElement('#root')
 
 
 const Shipment = () => {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+
+    const [userDetail, setUserDetail] = useState({})
     const [orderInfo, setOrderInfo] = useState({});
-    useEffect(() => {
-        setOrderInfo(getOrderDetails());
-    }, []);
+    const [modalIsOpen, setIsOpen] = useState(false);
+    const [modalIsOpenForUpdate, setIsOpenForUpdate] = useState(false);
 
-    const [modalIsOpen, setIsOpen] = useState(true);
-
+  
     function openModal() {
         setIsOpen(true);
     }
@@ -39,23 +26,64 @@ const Shipment = () => {
         setIsOpen(false);
     }
 
+    function openModalForUpdate() {
+        setIsOpenForUpdate(true);
+    }
 
-    //console.log(orderInfo)
+    function closeModalForUpdate() {
+        setIsOpenForUpdate(false);
+    }
+
+
+    useEffect(() => {
+        fetch(`http://localhost:4000/getUser?email=${userInfo.email}`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setUserDetail(data)
+            })
+        setOrderInfo(getOrderDetails());
+    }, []);
+
+  
+
+    console.log(orderInfo)
     return (
-        <div className='container'>
-            <div className="row">
-                <Modal
-                    isOpen={modalIsOpen}
-                    onRequestClose=''
-                    style={customStyles}
-                    contentLabel="Example Modal"
-                   
-                >
-                <ShipmentForm orderInfo={orderInfo} closeModal={closeModal}  ></ShipmentForm>
-                </Modal>
-                <PaymentGateway></PaymentGateway>
+      <div className='container'>
+        <div className='row'>
+            <div className='col-md-5 m-5 bg-light p-5'>
+                <div className='d-flex'>
+                    <h3>Shipping Address:</h3>
+                    {
+                        userDetail.address ? <button className="btn btn-danger ms-auto" onClick={ () => openModalForUpdate() }>Edit</button> : <button className="btn btn-danger ms-auto" onClick={ () => openModal() }>Add</button> 
+                    }
+                </div >
+                {
+                    userDetail.address && <div className='mt-3'>
+                            <p> {userDetail.name} </p>
+                            <p> {userDetail.email} </p>
+                            <p> {userDetail.phone} </p>
+                            <p> {userDetail.address} </p>
+                            <p> {userDetail.city} </p>
+                    </div>
+                }
             </div>
+            <PaymentGateway></PaymentGateway>
         </div>
+
+        {
+            modalIsOpen && <AddUser userInfo={userInfo} modalIsOpen={modalIsOpen} closeModal={closeModal}></AddUser>
+        }
+        {
+            modalIsOpenForUpdate && <UpdateUser userDetail={userDetail} modalIsOpenForUpdate={modalIsOpenForUpdate} closeModalForUpdate={closeModalForUpdate}></UpdateUser>
+        }
+      </div>
+             
     );
 };
 
