@@ -33,12 +33,12 @@ const Navbar = () => {
               <li className="nav-item mx-3">
                 <a className="nav-link text-dark" href="#">ব্লগ</a>
               </li>
-              <li className="nav-item mx-3">
-                {userInfo.email && <Link to='/userProfile'>
+              {userInfo ? <li className="nav-item mx-3">
+                <Link to='/userProfile'>
                   <a className="nav-link text-dark" href="#">ইউজার প্রোফাইল </a>
-                </Link>}
-              </li>
-
+                </Link>
+              </li> : <li></li>
+              }
               <li className="nav-item mx-3">
                 <Link to='/cart'>
                   <span className="nav-link text-dark"><FontAwesomeIcon icon={faShoppingCart} /></span>

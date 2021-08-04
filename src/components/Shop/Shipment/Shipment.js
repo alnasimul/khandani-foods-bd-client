@@ -16,6 +16,8 @@ const Shipment = () => {
     const [modalIsOpen, setIsOpen] = useState(false);
     const [modalIsOpenForUpdate, setIsOpenForUpdate] = useState(false);
 
+    const disabled = 'disabled'
+
   
     function openModal() {
         setIsOpen(true);
@@ -72,7 +74,7 @@ const Shipment = () => {
                     </div>
                 }
             </div>
-            <PaymentGateway orderInfo={orderInfo} userDetail={userDetail}></PaymentGateway>
+            <PaymentGateway orderInfo={orderInfo} userDetail={userDetail} disabled={disabled}></PaymentGateway>
         </div>
 
         {
