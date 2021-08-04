@@ -11,3 +11,7 @@ export const getOrderDetails = () => {
 
     return orderDetails;
 }
+
+export const processOrderFromOrderDetailsManager = (cart) => {
+    localStorage.removeItem('orderDetails');
+}

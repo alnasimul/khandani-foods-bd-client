@@ -1,12 +1,17 @@
 import React from 'react';
 import './OrderShortListDetail.css';
 
-const OrderShortListDetail = ({ order, getPaymentStatus, getDeliveryStatus,getOrderStatus }) => {
-    const { _id, orderId, name, email, phone, city, address, totalBill, shippingCost, created, cart,paymentStatus,deliveryStatus } = order;
+const OrderShortListDetail = ({ order, getPaymentStatus, getDeliveryStatus,getOrderStatus, getConfirmationStatus, getCompleteOrderStatus, deleteOrder }) => {
+    const { _id, orderId, name, email, phone, city, address, totalBill, shippingCost, created, cart,paymentStatus,deliveryStatus, confirmStatus, completeStatus } = order;
 
     const alertForPayment = (status) => {
         if(window.confirm('Are you sure want to update payment status for order id # '+orderId + ' ?')){
             getPaymentStatus(_id,status)
+        }
+    }
+    const alertForConfirmation = (status) => {
+        if(window.confirm('Are you sure want to confirm this order ?')){
+            getConfirmationStatus(_id,status)
         }
     }
     const alertForDelivery = (status) => {
@@ -14,11 +19,22 @@ const OrderShortListDetail = ({ order, getPaymentStatus, getDeliveryStatus,getOr
             getDeliveryStatus(_id,status)
         }
     }
+    const alertForComplteteOrder = (status) => {
+        if(window.confirm('Are you sure want to complete this order ?')){
+            getCompleteOrderStatus(_id,status)
+        }
+    }
     const alertForCloseOrder = (status) => {
-        if(window.confirm('Are you sure want to '+status+' order status for order id # '+orderId + ' ?')){
+        if(window.confirm('Are you sure want to close this order ?')){
             getOrderStatus(_id,status)
         }
     }
+    const alertForDelete = (id) => {
+        if(window.confirm('Are you sure want to delete this order ?')){
+            deleteOrder(id)
+        }
+    }
+   
     return (
         <>
             <tr className="text-darl">
@@ -38,16 +54,22 @@ const OrderShortListDetail = ({ order, getPaymentStatus, getDeliveryStatus,getOr
 
                         <ul className="dropdown-menu dropdownMenu" aria-labelledby="dropdownMenuLink">
                             <li> <a className="dropdown-item" href="#" onClick={ () => alertForPayment('paid') } >Paid</a></li>
+                            <li><a className="dropdown-item" href="#" onClick={ () =>  alertForConfirmation('confirmed') } >Confirmed</a></li>
                             <li><a className="dropdown-item" href="#" onClick={ () =>  alertForDelivery('delivered') } >Delivered</a></li>
+                            <li><a className="dropdown-item" href="#" onClick={ () =>  alertForComplteteOrder('completed') } >Completed</a></li>
+                          
                             <hr />
                             <li> <a className="dropdown-item" href="#" onClick={ () => alertForPayment('pending') } >Undo Paid</a></li>
+                            <li><a className="dropdown-item" href="#" onClick={ () =>  alertForConfirmation('pending') } >Undo Confirmed</a></li>
                             <li><a className="dropdown-item" href="#" onClick={ () =>  alertForDelivery('pending') } >Undo Delivered</a></li>
+                            <li><a className="dropdown-item" href="#" onClick={ () =>  alertForComplteteOrder('pending') } >Undo Completed</a></li>
                             <hr />
                             <li><a className="dropdown-item" href="#" onClick={ () =>  alertForCloseOrder('closed') } >Close order</a></li>
+                            <li><a className="dropdown-item" href="#" onClick={ () =>  alertForDelete(_id) } >Delete</a></li>
                         </ul>
                     </div>
                 </td>
-                <td><small style={{ fontSize: '15px',  borderRadius: '4px' }} className='bg-danger p-1 text-white'> <strong>{ paymentStatus}, {deliveryStatus}</strong> </small></td>
+                <td><small style={{ fontSize: '15px',  borderRadius: '4px' }} className='bg-danger p-1 text-white'> <strong>{ paymentStatus}, {confirmStatus}, {deliveryStatus} , {completeStatus}</strong> </small></td>
                 <td>
                     <table className="table" style={{ borderRadius: '7px !important' }} >
                         <thead >

@@ -3,7 +3,7 @@ import OrdersShortList from '../OrdersShortList/OrdersShortList';
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 
-const OrdersTable = ({orders,getPaymentStatus,getDeliveryStatus,getOrderStatus,pageCount,changePage,loading}) => {
+const OrdersTable = ({orders,getPaymentStatus,getDeliveryStatus,getOrderStatus,pageCount,changePage,loading,  getConfirmationStatus, getCompleteOrderStatus,deleteOrder}) => {
     return (
         <div className="col-md-12 mt-5">
                <div class="btn-group text-white" role="group" aria-label="Basic example">
@@ -25,7 +25,7 @@ const OrdersTable = ({orders,getPaymentStatus,getDeliveryStatus,getOrderStatus,p
                 </div>
             </div>
                 
-                :  ( orders.length > 0 ? <OrdersShortList orders={orders} getPaymentStatus={getPaymentStatus} getDeliveryStatus={getDeliveryStatus} getOrderStatus={getOrderStatus}></OrdersShortList>
+                :  ( orders.length > 0 ? <OrdersShortList orders={orders} getPaymentStatus={getPaymentStatus} getDeliveryStatus={getDeliveryStatus} getOrderStatus={getOrderStatus} getConfirmationStatus={getConfirmationStatus} getCompleteOrderStatus={getCompleteOrderStatus} deleteOrder={deleteOrder}></OrdersShortList>
                     : <div className='text-center text-secondary m-5 p-5'>
                     <h1> No order available </h1>
                 </div> 

@@ -8,7 +8,7 @@ const Orders = () => {
     const [deliveryStatus,setDeliveryStatus] = useState('');
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(0);
-    const [ordersPerPage, setOrdersPerPage] = useState(10);
+    const ordersPerPage = 10;
 
     const pagesVisited = currentPage * ordersPerPage;
 
@@ -25,6 +25,8 @@ const Orders = () => {
     };
 
     const getPaymentStatus= (id,status) => {
+        console.log(id,status)
+
         if(id){
             setPaymentStatus(status);
             fetch(`http://localhost:4000/updateStatus/${id}`,{
@@ -39,7 +41,23 @@ const Orders = () => {
         }
        
     }
+    const getConfirmationStatus= (id,status) => {
+        console.log(id,status)
+        if(id){
+            fetch(`http://localhost:4000/updateStatus/${id}`,{
+                method:'PATCH',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify({confirmStatus: status})
+            })
+            .then( res => res.json() )
+            .then( data => refresh())
+        }
+       
+    }
     const getDeliveryStatus = (id,status) => {
+        console.log(id,status)
         if(id){
             setDeliveryStatus(status);
             fetch(`http://localhost:4000/updateStatus/${id}`,{
@@ -54,7 +72,23 @@ const Orders = () => {
         }
     }
 
+    const getCompleteOrderStatus = (id,status) => {
+        console.log(id,status)
+        if(id){
+            fetch(`http://localhost:4000/updateStatus/${id}`,{
+                method:'PATCH',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify({completeStatus: status})
+            })
+            .then( res => res.json() )
+            .then( data => refresh() )
+        }
+    }
+
     const getOrderStatus = (id,status) => {
+        console.log(id,status)
         if(id){
             fetch(`http://localhost:4000/updateStatus/${id}`,{
                 method:'PATCH',
@@ -64,7 +98,23 @@ const Orders = () => {
                 body: JSON.stringify({orderStatus: status})
             })
             .then( res => res.json() )
-            .then( data => refresh() )
+            .then( data => {
+                alert('successfully closed this order. ')
+                refresh()
+            } )
+        }
+    }
+
+    const deleteOrder = id => {
+        if(id){
+            fetch(`http://localhost:4000/deleteOrder/${id}`,{
+                method: 'DELETE',
+            })
+            .then( res => res.json() )
+            .then( data => {
+                alert('successfully deleted this order from database.')
+                refresh()
+            } )
         }
     }
     const refresh = () => {
@@ -85,7 +135,7 @@ const Orders = () => {
         <>
           <Sidebar></Sidebar>
         <section className="row">
-            <OrdersTable orders={displayOrders} getPaymentStatus={getPaymentStatus} getDeliveryStatus={getDeliveryStatus} getOrderStatus={getOrderStatus} pageCount={pageCount} changePage={changePage} loading={loading}></OrdersTable>
+            <OrdersTable orders={displayOrders} getPaymentStatus={getPaymentStatus} getConfirmationStatus={getConfirmationStatus} getDeliveryStatus={getDeliveryStatus} getCompleteOrderStatus={getCompleteOrderStatus} deleteOrder={deleteOrder} getOrderStatus={getOrderStatus} pageCount={pageCount} changePage={changePage} loading={loading}></OrdersTable>
         </section>
         </>
     );
