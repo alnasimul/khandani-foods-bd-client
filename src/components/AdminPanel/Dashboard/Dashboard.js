@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import { getTotalSalesOfApril, getTotalSalesOfAugust, getTotalSalesOfDecember, getTotalSalesOfFebruary, getTotalSalesOfJanuary, getTotalSalesOfJuly, getTotalSalesOfJune, getTotalSalesOfMarch, getTotalSalesOfMay, getTotalSalesOfNovember, getTotalSalesOfOctober, getTotalSalesOfSeptember } from './Calculations/Calculations';
 import Charts from './Charts/Charts';
+import TotalSalesOfCurrentMonth from './TotalSalesOfCurrentMonth/TotalSalesOfCurrentMonth';
 
 const Dashboard = () => {
     const [orders, setOrders] = useState([])
@@ -73,13 +74,30 @@ const Dashboard = () => {
         }
     }
 
+    const filterOrdersByCurrrentMonth = orders => {
+
+        let totalSales = 0;
+
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+       const filteredOrders = orders.filter( order => order.month === months[ new Date().getMonth() ] )
+
+       filteredOrders.map( order => {
+           totalSales = totalSales + order.totalBill;
+       })
+
+       return {totalSales, filteredOrders};
+    }
+
+    let totalSalesAndOrders = filterOrdersByCurrrentMonth(orders);
+
+    console.log(totalSalesAndOrders);
+
     return (
         <div className="row" style={{backgroundColor: "rgb(190,41,38, 0.1)"}}>
             <Sidebar></Sidebar>
             <Charts data={chartData.chartData} Month="August" legendPosition="bottom"></Charts>
-            <div className='col-md-5 mt-5 mx-5 bg-success p-3 mb-5' style={{borderRadius: '7px'}}>
-               
-            </div>
+            <TotalSalesOfCurrentMonth totalSalesAndOrders={totalSalesAndOrders}></TotalSalesOfCurrentMonth>
         </div>
     );
 };

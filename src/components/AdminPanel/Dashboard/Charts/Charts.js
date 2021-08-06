@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Bar, Line, Pie ,Doughnut, } from 'react-chartjs-2';
+import { Bar, Line, PolarArea ,Doughnut, } from 'react-chartjs-2';
 
 
 const Charts = ({ data }) => {
@@ -53,8 +53,8 @@ const Charts = ({ data }) => {
             <div className='col-md-5 mt-5 mx-5 bg-light p-3 mb-5' style={{borderRadius: '7px'}}>
                 <Doughnut
                     data={data}
-                    width={550}
-                    height={500}
+                    width={450}
+                    height={400}
                     options={{
                         maintainAspectRatio: false,
                         title: {
