@@ -8,7 +8,7 @@ const Dashboard = () => {
     const [orders, setOrders] = useState([])
     const year = new Date().getFullYear();
     useEffect(() => {
-        fetch(`http://localhost:4000/getOrdersByYear/${year}`)
+        fetch(`http://khandanifoodsbd.com:443/getOrdersByYear/${year}`)
             .then(res => res.json())
             .then(data => {
                 setOrders(data)

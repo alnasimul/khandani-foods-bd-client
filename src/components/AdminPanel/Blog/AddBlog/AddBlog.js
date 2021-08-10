@@ -19,7 +19,7 @@ const AddBlog = () => {
         formData.append('file',data.file[0]);
 
         if(window.confirm('Are you sure want to add this blog to database ?')){
-            fetch('http://localhost:4000/addBlog', {
+            fetch('http://khandanifoodsbd.com:443/addBlog', {
                 method: 'POST',
                 body: formData
             })

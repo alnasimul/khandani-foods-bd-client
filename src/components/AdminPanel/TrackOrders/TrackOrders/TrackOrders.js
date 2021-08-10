@@ -12,7 +12,7 @@ const TrackOrders = () => {
         setSearchData(data);
     }
     useEffect(() => {
-        fetch('http://localhost:4000/trackOrder',{
+        fetch('http://khandanifoodsbd.com:443/trackOrder',{
         method: 'POST',
         headers: {
             'content-type' : 'application/json'

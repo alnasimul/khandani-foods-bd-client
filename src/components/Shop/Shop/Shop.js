@@ -8,7 +8,7 @@ const Shop = () => {
     const [category, setCategory] = useState('Honey');
 
     useEffect(() => {
-        fetch('http://localhost:4000/getProducts')
+        fetch('http://khandanifoodsbd.com:443/getProducts')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])

@@ -37,7 +37,7 @@ const Shipment = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:4000/getUser?email=${userInfo.email}`, {
+        fetch(`http://khandanifoodsbd.com:443/getUser?email=${userInfo.email}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const Shipment = () => {
 
   
 
-    console.log(orderInfo)
+    //console.log(orderInfo)
     return (
       <div className='container'>
         <div className='row'>

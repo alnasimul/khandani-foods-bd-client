@@ -25,6 +25,7 @@ import AddProduct from './components/AdminPanel/Products/AddProduct/AddProduct';
 import Blog from './components/AdminPanel/Blog/Blog/Blog';
 import AddBlog from './components/AdminPanel/Blog/AddBlog/AddBlog';
 import UserProfile from './components/User/UserProfile/UserProfile';
+import OrderIsOnAway from './components/User/OrderIsOnAway/OrderIsOnAway';
 
 
 
@@ -66,6 +67,9 @@ function App() {
             </Route>
             <PrivateRoute path='/userProfile'>
               <UserProfile></UserProfile>
+            </PrivateRoute>
+            <PrivateRoute path='/orderIsOnWay'>
+              <OrderIsOnAway></OrderIsOnAway>
             </PrivateRoute>
             <Route path='/admin-panel/dashboard'>
               <Dashboard></Dashboard>

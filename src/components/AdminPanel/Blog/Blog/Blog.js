@@ -30,7 +30,7 @@ const Blog = () => {
 
     const getPublish = (status, id) => {
 
-        fetch(`http://localhost:4000/updateBlogPublishStatus/${id}`, {
+        fetch(`http://khandanifoodsbd.com:443/updateBlogPublishStatus/${id}`, {
             method: 'PATCH',
             headers: {
                 "Content-Type": "application/json"
@@ -49,7 +49,7 @@ const Blog = () => {
     const deleteBlog = id => {
         console.log(id);
 
-        fetch(`http://localhost:4000/deleteBlog/${id}`, {
+        fetch(`http://khandanifoodsbd.com:443/deleteBlog/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -61,7 +61,7 @@ const Blog = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:4000/getBlogs')
+        fetch('http://khandanifoodsbd.com:443/getBlogs')
             .then(res => res.json())
             .then(data => {
                 const reversedData = [...data.reverse()]

@@ -21,7 +21,7 @@ const UpdateBlogInfo = ({ blog, closeModal }) => {
             if (data.file.length > 0) {
                 formData.append('file', data.file[0]);
             }
-            fetch(`http://localhost:4000/updateBlog/${_id}`, {
+            fetch(`http://khandanifoodsbd.com:443/updateBlog/${_id}`, {
                 method: 'PATCH',
                 body: formData
             })

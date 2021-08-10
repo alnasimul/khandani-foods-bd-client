@@ -14,7 +14,7 @@ const OrdersByDate = () => {
     }
     useEffect(() => {
         const newDate = selectedDate.toDateString();
-        fetch('http://localhost:4000/ordersByDate', {
+        fetch('http://khandanifoodsbd.com:443/ordersByDate', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

@@ -26,7 +26,7 @@ const Products = () => {
     // };
 
      const deleteProduct = id => {
-        fetch(`http://localhost:4000/deleteProduct/${id}`,{
+        fetch(`http://khandanifoodsbd.com:443/deleteProduct/${id}`,{
             method: 'DELETE'
         })
         .then( res => res.json() )
@@ -36,7 +36,7 @@ const Products = () => {
         })
     }
     useEffect(() => {
-        fetch(`http://localhost:4000/getProducts/`)
+        fetch(`http://khandanifoodsbd.com:443/getProducts/`)
         .then( res => res.json() )
         .then( data => {
             setProducts(data)

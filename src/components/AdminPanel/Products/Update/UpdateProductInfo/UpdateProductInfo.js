@@ -21,7 +21,7 @@ const UpdateProductInfo = ({product,closeModal}) => {
         formData.append('image',data.image[0]);
 
         if(window.confirm(`Are sure want to update ${title} ${weight} ?`)){
-            fetch(`http://localhost:4000/updateProduct/${_id}`,{
+            fetch(`http://khandanifoodsbd.com:443/updateProduct/${_id}`,{
                 method: 'PATCH',
                 body: formData
             })

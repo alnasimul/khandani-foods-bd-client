@@ -50,7 +50,7 @@ const UserProfile = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:4000/userOrders?email=${userInfo.email}`, {
+        fetch(`http://khandanifoodsbd.com:443/userOrders?email=${userInfo.email}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -63,12 +63,15 @@ const UserProfile = () => {
                 setOrders(newData)
             })
 
-        fetch(`http://localhost:4000/getUser?email=${userInfo.email}`, {
+        fetch(`http://khandanifoodsbd.com:443/getUser?email=${userInfo.email}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
-                authorization: `Bearer ${sessionStorage.getItem('token')}`
-            }
+                authorization: `Bearer ${sessionStorage.getItem('token')}`,
+                mode: "no-cors",
+            },
+            
+            
         })
             .then(res => res.json())
             .then(data => {

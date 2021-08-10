@@ -29,7 +29,7 @@ const Orders = () => {
 
         if(id){
             setPaymentStatus(status);
-            fetch(`http://localhost:4000/updateStatus/${id}`,{
+            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}`,{
                 method:'PATCH',
                 headers: {
                     'Content-Type' : 'application/json'
@@ -44,7 +44,7 @@ const Orders = () => {
     const getConfirmationStatus= (id,status) => {
         console.log(id,status)
         if(id){
-            fetch(`http://localhost:4000/updateStatus/${id}`,{
+            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}`,{
                 method:'PATCH',
                 headers: {
                     'Content-Type' : 'application/json'
@@ -60,7 +60,7 @@ const Orders = () => {
         console.log(id,status)
         if(id){
             setDeliveryStatus(status);
-            fetch(`http://localhost:4000/updateStatus/${id}`,{
+            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}`,{
                 method:'PATCH',
                 headers: {
                     'Content-Type' : 'application/json'
@@ -75,7 +75,7 @@ const Orders = () => {
     const getCompleteOrderStatus = (id,status) => {
         console.log(id,status)
         if(id){
-            fetch(`http://localhost:4000/updateStatus/${id}`,{
+            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}`,{
                 method:'PATCH',
                 headers: {
                     'Content-Type' : 'application/json'
@@ -90,7 +90,7 @@ const Orders = () => {
     const getOrderStatus = (id,status) => {
         console.log(id,status)
         if(id){
-            fetch(`http://localhost:4000/updateStatus/${id}`,{
+            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}`,{
                 method:'PATCH',
                 headers: {
                     'Content-Type' : 'application/json'
@@ -107,7 +107,7 @@ const Orders = () => {
 
     const deleteOrder = id => {
         if(id){
-            fetch(`http://localhost:4000/deleteOrder/${id}`,{
+            fetch(`http://khandanifoodsbd.com:443/deleteOrder/${id}`,{
                 method: 'DELETE',
             })
             .then( res => res.json() )
@@ -123,7 +123,7 @@ const Orders = () => {
     console.log(paymentStatus,deliveryStatus);
 
     useEffect(() => {
-        fetch('http://localhost:4000/getOrders')
+        fetch('http://khandanifoodsbd.com:443/getOrders')
         .then( res => res.json())
         .then( data => {
             setOrders(data);

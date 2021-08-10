@@ -7,7 +7,7 @@ const UpdateUserDetail = ({userDetail, closeModalForUpdate}) => {
     const onSubmit = data => {
 
         if(window.confirm('Are you sure want to proceed ?') ){
-            fetch(`http://localhost:4000/updateUser/${userDetail._id}?email=${userDetail.email}`,{
+            fetch(`http://khandanifoodsbd.com:443/updateUser/${userDetail._id}?email=${userDetail.email}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

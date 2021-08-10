@@ -30,7 +30,7 @@ const AddProduct = () => {
        // formData.append('file',file);
 
        if(window.confirm('Are you sure want to add this product to database ?')){
-        fetch('http://localhost:4000/addProduct', {
+        fetch('http://khandanifoodsbd.com:443/addProduct', {
             method: 'POST',
             body: formData
         })

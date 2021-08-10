@@ -11,7 +11,7 @@ const UpdateClientInfo = ({order,closeModal}) => {
         const updatedData = { ...data }
 
         if(window.confirm('Are you sure to proceed ?')){
-        fetch(`http://localhost:4000/updateClientInfo/${_id}`,{
+        fetch(`http://khandanifoodsbd.com:443/updateClientInfo/${_id}`,{
             method: 'PATCH',
             headers: {
                 'Content-Type' : 'application/json'

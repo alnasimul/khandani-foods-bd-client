@@ -7,7 +7,7 @@ const AddUserDetail = ({userInfo, closeModal}) => {
     const onSubmit = data => {
 
       if(window.confirm('Are you sure want to proceed ?') ){
-        fetch(`http://localhost:4000/addUser?email=${userInfo.email}`,{
+        fetch(`http://khandanifoodsbd.com:443/addUser?email=${userInfo.email}`,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

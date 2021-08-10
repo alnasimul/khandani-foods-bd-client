@@ -54,7 +54,7 @@ const Cart = () => {
         }
 
 
-        fetch('http://localhost:4000/getCartProducts', {
+        fetch('http://khandanifoodsbd.com:443/getCartProducts', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
