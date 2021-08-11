@@ -24,6 +24,7 @@ const AddProduct = () => {
         formData.append('description',data.description);
         formData.append('weight',data.weight);
         formData.append('productType',data.productType);
+        formData.append('stock',data.stock);
         formData.append('regularPrice',data.regularPrice);
         formData.append('salePrice',data.salePrice);
         formData.append('image',data.image[0]);
@@ -85,16 +86,16 @@ const AddProduct = () => {
                         {errors.description && <span className='text-danger' >This field is required</span>}
                         <br />
                         <div className="form-group row">
-                            <div className="col-3">
+                            <div className="col-2">
                                 <select className="form-control" name="weight" {...register('weight', { required: true })} >
-                                        <option disabled={true} value="Not set">Select Weight</option>
+                                        <option disabled={true} value="Not set">Select weight</option>
                                         <option value="250 gram">250 gram</option>
                                         <option value="500 gram">500 gram</option>
                                         <option value="1 kg">1 kg</option>
                                 </select>
                                 {errors.weight && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div className="col-3">
+                            <div className="col-2">
                                 <select className="form-control" name="productType" {...register('productType', { required: true })} >
                                     <option disabled={true} value="Not set">Select Product Type</option>
                                     <option value="Regular">Regular</option>
@@ -102,7 +103,15 @@ const AddProduct = () => {
                                 </select>
                                 {errors.productType && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div className="col-3">
+                            <div className="col-2">
+                                <select className="form-control" name="stock" {...register('stock', { required: true })} >
+                                        <option disabled={true} value="Not set">Select stock infot</option>
+                                        <option value="In stock">In stock</option>
+                                        <option value="Stock out">Stock out</option>
+                                </select>
+                                {errors.stock && <span className="text-danger">This field is required</span>}
+                            </div>
+                            <div className="col-2">
                                 <input {...register('regularPrice', { required: true })} className="form-control" name="regularPrice" placeholder="Regular Price" type="number" />
                                 {errors.regularPrice && <span className="text-danger">This field is required</span>}
                             </div>

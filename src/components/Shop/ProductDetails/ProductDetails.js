@@ -23,7 +23,7 @@ const ProductDetails = () => {
 
     }, [key]);
 
-    const { title, image, regularPrice, description, productType, salePrice, category } = product;
+    const { title, image, regularPrice, description, productType, salePrice, category, stock } = product;
 
 
     const keyChangerFor250Gram = (key) => {
@@ -58,7 +58,12 @@ const ProductDetails = () => {
             {
                 product.image ? <div className="row">
                     <div className="col-md-7 my-5 mx-2 bg-light p-5 productDescription" style={{ borderRadius: '5px ' }}>
+                        <div className='d-flex justify-content-between'>
                         <h2 className="">{title}</h2>
+                        {
+                            stock === 'In stock' ? <p className='mt-2'> <span className='rounded-pill bg-success text-white p-2'>{stock}</span> </p> : <p className='mt-2'><span className="rounded-pill bg-danger text-white p2">{stock}</span></p>
+                        }
+                        </div>
                         <br />
                         <p>{description}</p>
                         <div className='d-flex'>
@@ -81,7 +86,11 @@ const ProductDetails = () => {
                           productType === 'Sale' && <p> <strong className='text-success'>Sale Price: ৳ {parseInt(salePrice) * quantity} টাকা । </strong> <span className='text-danger'> Your save {regularPrice - salePrice} Taka ({ Math.round(percent)} % Off)</span></p>
                         }
                         <Link to='/cart'>
-                            <button className='btn btn-danger' onClick={() => addToCart(key)}> <FontAwesomeIcon style={{marginBottom: '1px'}} className='mx-1' icon={faShoppingBag}></FontAwesomeIcon> Add to cart</button>
+                            {
+                                stock === 'In stock' ?  <button className='btn btn-danger' onClick={() => addToCart(key)}> <FontAwesomeIcon style={{marginBottom: '1px'}} className='mx-1' icon={faShoppingBag}></FontAwesomeIcon> Add to cart</button> 
+                                : <button className='btn btn-danger disabled' onClick={() => addToCart(key)}> <FontAwesomeIcon style={{marginBottom: '1px'}} className='mx-1' icon={faShoppingBag}></FontAwesomeIcon> Add to cart</button>
+                            }
+                           
                         </Link>
                     </div>
                     <div className="col-md-4 my-5 text-center productImg">

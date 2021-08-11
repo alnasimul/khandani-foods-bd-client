@@ -26,6 +26,9 @@ import Blog from './components/AdminPanel/Blog/Blog/Blog';
 import AddBlog from './components/AdminPanel/Blog/AddBlog/AddBlog';
 import UserProfile from './components/User/UserProfile/UserProfile';
 import OrderIsOnAway from './components/User/OrderIsOnAway/OrderIsOnAway';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
+import Blogs from './components/Blogs/Blogs';
+
 
 
 
@@ -48,7 +51,7 @@ function App() {
               <Navbar></Navbar>
               <Slider></Slider>
               <Shop></Shop>
-              <Footer></Footer> 
+              <Footer></Footer>
             </Route>
             <Route path='/product/:productKey'>
               <Navbar></Navbar>
@@ -57,6 +60,9 @@ function App() {
             <Route path="/cart">
               <Navbar></Navbar>
               <Cart></Cart>
+            </Route>
+            <Route path='/blog'>
+              <Blogs></Blogs>
             </Route>
             <PrivateRoute path='/shipment'>
               <Navbar></Navbar>
@@ -75,7 +81,7 @@ function App() {
               <Dashboard></Dashboard>
             </Route>
             <Route path="/admin-panel/orders">
-                <Orders></Orders>
+              <Orders></Orders>
             </Route>
             <Route path='/admin-panel/orders-by-date'>
               <OrdersByDate></OrdersByDate>
@@ -90,12 +96,18 @@ function App() {
               <AddProduct></AddProduct>
             </Route>
             <Route path='/admin-panel/blog'>
-                <Blog></Blog>
+              <Blog></Blog>
             </Route>
             <Route path='/admin-panel/addBlog'>
-                <AddBlog></AddBlog>
+              <AddBlog></AddBlog>
             </Route>
           </Switch>
+          {/* <MessengerCustomerChat
+            pageId="102797561559766"
+            appId="1039933163425478"
+            shouldShowDialog={true}
+            // htmlRef="<REF_STRING>"
+          /> */}
         </Router>
       </UserContext.Provider>
     </div>

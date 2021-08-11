@@ -8,6 +8,7 @@ const AddBlog = () => {
     const onSubmit = data => {
         data.publish = false;
         data.created = new Date().toDateString();
+        data.homeBlog = false;
 
         const formData = new FormData();
 
@@ -16,6 +17,7 @@ const AddBlog = () => {
         formData.append('description',data.description);
         formData.append('publish',data.publish);
         formData.append('created',data.created);
+        formData.append('homeBlog',data.homeBlog);
         formData.append('file',data.file[0]);
 
         if(window.confirm('Are you sure want to add this blog to database ?')){

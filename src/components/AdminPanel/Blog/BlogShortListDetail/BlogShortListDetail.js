@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import BlogDetail from '../BlogDetail/BlogDetail';
 import UpdateBlog from '../UpdateBlog/UpdateBlog';
 
-const BlogShortListDetail = ({blog, getPublish, deleteBlog}) => {
+const BlogShortListDetail = ({blog, getPublish, deleteBlog, getPublishHome}) => {
     const { _id, title, location, image, description, created } = blog;
     const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -41,6 +41,19 @@ const BlogShortListDetail = ({blog, getPublish, deleteBlog}) => {
         }
     }
 
+    const alertForPublishHome = (status, id) => {
+        if(status){
+            if(window.confirm('Are you sure want to publish this blog to home?')){
+                getPublishHome(status,id)
+        }
+        }
+        else {
+            if(window.confirm('Are you sure want to undo publish this blog to home?')){
+                getPublishHome(status,id)
+            }
+        }
+    }
+
     const alertForDelete = id => {
             if(window.confirm('Are you sure want to delete this blog from database ?')){
                 deleteBlog(id);
@@ -62,10 +75,12 @@ const BlogShortListDetail = ({blog, getPublish, deleteBlog}) => {
 
                         <ul className="dropdown-menu dropdownMenu" aria-labelledby="dropdownMenuLink">
                             <li> <a className="dropdown-item" href="#" onClick={ () => alertForPublish(true, _id) } >Publish</a></li>
+                            <li> <a className="dropdown-item" href="#" onClick={ () => alertForPublishHome(true, _id) } >Publish Home</a></li>
                             <li><a className="dropdown-item" href="#" onClick={ () => openModal() } >Edit</a></li>
                             <li><a className="dropdown-item" href="#" onClick={ () => openModalForBlog() } >View Blog</a></li>
                             <hr />
                             <li><a className="dropdown-item" href="#" onClick={ () => alertForPublish(false, _id) } >Undo Publish</a></li>
+                            <li> <a className="dropdown-item" href="#" onClick={ () => alertForPublishHome(false, _id) } >Undo Publish Home</a></li>
                             <li> <a className="dropdown-item" href="#" onClick={ () => alertForDelete(_id) } >Delete</a></li>
                         </ul>
                     </div>

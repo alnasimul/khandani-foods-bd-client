@@ -31,7 +31,9 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item mx-3">
-                <a className="nav-link text-dark" href="#">ব্লগ</a>
+                  <Link to='/blog'>
+                    <a className="nav-link text-dark" href="#">ব্লগ</a>
+                  </Link>
               </li>
               {userInfo ? <li className="nav-item mx-3">
                 <Link to='/userProfile'>

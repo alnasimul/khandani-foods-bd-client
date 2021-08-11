@@ -1,7 +1,7 @@
 import React from 'react';
 import BlogShortListDetail from '../BlogShortListDetail/BlogShortListDetail';
 
-const BlogsShortLists = ({blogs, getPublish, deleteBlog}) => {
+const BlogsShortLists = ({blogs, getPublish, getPublishHome, deleteBlog}) => {
     return (
         <table className='table table-striped table-bordered'>
             <thead>
@@ -17,7 +17,7 @@ const BlogsShortLists = ({blogs, getPublish, deleteBlog}) => {
             </thead>
             <tbody>
                 {
-                    blogs.map( (blog , index) => <BlogShortListDetail blog={blog} getPublish={getPublish} deleteBlog={deleteBlog}></BlogShortListDetail>)
+                    blogs.map( (blog , index) => <BlogShortListDetail blog={blog} getPublish={getPublish} getPublishHome={getPublishHome} deleteBlog={deleteBlog} ></BlogShortListDetail>)
                 }
             </tbody>
         </table>

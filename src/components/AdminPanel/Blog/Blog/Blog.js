@@ -46,6 +46,24 @@ const Blog = () => {
         console.log(status, id)
     }
 
+    const getPublishHome = (status, id) => {
+
+        fetch(`http://khandanifoodsbd.com:443/updateBlogPublishHomeStatus/${id}`, {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ homeBlog: status })
+        })
+            .then(res => res.json())
+            .then(data => {
+                alert('Successfully updated home publish status.')
+                console.log(data)
+            })
+
+        console.log(status, id)
+    }
+
     const deleteBlog = id => {
         console.log(id);
 
@@ -76,7 +94,7 @@ const Blog = () => {
             <Sidebar></Sidebar>
             <h1>Blog Area</h1>
             <div className='row'>
-                <Blogs blogs={displayBlogs} getPublish={getPublish} deleteBlog={deleteBlog} pageCount={pageCount} changePage={changePage} loading={loading}></Blogs>
+                <Blogs blogs={displayBlogs} getPublish={getPublish} getPublishHome={getPublishHome} deleteBlog={deleteBlog} pageCount={pageCount} changePage={changePage} loading={loading}></Blogs>
             </div>
         </div>
     );

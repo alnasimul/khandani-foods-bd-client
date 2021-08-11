@@ -16,6 +16,7 @@ const UpdateProductInfo = ({product,closeModal}) => {
         formData.append('description',data.description);
         formData.append('weight',data.weight);
         formData.append('productType',data.productType);
+        formData.append('stock',data.stock);
         formData.append('regularPrice',data.regularPrice);
         formData.append('salePrice',data.salePrice);
         formData.append('image',data.image[0]);
@@ -65,7 +66,7 @@ const UpdateProductInfo = ({product,closeModal}) => {
                         {errors.description && <span className='text-danger' >This field is required</span>}
                         <br />
                         <div className="form-group row">
-                            <div className="col-3">
+                            <div className="col-2">
                                 <select className="form-control" defaultValue={weight} name="weight" {...register('weight', { required: false })} >
                                         <option disabled={true} value="Not set">Select Weight</option>
                                         <option value="250 gram">250 gram</option>
@@ -74,7 +75,7 @@ const UpdateProductInfo = ({product,closeModal}) => {
                                 </select>
                                 {errors.weight && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div className="col-3">
+                            <div className="col-2">
                                 <select className="form-control" defaultValue={productType} name="productType" {...register('productType', { required: false })} >
                                     <option disabled={true} value="Not set">Select Product Type</option>
                                     <option value="Regular">Regular</option>
@@ -82,11 +83,19 @@ const UpdateProductInfo = ({product,closeModal}) => {
                                 </select>
                                 {errors.productType && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div className="col-3">
+                            <div className="col-2">
+                                <select className="form-control" name="stock" {...register('stock', { required: true })} >
+                                        <option disabled={true} value="Not set">Select stock infot</option>
+                                        <option value="In stock">In stock</option>
+                                        <option value="Stock out">Stock out</option>
+                                </select>
+                                {errors.stock && <span className="text-danger">This field is required</span>}
+                            </div>
+                            <div className="col-2">
                                 <input {...register('regularPrice', { required: false })} className="form-control" defaultValue={regularPrice} name="regularPrice" placeholder="Regular Price" type="number" />
                                 {errors.regularPrice && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div className="col-3">
+                            <div className="col-2">
                                 <input {...register('salePrice', { required: false })} className="form-control" defaultValue={salePrice} name="salePrice" placeholder="Sale Price" type="number" />
                                 {errors.salePrice && <span className="text-danger">This field is required</span>}
                             </div>
@@ -95,7 +104,7 @@ const UpdateProductInfo = ({product,closeModal}) => {
                         <div className="form-group">
                             <label className='mb-3 text-success' for="exampleFormControProductDescription"> <strong> Upload Product Image</strong></label>
                             <br />
-                            <input type='file' className="form-control-file mb-2" {...register('image', { required: false })}  />
+                            <input type='file' className="form-control-file mb-2" {...register('image', { required: true })}  />
                             <br />
                             {errors.image && <span className='text-danger' >Image is required</span>}
                         </div>

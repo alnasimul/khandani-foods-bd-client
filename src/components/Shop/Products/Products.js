@@ -4,7 +4,7 @@ import './Products.css'
 import sale from '../../../images/sale.png'
 
 const Products = ({ item }) => {
-    let { title, image, regularPrice, id, salePrice, productType } = item;
+    let { title, image, regularPrice, id, salePrice, productType, stock } = item;
 
 
     const getPercentage = (value1, value2) => {
@@ -25,6 +25,11 @@ const Products = ({ item }) => {
 
                 {
                     productType === 'Sale' && <p className='saleArea'> <span className='rounded-pill bg-danger px-1 py-1 mx-2 text-white'> <strong> Sale </strong>  </span> <strong>৳ {salePrice} টাকা । (প্রতি ৫০০ গ্রাম) </strong> <span className='rounded-pill bg-danger px-1 py-1 mx-2 text-white'> <strong> Sale </strong>  </span> <br /><span className='text-danger'>Your Save {regularPrice - salePrice} Taka ({ Math.round(percent) } % Off)</span> </p>
+                }
+
+                {
+                    stock === 'In stock' ? <p><span className="rounded-pill bg-success text-white p-2">{stock}</span></p>
+                    : <p><span className="rounded-pill bg-danger text-white p-2">{stock}</span></p>
                 }
             
                 <Link to={'/product/' + id}>
