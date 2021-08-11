@@ -28,8 +28,8 @@ const TrackOrders = () => {
     
     return (
         <>
-        <Sidebar></Sidebar>
         <div className='row'>
+            <Sidebar></Sidebar>
             <OrderFilterForm getSearchData={getSearchData}></OrderFilterForm>
             <OrdersShortList trackedOrders = {trackedOrders}></OrdersShortList>
         </div>

@@ -133,8 +133,9 @@ const Orders = () => {
     console.log(orders)
     return (
         <>
-          <Sidebar></Sidebar>
+          
         <section className="row">
+            <Sidebar></Sidebar>
             <OrdersTable orders={displayOrders} getPaymentStatus={getPaymentStatus} getConfirmationStatus={getConfirmationStatus} getDeliveryStatus={getDeliveryStatus} getCompleteOrderStatus={getCompleteOrderStatus} deleteOrder={deleteOrder} getOrderStatus={getOrderStatus} pageCount={pageCount} changePage={changePage} loading={loading}></OrdersTable>
         </section>
         </>

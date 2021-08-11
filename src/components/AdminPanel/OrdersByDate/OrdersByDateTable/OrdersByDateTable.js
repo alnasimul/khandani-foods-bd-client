@@ -3,7 +3,7 @@ import OrdersByDateShortList from '../OrdersByDateShortList/OrdersByDateShortLis
 
 const OrdersByDateTable = ({orders}) => {
     return (
-        <div className="col-md-9 col-sm-12 ">
+        <div className="col-md-7 col-sm-12 " style={{width:'59%'}}>
               <div className='mt-5'>
                 <h2 className="text-brand text-center mb-5">Orders</h2>
                 {

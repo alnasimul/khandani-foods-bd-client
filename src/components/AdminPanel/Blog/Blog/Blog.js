@@ -91,9 +91,10 @@ const Blog = () => {
     console.log(blogs);
     return (
         <div>
-            <Sidebar></Sidebar>
-            <h1>Blog Area</h1>
+          
+          
             <div className='row'>
+                <Sidebar></Sidebar>
                 <Blogs blogs={displayBlogs} getPublish={getPublish} getPublishHome={getPublishHome} deleteBlog={deleteBlog} pageCount={pageCount} changePage={changePage} loading={loading}></Blogs>
             </div>
         </div>

@@ -96,8 +96,9 @@ const Dashboard = () => {
     return (
         <div className="row" style={{backgroundColor: "rgb(190,41,38, 0.1)"}}>
             <Sidebar></Sidebar>
-            <Charts data={chartData.chartData} Month="August" legendPosition="bottom"></Charts>
+           <Charts data={chartData.chartData} Month="August" legendPosition="bottom"></Charts>
             <TotalSalesOfCurrentMonth totalSalesAndOrders={totalSalesAndOrders}></TotalSalesOfCurrentMonth>
+            
         </div>
     );
 };

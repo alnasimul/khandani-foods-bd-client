@@ -5,7 +5,9 @@ import ReactPaginate from 'react-paginate';
 
 const OrdersTable = ({orders,getPaymentStatus,getDeliveryStatus,getOrderStatus,pageCount,changePage,loading,  getConfirmationStatus, getCompleteOrderStatus,deleteOrder}) => {
     return (
-        <div className="col-md-12 mt-5">
+       <>
+        {/* <div className=""></div> */}
+        <div className="col-md-10 mt-5">
                <div class="btn-group text-white" role="group" aria-label="Basic example">
                         <Link to='/admin-panel/orders-by-date' className=" btn btn-danger bx bx-calendar nav_link p-2 "> 
                             Track orders by date
@@ -50,6 +52,7 @@ const OrdersTable = ({orders,getPaymentStatus,getDeliveryStatus,getOrderStatus,p
            />
            }
         </div>
+       </>
     );
 };
 

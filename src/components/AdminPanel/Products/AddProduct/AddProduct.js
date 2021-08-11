@@ -58,9 +58,9 @@ const AddProduct = () => {
 
     return (
         <div>
-            <Sidebar></Sidebar>
             <div className="row">
-                <div className="col-md-11 col-sm-12 m-5 bg-light p-5">
+                <Sidebar></Sidebar>
+                <div className="col-md-10 col-sm-12 mt-5 bg-light p-5" style={{width:'82%'}}>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <h2 className='text-center text-success'> <strong> Add New Product </strong> </h2>
                         <div className="form-group">

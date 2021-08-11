@@ -4,6 +4,8 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { Link } from 'react-router-dom';
 import OrdersByDateTable from '../OrdersByDateTable/OrdersByDateTable';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarDay, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 const OrdersByDate = () => {
@@ -27,18 +29,18 @@ const OrdersByDate = () => {
     console.log(orders)
     return (
         <>
-            <Sidebar></Sidebar>
+           
             <section className="row">
+            <Sidebar></Sidebar>
                 <div className="col-md-3 col-sm-12 mt-5 ms-0" style={{ width: '450px' }}>
-                    <div class="btn-group text-white" role="group" aria-label="Basic example">
-                        <Link to='/admin-panel/orders-by-date' className=" btn btn-danger bx bx-calendar nav_link p-2 "> 
-                            Track orders by date
+                    <div class="btn-group text-white mb-5" role="group" aria-label="Basic example">
+                        <Link to='/admin-panel/orders-by-date' className=" btn btn-danger "> 
+                           <FontAwesomeIcon icon={faCalendarDay}></FontAwesomeIcon> Track orders by date
                         </Link>
-                        <Link to='/admin-panel/track-orders' className=" btn btn-success bx bx-search nav_link p-2 ">
-                            Track orders
+                        <Link to='/admin-panel/track-orders' className=" btn btn-success ">
+                        <FontAwesomeIcon icon={faSearch} className='mt-1'></FontAwesomeIcon> Track Orders
                         </Link>
                     </div>
-                    <h1 className='mb-5'>Calendar</h1>
                     <Calendar
                         onChange={handleDateChange}
                         value={new Date()}

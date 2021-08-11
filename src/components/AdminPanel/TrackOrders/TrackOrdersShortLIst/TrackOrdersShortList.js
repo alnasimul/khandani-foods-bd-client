@@ -3,7 +3,7 @@ import TrackOrderShortListDetail from '../TrackOrderShortListDetail/TrackOrderSh
 
 const TrackOrdersShortList = ({ trackedOrders }) => {
   return (
-  <div className="col-md-9 mt-3">
+  <div className="col-md-7 mt-3" style={{width:'58%'}}>
      { trackedOrders.length > 0 ? 
       <table style={{ borderRadius: '7px' }} className="table bg-danger table-striped table-bordered">
         <thead>

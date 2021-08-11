@@ -3,7 +3,7 @@ import OrderByDateShortListDetail  from '../OrderByDateShortListDetail/OrderByDa
 
 const OrdersByDateShortList = ({orders}) => {
   return (
-     <table style={{ borderRadius: '7px' }} className="table bg-info table-striped table-bordered">
+     <table style={{ borderRadius: '7px' }} className="table bg-info table-striped table-bordered"  >
         <thead>
           <tr className="text-dark">
           <th scope="col" style={{ fontSize: '14px'}} >#OrderID</th>

@@ -38,9 +38,9 @@ const AddBlog = () => {
     }
     return (
         <div>
-            <Sidebar></Sidebar>
-            <div className='row'>
-                    <div className="col-md-11 col-sm-12 m-5 bg-light p-5 ">
+             <div className='row'>
+                    <Sidebar></Sidebar>
+                    <div className="col-md-10 col-sm-12 mt-5 bg-light p-5 " style={{width:'82%'}}>
                         <div class="btn-group text-white" role="group" aria-label="Basic example">
                             <Link to='/admin-panel/blog' className="btn btn-danger bx bx-news nav_link p-2  ">
                                 Blogs
@@ -56,9 +56,10 @@ const AddBlog = () => {
                         <br />
                         <div className="form-group">
                             <label className='mb-2 text-success' for="exampleFormControProductDescription"> <strong> Location </strong></label>
-                            <textarea className="form-control" placeholder="Blog Location" id="exampleFormControlProductDescription" rows="4" {...register("location", { required: false })}></textarea>
+                            <input className="form-control" placeholder="Blog Location" id="exampleFormControlProductDescription" rows="4" {...register("location", { required: false })}></input>
                             {errors.location && <span className='text-danger' >This field is required</span>}
                         </div>
+                        <br />
                         <div className="form-group">
                             <label className='mb-2 text-success' for="exampleFormControProductDescription"> <strong> Blog Description </strong></label>
                             <textarea className="form-control" placeholder="Blog Description" id="exampleFormControlProductDescription" rows="4" {...register("description", { required: true })}></textarea>

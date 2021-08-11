@@ -4,16 +4,19 @@ import BlogDetail from '../BlogDetail/BlogDetail';
 import ReactPaginate from 'react-paginate';
 import './Blogs.css';
 import BlogsShortLists from '../BlogsShortLists/BlogsShortLists';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBlog, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
 const Blogs = ({ blogs, getPublish, getPublishHome, deleteBlog, pageCount, changePage, loading }) => {
     return (
-        <div className='col-md-12 mt-5'>
-            <div class="btn-group text-white" role="group" aria-label="Basic example">
+        <div className='col-md-10 mt-5'>
+             <h1 className='text-center'>Blog Area</h1>
+            <div class="btn-group text-white mb-3" role="group" aria-label="Basic example">
                 <Link to='/admin-panel/blog' className="btn btn-danger bx bx-news nav_link p-2  ">
-                    Blogs
+                   <FontAwesomeIcon icon={faBlog}></FontAwesomeIcon> Blogs
                 </Link>
                 <Link to='/admin-panel/addBlog' className="btn btn-danger bx bx-plus nav_link p-2  ">
-                    Add Blog
+                   <FontAwesomeIcon icon={faPlusSquare}></FontAwesomeIcon> Add Blog
                 </Link>
             </div>
 
