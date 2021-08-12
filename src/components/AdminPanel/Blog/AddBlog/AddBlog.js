@@ -38,7 +38,7 @@ const AddBlog = () => {
     }
     return (
         <div>
-             <div className='row'>
+             <div className='row' style={{backgroundColor: "rgb(2,1,3, 0.1)", height:'100vh'}}>
                     <Sidebar></Sidebar>
                     <div className="col-md-10 col-sm-12 mt-5 bg-light p-5 " style={{width:'82%'}}>
                         <div class="btn-group text-white" role="group" aria-label="Basic example">

@@ -30,7 +30,7 @@ const OrdersByDate = () => {
     return (
         <>
            
-            <section className="row">
+            <section className="row" style={{backgroundColor: "rgb(2,1,3, 0.1)", height:'100vh'}}>
             <Sidebar></Sidebar>
                 <div className="col-md-3 col-sm-12 mt-5 ms-0" style={{ width: '450px' }}>
                     <div class="btn-group text-white mb-5" role="group" aria-label="Basic example">

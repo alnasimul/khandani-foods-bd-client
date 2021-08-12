@@ -1,6 +1,8 @@
-  
+ /* background-image: linear-gradient(90deg, #ad121a, #c22830);
+    background-image: linear-gradient(80deg, #02721e, #2b8839 );
+ */
 .sidebar{
-    background-image: linear-gradient(90deg, #ad121a, #c22830);
+    background-image: linear-gradient(40deg, #020103, rgb(35, 36, 37) );
     position: fixed;
 }
 .sidebar li{

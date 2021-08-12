@@ -3,7 +3,7 @@ import BlogShortListDetail from '../BlogShortListDetail/BlogShortListDetail';
 
 const BlogsShortLists = ({blogs, getPublish, getPublishHome, deleteBlog}) => {
     return (
-        <table className='table table-striped table-bordered'>
+        <table className='table table-striped table-bordered bg-light'>
             <thead>
                 <tr className="text-dark">
                     <th scope="col">Image</th>

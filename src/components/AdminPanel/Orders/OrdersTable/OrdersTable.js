@@ -2,6 +2,8 @@ import React from 'react';
 import OrdersShortList from '../OrdersShortList/OrdersShortList';
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarDay, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const OrdersTable = ({orders,getPaymentStatus,getDeliveryStatus,getOrderStatus,pageCount,changePage,loading,  getConfirmationStatus, getCompleteOrderStatus,deleteOrder}) => {
     return (
@@ -9,12 +11,14 @@ const OrdersTable = ({orders,getPaymentStatus,getDeliveryStatus,getOrderStatus,p
         {/* <div className=""></div> */}
         <div className="col-md-10 mt-5">
                <div class="btn-group text-white" role="group" aria-label="Basic example">
-                        <Link to='/admin-panel/orders-by-date' className=" btn btn-danger bx bx-calendar nav_link p-2 "> 
-                            Track orders by date
+               <div class="btn-group text-white mb-5" role="group" aria-label="Basic example">
+                        <Link to='/admin-panel/orders-by-date' className=" btn btn-danger "> 
+                           <FontAwesomeIcon icon={faCalendarDay}></FontAwesomeIcon> Track orders by date
                         </Link>
-                        <Link to='/admin-panel/track-orders' className=" btn btn-success bx bx-search nav_link p-2 ">
-                            Track orders
+                        <Link to='/admin-panel/track-orders' className=" btn btn-success ">
+                            <FontAwesomeIcon icon={faSearch} className='mt-1'></FontAwesomeIcon> Track Orders
                         </Link>
+                    </div>
                     </div>
              <h2 className="text-danger text-center mb-5">Orders</h2>
             {

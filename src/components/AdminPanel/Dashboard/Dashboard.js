@@ -94,7 +94,7 @@ const Dashboard = () => {
     console.log(totalSalesAndOrders);
 
     return (
-        <div className="row" style={{backgroundColor: "rgb(190,41,38, 0.1)"}}>
+        <div className="row" style={{backgroundColor: "rgb(2,1,3, 0.1)", height:'auto'}}>
             <Sidebar></Sidebar>
            <Charts data={chartData.chartData} Month="August" legendPosition="bottom"></Charts>
             <TotalSalesOfCurrentMonth totalSalesAndOrders={totalSalesAndOrders}></TotalSalesOfCurrentMonth>

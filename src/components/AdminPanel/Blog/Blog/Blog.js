@@ -79,7 +79,7 @@ const Blog = () => {
     }
 
     useEffect(() => {
-        fetch('http://khandanifoodsbd.com:443/getBlogs')
+        fetch('http://khandanifoodsbd.com:443/getBlogs' )
             .then(res => res.json())
             .then(data => {
                 const reversedData = [...data.reverse()]
@@ -93,7 +93,7 @@ const Blog = () => {
         <div>
           
           
-            <div className='row'>
+            <div className='row' style={{backgroundColor: "rgb(2,1,3, 0.1)", height:'100vh'}} >
                 <Sidebar></Sidebar>
                 <Blogs blogs={displayBlogs} getPublish={getPublish} getPublishHome={getPublishHome} deleteBlog={deleteBlog} pageCount={pageCount} changePage={changePage} loading={loading}></Blogs>
             </div>

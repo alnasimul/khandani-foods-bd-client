@@ -58,7 +58,7 @@ const AddProduct = () => {
 
     return (
         <div>
-            <div className="row">
+            <div className="row" style={{backgroundColor: "rgb(2,1,3, 0.1)", height:'100vh'}}>
                 <Sidebar></Sidebar>
                 <div className="col-md-10 col-sm-12 mt-5 bg-light p-5" style={{width:'82%'}}>
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -115,7 +115,7 @@ const AddProduct = () => {
                                 <input {...register('regularPrice', { required: true })} className="form-control" name="regularPrice" placeholder="Regular Price" type="number" />
                                 {errors.regularPrice && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div className="col-3">
+                            <div className="col-2">
                                 <input {...register('salePrice', { required: false })} className="form-control" name="salePrice" placeholder="Sale Price" type="number" />
                                 {errors.salePrice && <span className="text-danger">This field is required</span>}
                             </div>

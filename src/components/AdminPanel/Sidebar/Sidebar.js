@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faGripHorizontal, faFolderPlus, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faGripHorizontal, faFolderPlus, faPlusSquare, faUsersCog, faUserAstronaut, faUsers, faUserPlus, faUsersSlash } from '@fortawesome/free-solid-svg-icons';
 import { faBlogger, faProductHunt, faShopify, faTeamspeak } from '@fortawesome/free-brands-svg-icons';
 
 
@@ -11,6 +11,13 @@ const Sidebar = () => {
         <div className="col-md-2">
             <div className="sidebar d-flex flex-column justify-content-between col-md-2-special py-5 px-4" style={{ height: "100vh" }}>
                 <ul className="list-unstyled">
+                    <li>
+                        <p className='text-white'>
+                            <FontAwesomeIcon icon={faUsers}></FontAwesomeIcon> <strong> Khandani Team </strong>
+                            <hr style={{color: '#fff', opacity: '1.25'}} />
+                        </p>
+                     </li>
+                  
                     <li>
                         <Link to="/admin-panel/dashboard" className="text-white">
                             <FontAwesomeIcon icon={faGripHorizontal} /> <span>Dashboard</span>
@@ -38,8 +45,18 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/doctor/addBlog" className="text-white" >
+                        <Link to="/admin-panel/addBlog" className="text-white" >
                             <FontAwesomeIcon icon={faPlusSquare} /> <span>Add Product</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/admin-panel/addMember" className="text-white" >
+                            <FontAwesomeIcon icon={faUserPlus} /> <span>Add Member</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/admin-panel/members" className="text-white" >
+                            <FontAwesomeIcon icon={faUsers} /> <span>Members</span>
                         </Link>
                     </li>
                 </ul>

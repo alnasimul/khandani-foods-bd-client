@@ -28,6 +28,7 @@ import UserProfile from './components/User/UserProfile/UserProfile';
 import OrderIsOnAway from './components/User/OrderIsOnAway/OrderIsOnAway';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
 import Blogs from './components/Blogs/Blogs';
+import AddMember from './components/AdminPanel/Members/AddMember/AddMember';
 
 
 
@@ -100,6 +101,9 @@ function App() {
             </Route>
             <Route path='/admin-panel/addBlog'>
               <AddBlog></AddBlog>
+            </Route>
+            <Route path='/admin-panel/addMember'>
+              <AddMember></AddMember>
             </Route>
           </Switch>
           {/* <MessengerCustomerChat

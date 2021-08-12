@@ -28,7 +28,7 @@ const TrackOrders = () => {
     
     return (
         <>
-        <div className='row'>
+        <div className='row' style={{backgroundColor: "rgb(2,1,3, 0.1)", height:'100vh'}}>
             <Sidebar></Sidebar>
             <OrderFilterForm getSearchData={getSearchData}></OrderFilterForm>
             <OrdersShortList trackedOrders = {trackedOrders}></OrdersShortList>
