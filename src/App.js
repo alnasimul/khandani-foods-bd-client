@@ -29,6 +29,7 @@ import OrderIsOnAway from './components/User/OrderIsOnAway/OrderIsOnAway';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
 import Blogs from './components/Blogs/Blogs';
 import AddMember from './components/AdminPanel/Members/AddMember/AddMember';
+import Members from './components/AdminPanel/Members/Members/Members';
 
 
 
@@ -104,6 +105,9 @@ function App() {
             </Route>
             <Route path='/admin-panel/addMember'>
               <AddMember></AddMember>
+            </Route>
+            <Route path='/admin-panel/members'>
+              <Members></Members>
             </Route>
           </Switch>
           {/* <MessengerCustomerChat

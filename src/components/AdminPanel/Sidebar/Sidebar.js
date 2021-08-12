@@ -46,7 +46,7 @@ const Sidebar = () => {
                     </li>
                     <li>
                         <Link to="/admin-panel/addBlog" className="text-white" >
-                            <FontAwesomeIcon icon={faPlusSquare} /> <span>Add Product</span>
+                            <FontAwesomeIcon icon={faPlusSquare} /> <span>Add Blog</span>
                         </Link>
                     </li>
                     <li>

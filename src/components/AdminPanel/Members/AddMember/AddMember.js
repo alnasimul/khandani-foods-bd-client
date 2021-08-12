@@ -10,22 +10,26 @@ const AddMember = () => {
         
         data.id = 'KM' + Math.round(id).toString();
 
-        fetch('http://khandanifoodsbd.com:443/addMember',{
-            method: 'POST',
-            headers: {
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then( res => res.json() )
-        .then( data => console.log(data) )
+        if(window.confirm('Are you sure want to add this member to database ?')){
+            fetch('http://khandanifoodsbd.com:443/addMember',{
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify({...data})
+            })
+            .then( res => res.json() )
+            .then( data => {
+                alert('New member added successfully to database')
+            } )
+        }
 
         console.log(data)
     }
     return (
-        <div className='row' style={{ backgroundColor: "rgb(2,1,3, 0.1)", height: '100vh' }}>
+        <div className='row' style={{ backgroundColor: "rgb(2,1,3, 0.1)", height: '100vh', width:'100.6%' }}>
             <Sidebar></Sidebar>
-            <div className="col-md-10 col-sm-12 mt-5 mb-5 bg-light p-5 " style={{ width: '82%' }}>
+            <div className="col-md-10 col-sm-12 mt-5 mb-5 bg-light p-5 " style={{ width: '83%', position: 'relative' }}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h2 className='text-center text-success'> <strong>Add New Member</strong> </h2>
                     <div className="form-group">
@@ -35,7 +39,7 @@ const AddMember = () => {
                     </div>
                     <br />
                     <div className="form-group">
-                        <label className='mb-2 text-success'> <strong> Phone </strong></label>
+                        <label className='mb-2 text-success'> <strong> Email </strong></label>
                         <input className="form-control" placeholder="Email"  {...register("email", { required: true, pattern: /\S+@\S+\.\S+/ })}></input>
                         {errors.phone && <span className='text-danger' >This field is required</span>}
                     </div>
@@ -94,7 +98,7 @@ const AddMember = () => {
                         {errors.city && <span className='text-danger' >This field is required</span>}
                     </div>
                     <br />
-                    <input type="submit" className='btn btn-danger' value='Submit Blog' />
+                    <input type="submit" className='btn btn-danger' value='Submit' />
                 </form>
             </div>
         </div>
