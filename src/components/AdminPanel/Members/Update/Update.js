@@ -8,7 +8,7 @@ const customStyles = {
         left: '50%',
         right: 'auto',
         width: '80%',
-        height: '80%',
+        height: '95%',
         padding: '20px',
         bottom: 'auto',
         marginRight: '-50%',
@@ -20,7 +20,7 @@ Modal.setAppElement('#root')
 
 const Update = ({ member, modalIsOpen, closeModal }) => {
     return (
-        <div>
+        <div className='row w-100 container-fluid' style={{ height: '100vh'}}>
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}

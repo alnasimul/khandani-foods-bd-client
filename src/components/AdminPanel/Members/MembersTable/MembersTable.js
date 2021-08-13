@@ -6,7 +6,7 @@ const MembersTable = ({ members, loading, deleteMember }) => {
         <div className='col-md-10'>
             {
                 loading ?
-                    <div className={` d-flex justify-content-center m-5 bg-light `} style={{ height: '500px' }}>
+                    <div className={` d-flex justify-content-center m-5 p-5 align-items-center`} style={{ height: '500px' }}>
                         <div class="spinner-border text-danger" style={{ width: '3rem', height: '3rem', marginTop: '200px' }} role="status">
                             <span class="visually-hidden">Loading...</span>
                         </div>

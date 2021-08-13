@@ -27,10 +27,12 @@ const UpdateMemberInfo = ({member, closeModal }) => {
         }
     }
     return (
-        <div className="mt-5 mb-5 bg-light p-5 " style={{ width: '98%' }}>
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <h2 className='text-center text-success'> <strong>Update Member Profile</strong> </h2>
-            <img src={image} alt="" style={{ width: '200px' }} className='img-fluid text-center' />
+        <div className="col-md-10 bg-light p-5 " style={{ width: '98%', margin: '0 auto !important'  }}>
+        <form onSubmit={handleSubmit(onSubmit)} style={{ width: 'auto'}}>
+           <div className="text-center">
+           <h2 className='text-success'> <strong>Update Member Profile</strong> </h2>
+            <img src={image} alt="" style={{ width: '280px' }} className='img-fluid text-center mt-3' />
+           </div>
             <div className="form-group">
                 <label className='mb-2 text-success' > <strong> Name </strong> </label>
                 <input placeholder="Name" className="form-control" defaultValue={name} {...register("name", { required: true })} />

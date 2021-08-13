@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BlogDetail from '../BlogDetail/BlogDetail';
 import ReactPaginate from 'react-paginate';
 import './Blogs.css';
 import BlogsShortLists from '../BlogsShortLists/BlogsShortLists';
@@ -9,7 +8,7 @@ import { faBlog, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
 const Blogs = ({ blogs, getPublish, getPublishHome, deleteBlog, pageCount, changePage, loading }) => {
     return (
-        <div className='col-md-10 mt-5'>
+        <div className='col-md-10  mt-5' style={{width: '82%'}}>
              <h1 className='text-center'>Blog Area</h1>
             <div class="btn-group text-white mb-3" role="group" aria-label="Basic example">
                 <Link to='/admin-panel/blog' className="btn btn-danger bx bx-news nav_link p-2  ">

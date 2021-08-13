@@ -19,7 +19,7 @@ Modal.setAppElement('#root')
 
 const UpdateBlog = ({blog,modalIsOpen, closeModal}) => {
     return (
-        <div className='row'>
+        <div className='row' style={{ height: '100vh'}}>
             <Modal 
                  isOpen={modalIsOpen}
                  onRequestClose={closeModal}

@@ -12,7 +12,7 @@
     text-decoration: none;
 }
 .sidebar li:hover span{
-    display: inline-block;
+    display: inline;
     transform: translate(5px);
 }
 

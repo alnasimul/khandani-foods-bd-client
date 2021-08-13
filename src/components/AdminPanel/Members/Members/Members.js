@@ -10,7 +10,6 @@ const Members = () => {
         fetch('http://khandanifoodsbd.com:443/members')
         .then( res => res.json() )
         .then( data => {
-            alert('Data loaded successfully from database')
             setMembers(data)
             setLoading(false);
         })
