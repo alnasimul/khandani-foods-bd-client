@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import logo from '../../../images/logo1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { UserContext } from '../../../App';
 
 const Navbar = () => {
   const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    fetch(`http://khandanifoodsbd.com:443/isAdmin/${loggedInUser.email}`)
+      .then(res => res.json())
+      .then(data => {
+        checkAdmin(data)
+      })
+  }, [])
+  const checkAdmin = (data) => {
+    setIsAdmin(data)
+    sessionStorage.setItem('admin', JSON.stringify({admin: data}));
+}
+  console.log(isAdmin)
   return (
     <div className="container ">
       <nav className="navbar navbar-expand-lg navbar-light bg-white">
@@ -31,10 +47,17 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item mx-3">
-                  <Link to='/blog'>
-                    <a className="nav-link text-dark" href="#">ব্লগ</a>
-                  </Link>
+                <Link to='/blog'>
+                  <a className="nav-link text-dark" href="#">ব্লগ</a>
+                </Link>
               </li>
+              {
+                isAdmin ? <li className="nav-item mx-3">
+                  <Link to='/admin-panel/dashboard'>
+                    <a className="nav-link text-dark" href="#">এডমিন প্যানেল</a>
+                  </Link>
+                </li> : <li></li>
+              }
               {userInfo ? <li className="nav-item mx-3">
                 <Link to='/userProfile'>
                   <a className="nav-link text-dark" href="#">ইউজার প্রোফাইল </a>

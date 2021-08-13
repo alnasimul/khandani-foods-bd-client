@@ -114,6 +114,21 @@ const verifyEmail = () => {
   });
 }
 
+export const resetPassword = (email) => {
+ return firebase.auth().sendPasswordResetEmail(email )
+  .then((res) => {
+    // Password reset email sent!
+    // ..
+    const msg = 'পাসওয়ার্ড রিসেট লিংক আপনার ইমেইলে পাঠানো হয়েছে আপনার ইমেইল চেক করুন ধন্যবাদ ।';
+    return msg;
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ..
+  });
+}
+
 export const storeAuthToken = (user) => {
     firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
       .then(function (idToken) {

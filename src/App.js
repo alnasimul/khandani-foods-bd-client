@@ -30,6 +30,8 @@ import MessengerCustomerChat from 'react-messenger-customer-chat';
 import Blogs from './components/Blogs/Blogs';
 import AddMember from './components/AdminPanel/Members/AddMember/AddMember';
 import Members from './components/AdminPanel/Members/Members/Members';
+import AdminRoute from './components/Auth/AdminRoute/AdminRoute';
+import ForgotPassword from './components/Auth/Login/ForgotPassword/ForgotPassword';
 
 
 
@@ -73,42 +75,46 @@ function App() {
             <Route path='/login'>
               <Login></Login>
             </Route>
+            <Route path='/forgotPassword'>
+                <ForgotPassword></ForgotPassword>
+            </Route>
             <PrivateRoute path='/userProfile'>
               <UserProfile></UserProfile>
             </PrivateRoute>
             <PrivateRoute path='/orderIsOnWay'>
               <OrderIsOnAway></OrderIsOnAway>
             </PrivateRoute>
-            <Route path='/admin-panel/dashboard'>
+             {/* admin panel routes */}
+            <AdminRoute path='/admin-panel/dashboard'>
               <Dashboard></Dashboard>
-            </Route>
-            <Route path="/admin-panel/orders">
+            </AdminRoute>
+            <AdminRoute path="/admin-panel/orders">
               <Orders></Orders>
-            </Route>
-            <Route path='/admin-panel/orders-by-date'>
+            </AdminRoute>
+            <AdminRoute path='/admin-panel/orders-by-date'>
               <OrdersByDate></OrdersByDate>
-            </Route>
-            <Route path='/admin-panel/track-orders'>
+            </AdminRoute>
+            <AdminRoute path='/admin-panel/track-orders'>
               <TrackOrders></TrackOrders>
-            </Route>
-            <Route path='/admin-panel/products'>
+            </AdminRoute>
+            <AdminRoute path='/admin-panel/products'>
               <Products></Products>
-            </Route>
-            <Route path='/admin-panel/addProduct'>
+            </AdminRoute>
+            <AdminRoute path='/admin-panel/addProduct'>
               <AddProduct></AddProduct>
-            </Route>
-            <Route path='/admin-panel/blog'>
+            </AdminRoute>
+            <AdminRoute path='/admin-panel/blog'>
               <Blog></Blog>
-            </Route>
-            <Route path='/admin-panel/addBlog'>
+            </AdminRoute>
+            <AdminRoute path='/admin-panel/addBlog'>
               <AddBlog></AddBlog>
-            </Route>
-            <Route path='/admin-panel/addMember'>
+            </AdminRoute>
+            <AdminRoute path='/admin-panel/addMember'>
               <AddMember></AddMember>
-            </Route>
-            <Route path='/admin-panel/members'>
+            </AdminRoute>
+            <AdminRoute path='/admin-panel/members'>
               <Members></Members>
-            </Route>
+            </AdminRoute>
           </Switch>
           {/* <MessengerCustomerChat
             pageId="102797561559766"
