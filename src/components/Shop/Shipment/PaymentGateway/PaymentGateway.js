@@ -1,6 +1,7 @@
 import React from 'react';
 import sslcommerz from '../../../../images/sslcommerz.png'
 import { processOrder } from '../../../../utilities/databaseManager';
+import './PaymentGateway.css';
 
 const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
 
@@ -64,7 +65,7 @@ const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
 
 
     return (
-        <div className='col-md-5 align-item-center m-5 text-center'>
+        <div className=' align-item-center mt-5 text-center paymentGateway'>
             <h4 className='text-center text-success'>Payment Gateway</h4>
             <img src={sslcommerz} alt="" className='img-fluid mt-5' />
             {

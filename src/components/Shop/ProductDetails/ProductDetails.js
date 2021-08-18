@@ -56,8 +56,8 @@ const ProductDetails = () => {
         <div className="container">
 
             {
-                product.image ? <div className="row">
-                    <div className="col-md-7 my-5 mx-2 bg-light p-5 productDescription" style={{ borderRadius: '5px ' }}>
+                product.image ? <div className="row productDetails"  >
+                    <div className="p-3 mt-2 productDescription bg-light" style={{ borderRadius: '5px '}}>
                         <div className='d-flex justify-content-between'>
                         <h2 className="">{title}</h2>
                         {
@@ -93,8 +93,8 @@ const ProductDetails = () => {
                            
                         </Link>
                     </div>
-                    <div className="col-md-4 my-5 text-center productImg">
-                        <img src={`data:image/png;base64,${image.img}`} alt="" className='' style={{ borderRadius: '10px', width: '440px' }} />
+                    <div className="text-center productBanner ">
+                        <img src={`data:image/png;base64,${image.img}`} alt="" className='productImg' style={{ borderRadius: '10px', width: '440px' }} />
                     </div>
                 </div> : <div class="d-flex justify-content-center m-5 bg-light" style={{height: '500px'}}>
                     <div class="spinner-border text-danger" style={{width: '3rem', height: '3rem', marginTop:'200px'}} role="status">

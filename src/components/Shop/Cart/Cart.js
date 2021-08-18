@@ -39,13 +39,13 @@ const Cart = () => {
     useEffect(() => {
         previousCart = getDatabaseCart();
 
-        console.log(previousCart);
+        // console.log(previousCart);
 
-        console.log(cart)
+        // console.log(cart)
 
         const productKeys = Object.keys(previousCart);
 
-        console.log(productKeys)
+        // console.log(productKeys)
 
         setIsCartEmpty(productKeys);
 
@@ -76,7 +76,7 @@ const Cart = () => {
             return item;
         })
 
-        console.log(currentCartFoods)
+        // console.log(currentCartFoods)
 
 
         setCart(currentCartFoods)
@@ -102,7 +102,7 @@ const Cart = () => {
 
 
 
-    // console.log(loadedCartData);
+    // // console.log(loadedCartData);
 
     const generateOrderId = () => {
         return Math.floor(Math.random().toFixed(4) * 10000);
@@ -138,7 +138,7 @@ const Cart = () => {
         return newCart;
     })
 
-    console.log(newCart)
+    // console.log(newCart)
 
     const proceedForShipment = () => {
         setOrderDetails(newCart, orderId, shippingCost, subtotal);
@@ -162,7 +162,7 @@ const Cart = () => {
 
                     :
                     (
-                        isCartEmpty.length > 0 ? <div className="row">
+                        isCartEmpty.length > 0 ? <div className="row cartArea">
                             <div className="col-md-4 mx-5 pe-5 cartItems">
                                 {cart.map(item => <CartItem item={item} key={item.id} cartPlusChange={cartPlusChanges} cartSubChange={cartSubChanges}></CartItem>)}
                             </div>
@@ -171,8 +171,8 @@ const Cart = () => {
                                 <p>tax: {tax} </p>
                                 <p>Shiping fee: {shippingCost} </p>
                                 <p>Subtotal : {subtotal + shippingCost} </p>
-                                <div className='d-flex shippingLocation'>
-                                    <p className=''>Shipping Location: <button className='btn btn-success mx-1' required onClick={() => shippingForSylhet()}> সিলেট সিটি </button>
+                                <div className='d-flex shippingLocation justify-content-center'>
+                                    <p className=''>Shipping Location: <button className='btn btn-success mx-1 mt-2' required onClick={() => shippingForSylhet()}> সিলেট সিটি </button>
                                         <button className='btn btn-success outsideSylhet' onClick={() => shippingForOutside()}>সিলেট সিটি এর বাইরে </button> </p>
                                 </div>
                                 <br />

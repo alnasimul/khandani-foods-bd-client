@@ -6,6 +6,7 @@ import Navbar from '../../Shared/Navbar/Navbar';
 import OnWay from '../../../images/OrderOnWay.gif';
 import exclamatory from '../../../images/exclamatory.gif';
 import { Link } from 'react-router-dom';
+import './OrderIsOnAway.css';
 
 const OrderIsOnAway = () => {
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
@@ -26,7 +27,7 @@ const OrderIsOnAway = () => {
     return (
         <div className='container'>
             <Navbar></Navbar>
-            <div className='row m-5 d-flex justify-content-center align-items-center'>
+            <div className='row m-5 d-flex justify-content-center align-items-center orderOnWay'>
                 <div className='col-md-6 col-sm-12'>
                     {
                         (tran_id && amount) ? <img src={OnWay} alt="" className='img-fluid' />

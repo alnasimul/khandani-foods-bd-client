@@ -5,24 +5,44 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { UserContext } from '../../../App';
+import { getDatabaseCart } from '../../../utilities/databaseManager';
 
 const Navbar = () => {
   const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [cartItems, setCartItems] = useState({});
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    fetch(`http://khandanifoodsbd.com:443/isAdmin/${loggedInUser.email}`)
+
+    fetch(`http://khandanifoodsbd.com:443/isAdmin/${userInfo ? userInfo.email : loggedInUser.email}`)
       .then(res => res.json())
       .then(data => {
         checkAdmin(data)
       })
-  }, [])
+
+        const cartItems = getDatabaseCart();
+        setCartItems(cartItems);
+ }, [])
   const checkAdmin = (data) => {
     setIsAdmin(data)
-    sessionStorage.setItem('admin', JSON.stringify({admin: data}));
-}
-  console.log(isAdmin)
+    sessionStorage.setItem('admin', JSON.stringify({ admin: data }));
+  }
+
+  const getItemsQuantityFromCart = () => {
+
+    let quantity = 0
+
+    const values = Object.values(cartItems)
+
+    values.map(value => {
+      quantity = quantity + value
+    })
+    return quantity;
+
+  }
+
+  let quantity = getItemsQuantityFromCart();
   return (
     <div className="container ">
       <nav className="navbar navbar-expand-lg navbar-light bg-white">
@@ -42,36 +62,36 @@ const Navbar = () => {
                 <a className="nav-link text-dark" aria-current="page" href="/">হোম</a>
               </li>
               <li className="nav-item mx-3">
-                <Link to='/shop'>
-                  <a className="nav-link text-dark" href=""> শপ  </a>
+                <Link to='/shop' className='text-decoration-none'>
+                  <a className="nav-link text-dark " href=""> শপ  </a>
                 </Link>
               </li>
               <li className="nav-item mx-3">
-                <Link to='/blog'>
+                <Link to='/blog' className='text-decoration-none'>
                   <a className="nav-link text-dark" href="#">ব্লগ</a>
                 </Link>
               </li>
               {
                 isAdmin ? <li className="nav-item mx-3">
-                  <Link to='/admin-panel/dashboard'>
+                  <Link to='/admin-panel/dashboard' className='text-decoration-none'>
                     <a className="nav-link text-dark" href="#">এডমিন প্যানেল</a>
                   </Link>
                 </li> : <li></li>
               }
               {userInfo ? <li className="nav-item mx-3">
-                <Link to='/userProfile'>
+                <Link to='/userProfile' className='text-decoration-none'>
                   <a className="nav-link text-dark" href="#">ইউজার প্রোফাইল </a>
                 </Link>
               </li> : <li></li>
               }
               <li className="nav-item mx-3">
-                <Link to='/cart'>
-                  <span className="nav-link text-dark"><FontAwesomeIcon icon={faShoppingCart} /></span>
+                <Link to='/cart' className='text-decoration-none'>
+                  <span className={quantity > 0 ? "nav-link text-danger rounded-pill border border-danger px-4" : "nav-link text-dark"}><FontAwesomeIcon icon={faShoppingCart} /> {quantity > 0 && quantity}</span>
                 </Link>
               </li>
               <li className="nav-item mx-3">
-                <Link to='/login'>
-                  <a className="nav-link btn btn-danger text-white px-2 py-2" href="#">লগ ইন</a>
+                <Link to='/login' className='text-decoration-none'>
+                  <a className="nav-link btn btn-danger rounded-pill text-white px-3 py-2 loginBtn" href="#">লগ ইন</a>
                 </Link>
               </li>
             </ul>
@@ -80,7 +100,7 @@ const Navbar = () => {
       </nav>
       <br />
       {
-        userInfo && <div className='text-center bg-danger me-auto p-2 text-white center' style={{ width: '300px', borderRadius: '5px', marginRight: '50px' }} >
+        userInfo && <div className='text-center bg-danger me-auto p-2 text-white rounded-pill userName' style={{ width: '250px', }} >
           <strong> <small className='mx-3'> Welcome, {userInfo.name} </small> </strong>
         </div>
       }

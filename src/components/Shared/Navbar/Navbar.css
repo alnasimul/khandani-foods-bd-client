@@ -1,6 +1,32 @@
-@media only screen and (max-width: 768px){
+.text-decoration-none{
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 767.9px){
     [class*="navbar-brand"] {
         max-width: 90px;
         max-height: 90px;
     }
+    [class*="loginBtn"] {
+        margin-top: 7px !important;
+    }
+    [class*="userName"] {
+        margin-left: 50px;
+    }
 }
+
+@media only screen and (min-width: 768px){
+    [class*="loginBtn"] {
+        margin-top: 7px !important;
+    }
+    [class*="userName"] {
+        margin-left: 240px;
+    }
+}
+
+@media only screen and (min-width: 992px){
+    [class*="userName"] {
+        margin-left: 0px;
+    }
+}
+

@@ -61,7 +61,7 @@ function App() {
               <Navbar></Navbar>
               <ProductDetails></ProductDetails>
             </Route>
-            <Route path="/cart">
+            <Route path='/cart'>
               <Navbar></Navbar>
               <Cart></Cart>
             </Route>

@@ -1,0 +1,52 @@
+@media only screen and (max-width: 767.9px){
+    [class*="personalProfile"]{
+        width: 80% !important;
+        height: 200px !important;
+        font-size: 13px;
+     }
+
+     [class*="personalProfile"] h3{
+        font-size: 17px;
+     }
+     
+     [class*="billingAddress"]{
+        width: 80% !important;
+        height: 300px !important;
+        font-size: 13px;
+     }
+     [class*="billingAddress"] h3{
+        font-size: 17px;
+     }
+     
+}
+
+@media only screen and (min-width: 768px){
+    [class*="personalProfile"]{
+        width: 85% !important;
+        font-size: 15px;
+     }
+     
+     [class*="billingAddress"]{
+        width: 85% !important;
+        font-size: 15px;
+     }
+}
+
+@media only screen and (min-width: 992px){
+   
+    [class*="userProfile"]{
+        width: 100% !important;
+        font-size: 15px;
+        display: flex
+     }
+    [class*="personalProfile"]{
+        width: 45% !important;
+        font-size: 15px;
+       
+     }
+     
+     [class*="billingAddress"]{
+        width: 40% !important;
+        font-size: 15px;
+     }
+}

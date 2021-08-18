@@ -3,11 +3,11 @@ import Navbar from '../../Shared/Navbar/Navbar';
 import AddUser from '../AddUser/AddUser';
 import Orders from '../Orders/Orders';
 import UpdateUser from '../UpdateUser/UpdateUser';
+import './UserProfile.css';
 
 const UserProfile = () => {
 
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-    const userData = JSON.parse(sessionStorage.getItem('userData'));
 
     const [orders, setOrders] = useState([]);
     const [userDetail, setUserDetail] = useState({})
@@ -59,7 +59,7 @@ const UserProfile = () => {
         })
             .then(res => res.json())
             .then(data => {
-                const newData = [ ...data.reverse() ]
+                const newData = [...data.reverse()]
                 setOrders(newData)
             })
 
@@ -70,12 +70,12 @@ const UserProfile = () => {
                 authorization: `Bearer ${sessionStorage.getItem('token')}`,
                 mode: "no-cors",
             },
-            
-            
+
+
         })
             .then(res => res.json())
             .then(data => {
-              
+
                 setUserDetail(data)
             })
     }, [])
@@ -86,8 +86,8 @@ const UserProfile = () => {
     return (
         <div className='container'>
             <Navbar></Navbar>
-            <div className='row'>
-                <div className="col-md-5 bg-light m-5 p-5">
+            <div className='row userProfile'>
+                <div className="col-md-5  bg-light m-5 p-5 personalProfile">
                     <div className='d-flex'>
                         <h3>Personal Profile</h3>
                     </div>
@@ -95,7 +95,7 @@ const UserProfile = () => {
                     <p> {userInfo.email} </p>
                 </div>
 
-                <div className="col-md-5 bg-light m-5 p-5">
+                <div className="col-md-5 bg-light m-5 p-5 billingAddress">
                     <div className='d-flex'>
                         <h3> Billing Addresss </h3>
                         {
@@ -113,9 +113,9 @@ const UserProfile = () => {
                         </div>
                     }
                 </div>
-                <div className='row'>
-                    <Orders orders={displayOrders} userDetail={userDetail} pageCount={pageCount} changePage={changePage}></Orders>
-                </div>
+            </div>
+            <div className='row'>
+                <Orders orders={displayOrders} userDetail={userDetail} pageCount={pageCount} changePage={changePage}></Orders>
             </div>
             {
                 modalIsOpen && <AddUser userInfo={userInfo} modalIsOpen={modalIsOpen} closeModal={closeModal}></AddUser>

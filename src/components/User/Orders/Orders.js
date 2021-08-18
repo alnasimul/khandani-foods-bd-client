@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 import OrdersShortLists from './OrdersShortLists/OrdersShortLists';
+import './Orders.css';
 
 const Orders = ({orders, userDetail, pageCount, changePage}) => {
     return (
-        <div className='col-md-12 mt-3'>
+        <div className='col-md-12 mt-3 customerOrders'>
             <OrdersShortLists orders={orders} userDetail={userDetail} ></OrdersShortLists>
             {
                orders.length > 0 &&  <ReactPaginate

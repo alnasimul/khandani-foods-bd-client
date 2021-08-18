@@ -99,31 +99,31 @@ const Login = () => {
             <div className="row">
                 <div className="col-md-6 shadow p-5 mt-5 loginArea">
                     <Link to='/Home'>
-                        <button className="btn btn-danger">Home</button>
+                        <button className="btn btn-danger">হোম</button>
                         <br />
                     </Link>
                     <br />
-                    <h4>{newUser ? 'Create an account' : 'Login'}</h4>
+                    <h5><strong>{newUser ? 'নতুন একাউন্ট খুলুন' : 'লগইন করুন'}</strong></h5>
                     <br />
                     <form action="" onSubmit={handleSubmit(onSubmit, signInOrSignUp())}>
                         {
                             newUser && <div className="form-group">
-                                <label htmlFor="">Your Name</label>
-                                <input className='form-control' {...register("name", { required: true, maxLength: 30 })} />
+                                <label htmlFor="" className='mb-2'><strong>নাম</strong></label>
+                                <input className='form-control' placeholder='নাম' {...register("name", { required: true, maxLength: 30 })} />
                                 {errors.name && <span className="text-danger">This field is required</span>}
                                 <br />
                             </div>
                         }
 
                         <div className="form-group">
-                            <label htmlFor="">Email</label>
-                            <input className='form-control' required {...register("email",  { required: true, pattern: /\S+@\S+\.\S+/ })} />
+                            <label htmlFor="" className='mb-2'><strong>ইমেইল</strong></label>
+                            <input className='form-control' placeholder='ইমেইল' required {...register("email",  { required: true, pattern: /\S+@\S+\.\S+/ })} />
                             {errors.email && <span className="text-danger">This field is required and try again with valid email address.</span>}
                         </div>
                         <br />
                         <div className="form-group">
-                            <label htmlFor="">Password</label>
-                            <input type="password" className='form-control'{...register("password", {required: true })} />
+                            <label htmlFor="" className='mb-2'><strong>পাসওয়ার্ড</strong></label>
+                            <input type="password" className='form-control' placeholder='পাসওয়ার্ড' {...register("password", {required: true })} />
                             {/* { (newUser && errors.password) && <span className="text-danger">password field is required and password should contain at least 6 character and one number</span>} */}
                             {  errors.password && <span className="text-danger">This field is required</span>}
                             {user.error && <p style={{ color: 'red' }}>{user.error}</p>}
@@ -136,22 +136,22 @@ const Login = () => {
                         </div>
                         <div className="form-group mt-2">
                             <Link to='/forgotPassword'>
-                                 <a htmlFor="" className="btn btn-light text-danger">Forgot your password?</a>
+                                 <a htmlFor="" className="btn btn-light text-danger my-2"> <small>পাসওয়ার্ড ভুলে গেছেন ? পাসওয়ার্ড পুনুরুদ্ধার করুন ।</small> </a>
                             </Link>
                         </div>
                         <div className="form-check mt-2 mb-2">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => setNewUser(!newUser)} />
                             <label class="form-check-label" for="flexCheckDefault">
-                                New user sign up
+                                নতুন একাউন্ট
                             </label>
                         </div>
                         <div className="form-group">
-                            <input type="submit" value={newUser ? 'Sign up' : 'Sign in'} className=" btn btn-success" />
+                            <input type="submit" value={newUser ? 'সাইন আপ' : 'লগইন'} className=" btn btn-success" />
                         </div>
                         <hr />
                     </form>
                    
-                    <button className="btn btn-success text-white" onClick={googleSignIn}>Google Sign in</button>
+                    <button className="btn btn-success text-white" onClick={googleSignIn}>গুগল সাইন ইন</button>
                     {(user.success && newUser) && <p style={{ color: 'green' }}>User Created Successfully </p>}
                     {user.isSignedIn && <p className='text-success'>User Logged in successfully</p>}
                     { (newUser && user.success) && <p className='text-success'>A verification email sent to your email address please verify your email address to access your account</p> } 

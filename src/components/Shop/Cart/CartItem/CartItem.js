@@ -17,11 +17,12 @@ const CartItem = ({ item, cartPlusChange, cartSubChange }) => {
         currentItem.quantity = updatedQuantity;
         updatedQuantityCount(updatedQuantity,clickedId);
 
-        console.log(currentItem);
+        // console.log(currentItem);
 
         
         getDatabaseCart();
         cartPlusChange();
+        refresh();
         
     }
     const updatedQuantityCount = (updatedQuantity,clickedId) => {
@@ -36,9 +37,10 @@ const CartItem = ({ item, cartPlusChange, cartSubChange }) => {
                 const updatedQuantity = quantityCount - 1;
                 currentItem.quantity = updatedQuantity;
                 updatedQuantityCount(updatedQuantity,clickedId)
-                console.log(currentItem);
+                // console.log(currentItem);
                 getDatabaseCart();
                 cartSubChange();
+                refresh();
             }
         
     }
@@ -52,7 +54,7 @@ const CartItem = ({ item, cartPlusChange, cartSubChange }) => {
     const refresh = () => {
         return window.location.reload();
     }
-    console.log(quantityCount)
+    // console.log(quantityCount)
     return (
         <div className="d-flex my-3" >
             <div>

@@ -56,8 +56,8 @@ const Shipment = () => {
     //console.log(orderInfo)
     return (
       <div className='container'>
-        <div className='row'>
-            <div className='col-md-5 m-5 bg-light p-5'>
+        <div className='row shippingContainer'>
+            <div className='m-5 bg-light p-5 shippingAddress'>
                 <div className='d-flex'>
                     <h3>Shipping Address:</h3>
                     {

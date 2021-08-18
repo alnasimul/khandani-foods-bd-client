@@ -1,0 +1,14 @@
+@media only screen and (max-width: 767.9px){
+    [class*="paymentGateway"]{
+        width: 90% !important;
+        font-size: 15px;
+        margin-left: 30px !important;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    [class*="paymentGateway"]{
+        width: 40% !important;
+        font-size: 15px;
+    }
+}
