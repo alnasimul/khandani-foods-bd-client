@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Sidebar from '../../Sidebar/Sidebar';
+import './AddProduct.css';
 
 
 
@@ -60,7 +61,7 @@ const AddProduct = () => {
         <div>
             <div className="row" style={{backgroundColor: "rgb(2,1,3, 0.1)", height:'100vh', width:'100.6%'}}>
                 <Sidebar></Sidebar>
-                <div className="col-md-10 col-sm-12 mt-5 bg-light p-5" style={{width:'82%'}}>
+                <div className="col-md-10 col-sm-12 col-12 mt-5 bg-light p-5 addProduct" style={{width:'82%'}}>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <h2 className='text-center text-success'> <strong> Add New Product </strong> </h2>
                         <div className="form-group">
@@ -86,7 +87,7 @@ const AddProduct = () => {
                         {errors.description && <span className='text-danger' >This field is required</span>}
                         <br />
                         <div className="form-group row">
-                            <div className="col-2">
+                            <div className="col-12 col-md-2 col-sm-12 mb-2">
                                 <select className="form-control" name="weight" {...register('weight', { required: true })} >
                                         <option disabled={true} value="Not set">Select weight</option>
                                         <option value="250 gram">250 gram</option>
@@ -95,7 +96,8 @@ const AddProduct = () => {
                                 </select>
                                 {errors.weight && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div className="col-2">
+                
+                            <div className="col-12 col-md-2 col-sm-12 mb-2">
                                 <select className="form-control" name="productType" {...register('productType', { required: true })} >
                                     <option disabled={true} value="Not set">Select Product Type</option>
                                     <option value="Regular">Regular</option>
@@ -103,7 +105,7 @@ const AddProduct = () => {
                                 </select>
                                 {errors.productType && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div className="col-2">
+                            <div className="col-12 col-md-2 col-sm-12 mb-2">
                                 <select className="form-control" name="stock" {...register('stock', { required: true })} >
                                         <option disabled={true} value="Not set">Select stock infot</option>
                                         <option value="In stock">In stock</option>
@@ -111,11 +113,11 @@ const AddProduct = () => {
                                 </select>
                                 {errors.stock && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div className="col-2">
+                            <div className="col-12 col-md-2 col-sm-12 mb-2">
                                 <input {...register('regularPrice', { required: true })} className="form-control" name="regularPrice" placeholder="Regular Price" type="number" />
                                 {errors.regularPrice && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div className="col-2">
+                            <div className="col-12 col-md-2 col-sm-12 mb-2">
                                 <input {...register('salePrice', { required: false })} className="form-control" name="salePrice" placeholder="Sale Price" type="number" />
                                 {errors.salePrice && <span className="text-danger">This field is required</span>}
                             </div>

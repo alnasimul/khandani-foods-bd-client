@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../../Sidebar/Sidebar';
 import OrdersTable from '../OrdersTable/OrdersTable';
+import './Orders.css';
 
 const Orders = () => {
     const [orders,setOrders] = useState([]);
@@ -134,7 +135,7 @@ const Orders = () => {
     return (
         <>
           
-        <section className="row" style={{backgroundColor: "rgb(2,1,3, 0.1), height:'100vh'"}}>
+        <section className="row orders">
             <Sidebar></Sidebar>
             <OrdersTable orders={displayOrders} getPaymentStatus={getPaymentStatus} getConfirmationStatus={getConfirmationStatus} getDeliveryStatus={getDeliveryStatus} getCompleteOrderStatus={getCompleteOrderStatus} deleteOrder={deleteOrder} getOrderStatus={getOrderStatus} pageCount={pageCount} changePage={changePage} loading={loading}></OrdersTable>
         </section>

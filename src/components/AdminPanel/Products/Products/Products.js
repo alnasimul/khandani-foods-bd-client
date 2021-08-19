@@ -52,7 +52,7 @@ const Products = () => {
     console.log(products)
     return (
         <>
-            <div className='row' style={{backgroundColor: "rgb(2,1,3, 0.1)", height:'100vh'}}>
+            <div className='row'>
                 <Sidebar></Sidebar>
                 <ProductsTable products={category ? selectedProducts : products} deleteProduct={deleteProduct} loading={loading} category={category} setCategory={setCategory} ></ProductsTable>
             </div>

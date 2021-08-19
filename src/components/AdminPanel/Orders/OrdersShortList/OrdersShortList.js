@@ -1,5 +1,6 @@
 import React from 'react';
 import OrderShortListDetail from '../OrderShortListDetail/OrderShortListDetail';
+import './OrdersShortList.css';
 
 const OrdersShortList = ({orders,getPaymentStatus, getDeliveryStatus, getConfirmationStatus, getCompleteOrderStatus, getOrderStatus,deleteOrder }) => {
     return (

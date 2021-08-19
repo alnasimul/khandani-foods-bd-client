@@ -3,7 +3,8 @@ import MembersShortLists from '../MembersShortLists/MembersShortLists';
 
 const MembersTable = ({ members, loading, deleteMember }) => {
     return (
-        <div className='col-md-10'>
+        <div className='col-md-10 col-12 col-sm-12 table-responsive my-3'>
+            <h4 className='text-center mb-3'>Khandani Team Members</h4>
             {
                 loading ?
                     <div className={` d-flex justify-content-center m-5 p-5 align-items-center`} style={{ height: '500px' }}>

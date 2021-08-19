@@ -1,0 +1,18 @@
+
+@media only screen and (max-width: 767.9px){
+[class*="barChart"]{
+    width: 80% !important;
+    height: 300px !important;
+    display: none !important;
+}
+[class*="lineChart"]{
+    width: 80% !important;
+    height: 300px !important;
+    display: none !important;
+}
+[class*="doughnutChart"]{
+    width: 60% !important;
+    height: 300px !important;
+    display: none !important;
+}
+}

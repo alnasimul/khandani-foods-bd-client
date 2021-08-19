@@ -36,11 +36,17 @@ const AddBlog = () => {
            }
         console.log(data)
     }
+    if(window.innerWidth > 991 ){
+        var widthValue = '82%';
+    }
+    else{
+        widthValue = '100%'
+    }
     return (
         <div>
-             <div className='row' style={{backgroundColor: "rgb(2,1,3, 0.1)", height:'100vh', width:'100.6%'}}>
+             <div className='row' style={{ width:'100.6%' }}>
                     <Sidebar></Sidebar>
-                    <div className="col-md-10 col-sm-12 mt-5 bg-light p-5 " style={{width:'82%'}}>
+                    <div className="col-md-10 col-sm-12 col-12 mt-5 bg-light p-5 addBlog" style={{width:widthValue}}>
                         <div class="btn-group text-white" role="group" aria-label="Basic example">
                             <Link to='/admin-panel/blog' className="btn btn-danger bx bx-news nav_link p-2  ">
                                 Blogs

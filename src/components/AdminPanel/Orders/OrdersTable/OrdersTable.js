@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDay, faSearch } from '@fortawesome/free-solid-svg-icons';
+import './OrdersTable.css';
 
 const OrdersTable = ({orders,getPaymentStatus,getDeliveryStatus,getOrderStatus,pageCount,changePage,loading,  getConfirmationStatus, getCompleteOrderStatus,deleteOrder}) => {
     return (
        <>
         {/* <div className=""></div> */}
-        <div className="col-md-10 mt-5">
-               <div class="btn-group text-white" role="group" aria-label="Basic example">
+       <div className="col-md-10 col-12 col-sm-12 mt-5 ordersTable table-responsive ">
+               <div class="btn-group text-white ordersTableBtns" role="group" aria-label="Basic example">
                <div class="btn-group text-white mb-5" role="group" aria-label="Basic example">
                         <Link to='/admin-panel/orders-by-date' className=" btn btn-danger "> 
                            <FontAwesomeIcon icon={faCalendarDay}></FontAwesomeIcon> Track orders by date
@@ -22,7 +23,7 @@ const OrdersTable = ({orders,getPaymentStatus,getDeliveryStatus,getOrderStatus,p
                     </div>
              <h2 className="text-danger text-center mb-5">Orders</h2>
             {
-                loading ? <div className={` d-flex justify-content-center m-5 bg-light `} style={{ height: '500px' }}>
+                loading ? <div className={` d-flex justify-content-center m-5`} style={{ height: '500px' }}>
                 <div class="spinner-border text-danger" style={{ width: '3rem', height: '3rem', marginTop: '200px' }} role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>

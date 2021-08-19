@@ -26,10 +26,16 @@ const AddMember = () => {
 
         console.log(data)
     }
+    if(window.innerWidth > 991 ){
+        var widthValue = '83%';
+    }
+    else{
+        widthValue = '100%'
+    }
     return (
-        <div className='row' style={{ backgroundColor: "rgb(2,1,3, 0.1)", height: '100vh', width:'100.6%' }}>
+        <div className='row' style={{ width:'100.6%' }}>
             <Sidebar></Sidebar>
-            <div className="col-md-10 col-sm-12 mt-5 mb-5 bg-light p-5 " style={{ width: '83%', position: 'relative' }}>
+            <div className="col-md-10 col-sm-12 col-12 mt-5 mb-5 bg-light p-5 " style={{ width: widthValue , position: 'relative' }}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h2 className='text-center text-success'> <strong>Add New Member</strong> </h2>
                     <div className="form-group">
@@ -51,7 +57,7 @@ const AddMember = () => {
                     </div>
                     <br />
                     <div className="form-group row">
-                        <div className="col-3">
+                        <div className="col-12 col-md-3 col-sm-6 mb-2">
                             <label className='mb-2 text-success'> <strong> Role </strong></label>
                             <select className="form-control" name="role" {...register('role', { required: true })} >
                                 <option disabled={true} value="Not set">Select Role</option>
@@ -61,7 +67,7 @@ const AddMember = () => {
                             </select>
                             {errors.role && <span className="text-danger">This field is required</span>}
                         </div>
-                        <div className="col-3">
+                        <div className="col-12 col-md-3 col-sm-6 mb-2">
                             <label className='mb-2 text-success'> <strong> Designation </strong></label>
                             <select className="form-control" name="designation" {...register('designation', { required: true })} >
                                 <option disabled={true} value="Not set">Select Designation</option>
@@ -74,12 +80,12 @@ const AddMember = () => {
                             </select>
                             {errors.designation && <span className="text-danger">This field is required</span>}
                         </div>
-                        <div className="col-3">
+                        <div className="col-12 col-md-3 col-sm-6 mb-2">
                             <label className='mb-2 text-success'> <strong> Nid </strong></label>
                             <input className="form-control" placeholder="Nid"  {...register("nid", { required: false })}></input>
                             {errors.nid && <span className="text-danger">This field is required</span>}
                         </div>
-                        <div className="col-3">
+                        <div className="col-12 col-md-3 col-sm-6">
                             <label className='mb-2 text-success'> <strong> Image Link </strong></label>
                             <input className="form-control" placeholder="Image"  {...register("image", { required: false })}></input>
                             {errors.image && <span className='text-danger' >This field is required</span>}

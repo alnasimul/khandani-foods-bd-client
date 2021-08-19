@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import Sidebar from '../../Sidebar/Sidebar';
 import Blogs from '../Blogs/Blogs';
+import './Blog.css';
 
 
 
@@ -93,7 +94,7 @@ const Blog = () => {
         <div>
           
           
-            <div className='row' style={{backgroundColor: "rgb(2,1,3, 0.1)", height:'100vh'}} >
+            <div className='row' >
                 <Sidebar></Sidebar>
                 <Blogs blogs={displayBlogs} getPublish={getPublish} getPublishHome={getPublishHome} deleteBlog={deleteBlog} pageCount={pageCount} changePage={changePage} loading={loading}></Blogs>
             </div>

@@ -27,7 +27,7 @@ const Members = () => {
             })
     }
     return (
-        <div className='row' style={{ backgroundColor: "rgb(2,1,3, 0.1)", height: '100vh'}}>
+        <div className='row' style={{}}>
             <Sidebar></Sidebar>
             <MembersTable members={members} loading={loading} deleteMember={deleteMember}></MembersTable>
         </div>

@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Bar, Line, PolarArea ,Doughnut, } from 'react-chartjs-2';
+import React from 'react';
+import { Bar, Line, Doughnut } from 'react-chartjs-2';
+import './Charts.css';
 
 
 const Charts = ({ data }) => {
@@ -11,7 +12,7 @@ const Charts = ({ data }) => {
     }
     return (
         <>
-            <div className='col-md-4 mx-5 bg-light mt-5 p-3' style={{borderRadius: '7px'}}>
+            <div className='col-md-4 mx-5 bg-light mt-5 p-3 barChart' style={{borderRadius: '7px'}}>
                 <Bar
                     data={data}
                     width={450}
@@ -31,7 +32,7 @@ const Charts = ({ data }) => {
                     }
                 />
             </div>
-            <div className='col-md-4 mx-5 mt-5 bg-light p-3' style={{borderRadius: '7px'}}>
+            <div className='col-md-4 mx-5 mt-5 bg-light p-3 lineChart' style={{borderRadius: '7px'}}>
                 <Line
                     data={data}
                     width={450}
@@ -53,7 +54,7 @@ const Charts = ({ data }) => {
             <div className='col-md-2'>
 
             </div>
-            <div className='col-md-4 mt-5 mx-5 bg-light p-3 mb-5' style={{marginRight: '200px', borderRadius: '7px'}}>
+            <div className='col-md-4 mt-5 mx-5 bg-light p-3 mb-5 doughnutChart' style={{marginRight: '200px', borderRadius: '7px'}}>
                 <Doughnut
                     data={data}
                     width={450}

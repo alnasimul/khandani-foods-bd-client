@@ -1,12 +1,13 @@
 import React from 'react';
 // import ReactPaginate from 'react-paginate';
 import ProductsShortlist from '../ProductsShortList/ProductsShortlist';
+import './ProductsTable.css';
 
 const ProductsTable = ({ products, deleteProduct, loading, category, setCategory }) => {
     console.log(products)
     return (
         <>
-             <div className='col-md-10 ' style={{width:'83%'}}>
+             <div className='col-md-10 productsTable table-responsive' style={{width:'83%'}}>
              <div className="dropdown  mt-5 mb-3 ">
                         <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             ক্যাটাগরি - {(category === null && 'All Products') || (category === 'MixedNuts' ? 'Honey Nuts' : category)}
@@ -21,7 +22,7 @@ const ProductsTable = ({ products, deleteProduct, loading, category, setCategory
                     </div>
 
                 {
-                    loading ? <div className={` d-flex justify-content-center m-5 bg-light `} style={{ height: '500px' }}>
+                    loading ? <div className={` d-flex justify-content-center m-5`} style={{ height: '500px' }}>
                         <div class="spinner-border text-danger" style={{ width: '3rem', height: '3rem', marginTop: '200px' }} role="status">
                             <span class="visually-hidden">Loading...</span>
                         </div>

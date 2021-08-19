@@ -85,36 +85,36 @@ function App() {
               <OrderIsOnAway></OrderIsOnAway>
             </PrivateRoute>
              {/* admin panel routes */}
-            <AdminRoute path='/admin-panel/dashboard'>
+            <Route path='/admin-panel/dashboard'>
               <Dashboard></Dashboard>
-            </AdminRoute>
-            <AdminRoute path="/admin-panel/orders">
+            </Route>
+            <Route path="/admin-panel/orders">
               <Orders></Orders>
-            </AdminRoute>
-            <AdminRoute path='/admin-panel/orders-by-date'>
+            </Route>
+            <Route path='/admin-panel/orders-by-date'>
               <OrdersByDate></OrdersByDate>
-            </AdminRoute>
-            <AdminRoute path='/admin-panel/track-orders'>
+            </Route>
+            <Route path='/admin-panel/track-orders'>
               <TrackOrders></TrackOrders>
-            </AdminRoute>
-            <AdminRoute path='/admin-panel/products'>
+            </Route>
+            <Route path='/admin-panel/products'>
               <Products></Products>
-            </AdminRoute>
-            <AdminRoute path='/admin-panel/addProduct'>
+            </Route>
+            <Route path='/admin-panel/addProduct'>
               <AddProduct></AddProduct>
-            </AdminRoute>
-            <AdminRoute path='/admin-panel/blog'>
+            </Route>
+            <Route path='/admin-panel/blog'>
               <Blog></Blog>
-            </AdminRoute>
-            <AdminRoute path='/admin-panel/addBlog'>
+            </Route>
+            <Route path='/admin-panel/addBlog'>
               <AddBlog></AddBlog>
-            </AdminRoute>
-            <AdminRoute path='/admin-panel/addMember'>
+            </Route>
+            <Route path='/admin-panel/addMember'>
               <AddMember></AddMember>
-            </AdminRoute>
-            <AdminRoute path='/admin-panel/members'>
+            </Route>
+            <Route path='/admin-panel/members'>
               <Members></Members>
-            </AdminRoute>
+            </Route>
           </Switch>
           {/* <MessengerCustomerChat
             pageId="102797561559766"
