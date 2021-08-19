@@ -68,7 +68,7 @@ const BlogShortListDetail = ({blog, getPublish, deleteBlog, getPublishHome}) => 
                 <td><small style={{ fontSize: '13px' }}> <strong>{location}</strong></small></td>
                 <td><small style={{ fontSize: '13px' }}> <strong>{description}</strong></small></td>
                 <td>
-                <div className="dropdown ms-auto" style={{width:''}}>
+                <div className="dropdown ms-auto">
                         <a className="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Select Action
                         </a>

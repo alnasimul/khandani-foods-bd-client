@@ -40,7 +40,7 @@ const UpdateBlogInfo = ({ blog, closeModal }) => {
     return (
         <div>
             <div className='row'>
-                <div className="col-md-11 col-sm-12 m-5 bg-light p-5 ">
+                <div className="col-md-11 col-sm-12 col-12 m-3 bg-light p-5 ">
                     <div class="btn-group text-white" role="group" aria-label="Basic example">
                         <Link to='/admin-panel/blog' onClick={() => closeModal()} className="btn btn-danger bx bx-news nav_link p-2  ">
                             Blogs

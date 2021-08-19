@@ -7,18 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faNewspaper, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
 const Blogs = ({ blogs, getPublish, getPublishHome, deleteBlog, pageCount, changePage, loading }) => {
-    console.log(window.innerWidth)
-
-    if(window.innerWidth > 991 ){
-        var widthValue = '82%';
-    }
-    else{
-        widthValue = '100%'
-    }
+    
     return (
 
         <>
-            <div className='col-md-10 col-sm-12 col-12  mt-5 table-responsive' style={{width: widthValue}}>
+            <div className='col-md-10 col-sm-12 col-12  mt-5 table-responsive' style={{width: '82%'}}>
                 <h1 className='text-center'>Blog Area</h1>
                 <div class="btn-group text-white mb-3 blogsBtn" role="group" aria-label="Basic example">
                     <Link to='/admin-panel/blog' className="btn btn-danger bx bx-news nav_link p-2  ">

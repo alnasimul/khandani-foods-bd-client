@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import Sidebar from '../../Sidebar/Sidebar';
 import Blogs from '../Blogs/Blogs';
+import BlogsAccordion from '../BlogsAccordion/BlogsAccordion';
 import './Blog.css';
 
 
@@ -97,6 +98,7 @@ const Blog = () => {
             <div className='row' >
                 <Sidebar></Sidebar>
                 <Blogs blogs={displayBlogs} getPublish={getPublish} getPublishHome={getPublishHome} deleteBlog={deleteBlog} pageCount={pageCount} changePage={changePage} loading={loading}></Blogs>
+                <BlogsAccordion blogs={displayBlogs} getPublish={getPublish} getPublishHome={getPublishHome} deleteBlog={deleteBlog} pageCount={pageCount} changePage={changePage} loading={loading} ></BlogsAccordion>
             </div>
         </div>
     );

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../../Sidebar/Sidebar';
+import OrdersAccordion from '../OrdersAccordion/OrdersAccordion';
 import OrdersTable from '../OrdersTable/OrdersTable';
 import './Orders.css';
 
@@ -138,6 +139,7 @@ const Orders = () => {
         <section className="row orders">
             <Sidebar></Sidebar>
             <OrdersTable orders={displayOrders} getPaymentStatus={getPaymentStatus} getConfirmationStatus={getConfirmationStatus} getDeliveryStatus={getDeliveryStatus} getCompleteOrderStatus={getCompleteOrderStatus} deleteOrder={deleteOrder} getOrderStatus={getOrderStatus} pageCount={pageCount} changePage={changePage} loading={loading}></OrdersTable>
+            <OrdersAccordion orders={displayOrders} getPaymentStatus={getPaymentStatus} getConfirmationStatus={getConfirmationStatus} getDeliveryStatus={getDeliveryStatus} getCompleteOrderStatus={getCompleteOrderStatus} deleteOrder={deleteOrder} getOrderStatus={getOrderStatus} pageCount={pageCount} changePage={changePage} loading={loading} ></OrdersAccordion>
         </section>
         </>
     );

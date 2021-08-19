@@ -10,7 +10,7 @@ import { faProductHunt, faShopify } from '@fortawesome/free-brands-svg-icons';
 const Sidebar = () => {
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light topNavbar">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light ms-3 topNavbar">
                 <div className="container-fluid">
                     <div>
                         <FontAwesomeIcon icon={faUsers} className='me-3'></FontAwesomeIcon>
@@ -23,42 +23,42 @@ const Sidebar = () => {
                         <ul className="navbar-nav ms-auto ">
                             <li className="nav-item mx-3">
                                 <Link to='/admin-panel/dashboard' className='text-decoration-none'>
-                                    <a className="nav-link text-dark" aria-current="page" href="/">Dashboard</a>
+                                    <a className="nav-link text-dark" aria-current="page" > <FontAwesomeIcon icon={faGripHorizontal} /> Dashboard</a>
                                 </Link>
                             </li>
                             <li className="nav-item mx-3">
                                 <Link to='/admin-panel/orders' className='text-decoration-none'>
-                                    <a className="nav-link text-dark " href=""> Orders </a>
+                                    <a className="nav-link text-dark " href=""> <FontAwesomeIcon icon={faShopify} /> Orders </a>
                                 </Link>
                             </li>
                             <li className="nav-item mx-3">
                                 <Link to='/admin-panel/products' className='text-decoration-none'>
-                                    <a className="nav-link text-dark" href="#">Products</a>
+                                    <a className="nav-link text-dark" href="#"> <FontAwesomeIcon icon={faProductHunt} /> Products</a>
                                 </Link>
                             </li>
                             <li className="nav-item mx-3">
                                 <Link to='/admin-panel/addProduct' className='text-decoration-none'>
-                                    <a className="nav-link text-dark" href="#"> Add Product</a>
+                                    <a className="nav-link text-dark" href="#"> <FontAwesomeIcon icon={faFolderPlus} />  Add Product</a>
                                 </Link>
                             </li>
                             <li className="nav-item mx-3">
                                 <Link to='/admin-panel/blog' className='text-decoration-none'>
-                                    <a className="nav-link text-dark" href="#"> Blogs </a>
+                                    <a className="nav-link text-dark" href="#"> <FontAwesomeIcon icon={faNewspaper} />  Blogs </a>
                                 </Link>
                             </li>
                             <li className="nav-item mx-3">
                                 <Link to='/admin-panel/addBlog' className='text-decoration-none'>
-                                    <a className="nav-link text-dark" href="#"> Add blog </a>
+                                    <a className="nav-link text-dark" href="#"> <FontAwesomeIcon icon={faPlusSquare} /> Add blog </a>
                                 </Link>
                             </li>
                             <li className="nav-item mx-3">
                                 <Link to='/admin-panel/addMember' className='text-decoration-none'>
-                                    <a className="nav-link text-dark" href="#"> Add Member </a>
+                                    <a className="nav-link text-dark" href="#"> <FontAwesomeIcon icon={faUserPlus} /> Add Member </a>
                                 </Link>
                             </li>
                             <li className="nav-item mx-3">
                                 <Link to='/admin-panel/members' className='text-decoration-none'>
-                                    <a className="nav-link text-dark" href="#"> Members </a>
+                                    <a className="nav-link text-dark" href="#"> <FontAwesomeIcon icon={faUsers} /> Members </a>
                                 </Link>
                             </li>
                         </ul>
