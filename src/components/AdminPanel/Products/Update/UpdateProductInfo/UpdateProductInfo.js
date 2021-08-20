@@ -66,7 +66,7 @@ const UpdateProductInfo = ({product,closeModal}) => {
                         {errors.description && <span className='text-danger' >This field is required</span>}
                         <br />
                         <div className="form-group row">
-                            <div className="col-2">
+                            <div className="col-12 col-sm-12 col-md-2 mb-2">
                                 <select className="form-control" defaultValue={weight} name="weight" {...register('weight', { required: false })} >
                                         <option disabled={true} value="Not set">Select Weight</option>
                                         <option value="250 gram">250 gram</option>
@@ -75,7 +75,7 @@ const UpdateProductInfo = ({product,closeModal}) => {
                                 </select>
                                 {errors.weight && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div className="col-2">
+                            <div className="col-12 col-sm-12 col-md-2 mb-2">
                                 <select className="form-control" defaultValue={productType} name="productType" {...register('productType', { required: false })} >
                                     <option disabled={true} value="Not set">Select Product Type</option>
                                     <option value="Regular">Regular</option>
@@ -83,7 +83,7 @@ const UpdateProductInfo = ({product,closeModal}) => {
                                 </select>
                                 {errors.productType && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div className="col-2">
+                            <div className="col-12 col-sm-12 col-md-2 mb-2">
                                 <select className="form-control" name="stock" {...register('stock', { required: true })} >
                                         <option disabled={true} value="Not set">Select stock infot</option>
                                         <option value="In stock">In stock</option>
@@ -91,11 +91,11 @@ const UpdateProductInfo = ({product,closeModal}) => {
                                 </select>
                                 {errors.stock && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div className="col-2">
+                            <div className="col-12 col-sm-12 col-md-2 mb-2">
                                 <input {...register('regularPrice', { required: false })} className="form-control" defaultValue={regularPrice} name="regularPrice" placeholder="Regular Price" type="number" />
                                 {errors.regularPrice && <span className="text-danger">This field is required</span>}
                             </div>
-                            <div className="col-2">
+                            <div className="col-12 col-sm-12 col-md-2">
                                 <input {...register('salePrice', { required: false })} className="form-control" defaultValue={salePrice} name="salePrice" placeholder="Sale Price" type="number" />
                                 {errors.salePrice && <span className="text-danger">This field is required</span>}
                             </div>

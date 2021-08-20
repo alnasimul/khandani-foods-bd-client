@@ -1,5 +1,6 @@
 import React from 'react';
 import MembersShortLists from '../MembersShortLists/MembersShortLists';
+import './MembersTable.css';
 
 const MembersTable = ({ members, loading, deleteMember }) => {
     return (

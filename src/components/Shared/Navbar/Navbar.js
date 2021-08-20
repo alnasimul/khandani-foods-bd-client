@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { UserContext } from '../../../App';
 import { getDatabaseCart } from '../../../utilities/databaseManager';
+import { handleSignOut, initializeLoginFramework } from '../../Auth/Login/loginManager';
 
 const Navbar = () => {
   const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
@@ -21,17 +22,43 @@ const Navbar = () => {
         checkAdmin(data)
       })
 
-        const cartItems = getDatabaseCart();
-        setCartItems(cartItems);
- }, [])
+    const cartItems = getDatabaseCart();
+    setCartItems(cartItems);
+  }, [])
   const checkAdmin = (data) => {
     setIsAdmin(data)
     sessionStorage.setItem('admin', JSON.stringify({ admin: data }));
   }
 
+  initializeLoginFramework();
+  const signOut = () => {
+    handleSignOut()
+      .then(() => {
+        const signedOutUser = {
+          isSignedIn: false,
+          name: '',
+          email: false,
+          photo: '',
+          error: '',
+          success: false
+        }
+        handleResponse(signedOutUser)
+      })
+  }
+
+  const handleResponse = (res) => {
+    sessionStorage.removeItem('userInfo')
+    setLoggedInUser(res);
+    setTimeout(() => {
+      alert('logged out successfully');
+      window.location.reload();
+    }, 2000)
+  }
+
   const getItemsQuantityFromCart = () => {
 
     let quantity = 0
+
 
     const values = Object.values(cartItems)
 
@@ -39,8 +66,8 @@ const Navbar = () => {
       quantity = quantity + value
     })
     return quantity;
-
   }
+
 
   let quantity = getItemsQuantityFromCart();
   return (
@@ -90,9 +117,12 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item mx-3">
-                <Link to='/login' className='text-decoration-none'>
+                {
+                  (userInfo || loggedInUser.email) ? <a className="nav-link btn btn-danger rounded-pill text-white px-3 py-2 loginBtn" href="#" onClick={() => signOut()}  >লগ আউট</a>
+                  : <Link to='/login' className='text-decoration-none'>
                   <a className="nav-link btn btn-danger rounded-pill text-white px-3 py-2 loginBtn" href="#">লগ ইন</a>
-                </Link>
+                  </Link>
+                }
               </li>
             </ul>
           </div>

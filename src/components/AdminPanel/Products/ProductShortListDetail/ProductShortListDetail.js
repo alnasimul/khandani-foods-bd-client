@@ -50,7 +50,7 @@ const ProductShortListDetail = ({ product, index, deleteProduct }) => {
                 <td> <small > <strong> {regularPrice} BDT </strong> </small> </td>
                 <td> <small > <strong> {salePrice ? salePrice + ' BDT' : 'none'}  </strong> </small> </td>
                 <td>
-                    <div className="dropdown" style={{ width: '' }}>
+                    <div className="dropdown">
                         <a className="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Select Action
                         </a>

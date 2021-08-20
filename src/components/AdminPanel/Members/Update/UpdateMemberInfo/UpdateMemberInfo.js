@@ -52,7 +52,7 @@ const UpdateMemberInfo = ({member, closeModal }) => {
             </div>
             <br />
             <div className="form-group row">
-                <div className="col-3">
+                <div className="col-12 col-sm-12 col-md-3 mb-2">
                     <label className='mb-2 text-success'> <strong> Role </strong></label>
                     <select className="form-control" name="role" defaultValue={role} {...register('role', { required: true })} >
                         <option disabled={true} value="Not set">Select Role</option>
@@ -62,7 +62,7 @@ const UpdateMemberInfo = ({member, closeModal }) => {
                     </select>
                     {errors.role && <span className="text-danger">This field is required</span>}
                 </div>
-                <div className="col-3">
+                <div className="col-12 col-sm-12 col-md-3 mb-2">
                     <label className='mb-2 text-success'> <strong> Designation </strong></label>
                     <select className="form-control" name="designation" defaultValue={designation} {...register('designation', { required: true })} >
                         <option disabled={true} value="Not set">Select Designation</option>
@@ -75,12 +75,12 @@ const UpdateMemberInfo = ({member, closeModal }) => {
                     </select>
                     {errors.designation && <span className="text-danger">This field is required</span>}
                 </div>
-                <div className="col-3">
+                <div className="col-12 col-sm-12 col-md-3 mb-2">
                     <label className='mb-2 text-success'> <strong> Nid </strong></label>
                     <input className="form-control" placeholder="Nid" defaultValue={nid} {...register("nid", { required: false })}></input>
                     {errors.nid && <span className="text-danger">This field is required</span>}
                 </div>
-                <div className="col-3">
+                <div className="col-12 col-sm-12 col-md-3">
                     <label className='mb-2 text-success'> <strong> Image Link </strong></label>
                     <input className="form-control" placeholder="Image" defaultValue={image} {...register("image", { required: false })}></input>
                     {errors.image && <span className='text-danger' >This field is required</span>}

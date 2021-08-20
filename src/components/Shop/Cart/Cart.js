@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import exclamatoryMark from '../../../images/exclamatory.png';
 import { getDatabaseCart } from '../../../utilities/databaseManager';
 import { setOrderDetails } from '../../../utilities/orderDetailsManager';
 import CartItem from './CartItem/CartItem';
 import { Link } from 'react-router-dom';
 import './Cart.css'
+import { UserContext } from '../../../App';
 
 const Cart = () => {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [loadedCartData, setLoadedCartData] = useState([])
     const [cart, setCart] = useState([]);
     const [isCartEmpty, setIsCartEmpty] = useState([]);
@@ -177,7 +180,10 @@ const Cart = () => {
                                 </div>
                                 <br />
                                 <Link to='/shipment'>
-                                    <button className='btn btn-danger' onClick={() => proceedForShipment()}>Procced to checkout</button>
+                                  {
+                                     ( userInfo || loggedInUser.email) ?  <button className='btn btn-danger' onClick={() => proceedForShipment()}>অর্ডার চেকাউট করুন</button> 
+                                     : <button className='btn btn-danger' onClick={() => proceedForShipment()}>অর্ডার চেকাউট করতে লগইন করুন</button>
+                                  }  
                                 </Link>
                             </div>
                         </div> : <div className="row">

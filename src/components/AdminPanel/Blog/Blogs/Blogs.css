@@ -8,9 +8,6 @@
 @media only screen and (max-width: 767.9px){
     [class*="col-md-10"]{
         display: none !important;
-        font-size: 9px !important;
-        text-align: none;
-        margin-right: 0 !important;
     }
     [class*="blogsBtn"]{
         display: none !important;
@@ -20,8 +17,5 @@
 @media only screen and (min-width: 992px){
     [class*="blogsTable"]{
         text-align: none;
-    }
-    [class*="blogsBtn"]{
-        display: none !important;
     }
 }

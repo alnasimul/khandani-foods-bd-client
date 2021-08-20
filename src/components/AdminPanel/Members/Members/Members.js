@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../../Sidebar/Sidebar';
+import MembersAccordion from '../MembersAccordion/MembersAccordion';
 import MembersTable from '../MembersTable/MembersTable';
 
 const Members = () => {
@@ -30,6 +31,7 @@ const Members = () => {
         <div className='row' style={{}}>
             <Sidebar></Sidebar>
             <MembersTable members={members} loading={loading} deleteMember={deleteMember}></MembersTable>
+            <MembersAccordion members={members} loading={loading} deleteMember={deleteMember}></MembersAccordion>
         </div>
     );
 };

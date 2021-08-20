@@ -51,7 +51,7 @@ const MembersShortListDetail = ({member, deleteMember, index}) => {
                 <td> <small > <strong> {address}  </strong> </small> </td>
                 <td> <small > <strong> {city}  </strong> </small> </td>
                 <td>
-                    <div className="dropdown" style={{ width: '' }}>
+                    <div className="dropdown">
                         <a className="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Select Action
                         </a>

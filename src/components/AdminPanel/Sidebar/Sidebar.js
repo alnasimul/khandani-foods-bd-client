@@ -1,13 +1,44 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faGripHorizontal, faFolderPlus, faPlusSquare, faUsers, faUserPlus, faBlog, faNewspaper } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faGripHorizontal, faFolderPlus, faPlusSquare, faUsers, faUserPlus,  faNewspaper, faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faProductHunt, faShopify } from '@fortawesome/free-brands-svg-icons';
+import { UserContext } from '../../../App';
+import { handleSignOut, initializeLoginFramework } from '../../Auth/Login/loginManager';
 
 
 
 const Sidebar = () => {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+    initializeLoginFramework();
+    const signOut = () => {
+        handleSignOut()
+        .then(() => {
+            const signedOutUser = {
+                isSignedIn: false,
+                name: '',
+                email: false,
+                photo: '',
+                error: '',
+                success: false
+            }
+            handleResponse(signedOutUser)
+        })
+        
+        console.log("logged out successfully")
+    }
+
+    const handleResponse = (res) => {
+        sessionStorage.removeItem('userInfo')
+        setLoggedInUser(res);
+        setTimeout(() => {
+            alert('logged out successfully');
+            window.location.reload();
+        },3000)
+    }
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light ms-3 topNavbar">
@@ -21,6 +52,11 @@ const Sidebar = () => {
                     </button>
                     <div className="collapse navbar-collapse mx-2 text-dark " id="navbarNav">
                         <ul className="navbar-nav ms-auto ">
+                            <li className="nav-item mx-3">
+                                <Link to="/" className='text-decoration-none'>
+                                    <a className="nav-link text-dark" aria-current="page" > <FontAwesomeIcon icon={faHome} /> Home </a>
+                                </Link>
+                            </li>
                             <li className="nav-item mx-3">
                                 <Link to='/admin-panel/dashboard' className='text-decoration-none'>
                                     <a className="nav-link text-dark" aria-current="page" > <FontAwesomeIcon icon={faGripHorizontal} /> Dashboard</a>
@@ -64,6 +100,11 @@ const Sidebar = () => {
                         </ul>
                     </div>
                 </div>
+                {
+                    userInfo && <div className='text-center me-auto p-2 text-danger rounded-pill border border-danger userName mt-4' style={{ width: '250px', }} >
+                        <strong> <small className='mx-3'> Welcome, {userInfo.name} </small> </strong>
+                    </div>
+                }
             </nav>
             <div className="col-md-2">
                 <div className="sidebar d-flex flex-column justify-content-between col-md-2-special py-5 px-4" style={{ height: "100vh" }}>
@@ -71,10 +112,22 @@ const Sidebar = () => {
                         <li>
                             <p className='text-white'>
                                 <FontAwesomeIcon icon={faUsers}></FontAwesomeIcon> <strong> Khandani Team </strong>
-                                <hr style={{ color: '#fff', opacity: '1.25' }} />
                             </p>
                         </li>
-
+                        <li>
+                            <p className='text-white'>
+                                <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+                                {
+                                    userInfo &&  <strong> <small className=''>{userInfo.name}</small> </strong>
+                                 }
+                            </p>
+                            <hr style={{ color: '#fff', opacity: '1.25' }} />
+                        </li>
+                        <li>
+                            <Link to="/" className="text-white">
+                                <FontAwesomeIcon icon={faHome} /> <span>Home</span>
+                            </Link>
+                        </li>
                         <li>
                             <Link to="/admin-panel/dashboard" className="text-white">
                                 <FontAwesomeIcon icon={faGripHorizontal} /> <span>Dashboard</span>
@@ -118,8 +171,8 @@ const Sidebar = () => {
                             </Link>
                         </li>
                     </ul>
-                    <div>
-                        <Link to="/" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
+                    <div onClick={() => signOut()} >
+                        <Link to="" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
                     </div>
                 </div>
             </div>

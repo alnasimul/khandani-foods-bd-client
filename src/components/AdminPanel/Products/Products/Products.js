@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 
 import Sidebar from '../../Sidebar/Sidebar';
+import ProductsAccordion from '../ProductsAccordion/ProductsAccordion';
 import ProductsTable from '../ProductsTable/ProductsTable';
 
 const Products = () => {
@@ -55,6 +56,7 @@ const Products = () => {
             <div className='row'>
                 <Sidebar></Sidebar>
                 <ProductsTable products={category ? selectedProducts : products} deleteProduct={deleteProduct} loading={loading} category={category} setCategory={setCategory} ></ProductsTable>
+                <ProductsAccordion products={category ? selectedProducts : products} deleteProduct={deleteProduct} loading={loading} category={category} setCategory={setCategory}></ProductsAccordion>
             </div>
         </>
     );

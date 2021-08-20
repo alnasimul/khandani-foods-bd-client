@@ -1,14 +1,11 @@
 import React from 'react';
-// import ReactPaginate from 'react-paginate';
-import ProductsShortlist from '../ProductsShortList/ProductsShortlist';
-import './ProductsTable.css';
+import SingleProductAccordion from '../SingleProductAccordion/SingleProductAccordion';
+import './ProductsAccordion.css';
 
-const ProductsTable = ({ products, deleteProduct, loading, category, setCategory }) => {
-    console.log(products)
+const ProductsAccordion = ({ products, deleteProduct, loading, category, setCategory }) => {
     return (
-        <>
-             <div className='col-md-10 table-responsive' style={{width:'83%'}}>
-             <div className="dropdown  mt-5 mb-3 ">
+        <div className='col-md-12 col-sm-12 col-12 productsAccordion table-responsive'>
+             <div className="dropdown ms-3  mt-5 mb-3 ">
                         <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             ক্যাটাগরি - {(category === null && 'All Products') || (category === 'MixedNuts' ? 'Honey Nuts' : category)}
                         </button>
@@ -29,13 +26,12 @@ const ProductsTable = ({ products, deleteProduct, loading, category, setCategory
                         <div class="spinner-grow text-danger" style={{ width: '3rem', height: '3rem', marginTop: '200px' }} role="status">
                             <span class="visually-hidden">Loading...</span>
                         </div>
-                    </div> : (products.length > 0 ?
-                        <ProductsShortlist products={products} deleteProduct={deleteProduct}></ProductsShortlist> : <div className='text-center text-secondary m-5 p-5'>
-                            :
-                            <h1> No product available </h1>
-                        </div>
-                    )
-                }
+                    </div> : (products.length > 0 ? products.map((product, index) => <SingleProductAccordion  product={product} deleteProduct={deleteProduct} index={index+1}></SingleProductAccordion>)
+                    
+                    : <div className='text-center text-secondary m-5 p-5'>
+                        <h1> No product available </h1>
+                    </div>
+                )}
 
                 {/* {
                     products.length > 0 &&  <ReactPaginate
@@ -55,8 +51,7 @@ const ProductsTable = ({ products, deleteProduct, loading, category, setCategory
                     />
                     } */}
             </div>
-        </>
     );
 };
 
-export default ProductsTable;
+export default ProductsAccordion;
