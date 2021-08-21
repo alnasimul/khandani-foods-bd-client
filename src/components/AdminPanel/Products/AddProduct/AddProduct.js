@@ -7,6 +7,7 @@ import './AddProduct.css';
 
 const AddProduct = () => {
     const { register, handleSubmit,  formState: { errors } } = useForm();
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     // const [file, setFile] = useState(null);
 
     // const handleFileChange = (e) => {
@@ -32,8 +33,11 @@ const AddProduct = () => {
        // formData.append('file',file);
 
        if(window.confirm('Are you sure want to add this product to database ?')){
-        fetch('http://khandanifoodsbd.com:443/addProduct', {
+        fetch(`http://khandanifoodsbd.com:443/addProduct?email=${userInfo.email}`, {
             method: 'POST',
+            headers: {
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
+            },
             body: formData
         })
             .then(response => response.json())

@@ -19,6 +19,7 @@ const Cart = () => {
     const [tax, setTax] = useState(0);
     const [shippingCost, setShippingCost] = useState(0);
     const [shippingLocation, setShippingLocation] = useState('');
+    const [disabled, setDisabled] = useState(true);
 
 
     const cartPlusChanges = () => {
@@ -52,7 +53,7 @@ const Cart = () => {
 
         setIsCartEmpty(productKeys);
 
-        if(isCartEmpty.length === 0){
+        if (isCartEmpty.length === 0) {
             setLoading(false)
         }
 
@@ -175,16 +176,30 @@ const Cart = () => {
                                 <p>Shiping fee: {shippingCost} </p>
                                 <p>Subtotal : {subtotal + shippingCost} </p>
                                 <div className='d-flex shippingLocation justify-content-center'>
-                                    <p className=''>Shipping Location: <button className='btn btn-success mx-1 mt-2' required onClick={() => shippingForSylhet()}> সিলেট সিটি </button>
-                                        <button className='btn btn-success outsideSylhet' onClick={() => shippingForOutside()}>সিলেট সিটি এর বাইরে </button> </p>
+                                    <p className=''>Shipping Location: <button className='btn btn-success mx-1 mt-2' required onClick={() => {
+                                        shippingForSylhet();
+                                        setDisabled(false);
+                                    }}> সিলেট সিটি </button>
+                                        <button className='btn btn-success outsideSylhet' onClick={() => {
+                                            shippingForOutside();
+                                            setDisabled(false);
+                                        }}>সিলেট সিটি এর বাইরে </button> </p>
                                 </div>
                                 <br />
-                                <Link to='/shipment'>
-                                  {
-                                     ( userInfo || loggedInUser.email) ?  <button className='btn btn-danger' onClick={() => proceedForShipment()}>অর্ডার চেকাউট করুন</button> 
-                                     : <button className='btn btn-danger' onClick={() => proceedForShipment()}>অর্ডার চেকাউট করতে লগইন করুন</button>
-                                  }  
-                                </Link>
+                                {
+                                    (userInfo || loggedInUser.email) ?
+                                        <Link to='/shipment' className={disabled === true ? 'btn btn-danger disabled' : 'btn btn-danger'} onClick={() => proceedForShipment()}>
+                                            অর্ডার চেকাউট করুন
+                                        </Link>
+                                        : <Link to='/shipment' className={disabled === true ? 'btn btn-danger disabled' : 'btn btn-danger'} onClick={() => proceedForShipment()}>
+                                            অর্ডার চেকাউট করতে লগইন করুন
+                                        </Link>
+                                }
+                                <br />
+                                <br />
+                                {
+                                    disabled && <span className='text-danger'> আপনি শিপিং লোকেশন নির্বাচন করেননি শিপিং লোকেশন নির্বাচন করে অর্ডার প্রসেস করুন ধন্যবাদ ।</span>
+                                }
                             </div>
                         </div> : <div className="row">
                             <div className="col-md-12 text-center my-5 py-5" >

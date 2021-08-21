@@ -3,15 +3,17 @@ import { useForm } from 'react-hook-form';
 
 const UpdateMemberInfo = ({member, closeModal }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
 
     const {_id,  name, email, phone, image, role, designation, nid, address, city } = member;
 
     const onSubmit = data => {
         if(window.confirm(`Are sure want to update ${name}'s profile ?`)){
-            fetch(`http://khandanifoodsbd.com:443/updateMember/${_id}`,{
+            fetch(`http://khandanifoodsbd.com:443/updateMember/${_id}?email=${userInfo.email}`,{
                 method: 'PATCH',
                 headers: {
-                    'Content-Type' : 'application/json'
+                    'Content-Type' : 'application/json',
+                    authorization: `Bearer ${sessionStorage.getItem('token')}`
                 },
                 body: JSON.stringify(data)
             })

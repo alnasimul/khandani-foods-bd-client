@@ -46,7 +46,7 @@ const SingleBlogAccordion = ({ blog, index, getPublish, deleteBlog, getPublishHo
         }
     }
     return (
-        <div class="accordion w-100" id="accordionExample">
+        <div class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id={`heading${index}`}>
                     <button class="accordion-button collapsed  text-danger" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${index}`} aria-expanded="false" aria-controls="collapseTwo">

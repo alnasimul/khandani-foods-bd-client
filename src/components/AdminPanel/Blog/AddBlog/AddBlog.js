@@ -5,6 +5,7 @@ import Sidebar from '../../Sidebar/Sidebar';
 
 const AddBlog = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     const onSubmit = data => {
         data.publish = false;
         data.created = new Date().toDateString();
@@ -21,8 +22,11 @@ const AddBlog = () => {
         formData.append('file',data.file[0]);
 
         if(window.confirm('Are you sure want to add this blog to database ?')){
-            fetch('http://khandanifoodsbd.com:443/addBlog', {
+            fetch(`http://khandanifoodsbd.com:443/addBlog?email=${userInfo.email}`, {
                 method: 'POST',
+                headers: {
+                    authorization: `Bearer ${sessionStorage.getItem('token')}`
+                },
                 body: formData
             })
                 .then(response => response.json())

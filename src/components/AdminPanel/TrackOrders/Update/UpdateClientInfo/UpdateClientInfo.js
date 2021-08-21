@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const UpdateClientInfo = ({order,closeModal}) => {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     const { register, handleSubmit,formState: { errors }   } = useForm();
 
     const { _id, name, phone, email, address, city } = order;
@@ -11,10 +12,11 @@ const UpdateClientInfo = ({order,closeModal}) => {
         const updatedData = { ...data }
 
         if(window.confirm('Are you sure to proceed ?')){
-        fetch(`http://khandanifoodsbd.com:443/updateClientInfo/${_id}`,{
+        fetch(`http://khandanifoodsbd.com:443/updateClientInfo/${_id}?email=${userInfo.email}`,{
             method: 'PATCH',
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type' : 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
             },
             body: JSON.stringify(updatedData)
         })

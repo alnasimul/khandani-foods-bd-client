@@ -6,20 +6,32 @@ import MembersTable from '../MembersTable/MembersTable';
 const Members = () => {
     const [members, setMembers] = useState([]);
     const [loading, setLoading] = useState(true);
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
 
     useEffect(() => {
-        fetch('http://khandanifoodsbd.com:443/members')
-        .then( res => res.json() )
-        .then( data => {
-            setMembers(data)
-            setLoading(false);
-        })
+        fetch(`http://khandanifoodsbd.com:443/members?email=${userInfo.email}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
+            }
 
-    },[])
+        })
+            .then(res => res.json())
+            .then(data => {
+                setMembers(data)
+                setLoading(false);
+            })
+
+    }, [])
 
     const deleteMember = id => {
-        fetch(`http://khandanifoodsbd.com:443/deleteMember/${id}`, {
-            method: 'DELETE'
+        fetch(`http://khandanifoodsbd.com:443/deleteMember/${id}?email=${userInfo.email}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
+            }
         })
             .then(res => res.json())
             .then(data => {

@@ -2,7 +2,7 @@ import React from 'react';
 import './OrderShortListDetail.css';
 
 const OrderShortListDetail = ({ order, getPaymentStatus, getDeliveryStatus,getOrderStatus, getConfirmationStatus, getCompleteOrderStatus, deleteOrder }) => {
-    const { _id, orderId, name, email, phone, city, address, totalBill, shippingCost, created, cart,paymentStatus,deliveryStatus, confirmStatus, completeStatus } = order;
+    const { _id, orderId, name, email, phone, city, address, totalBill, shippingCost, created, cart,paymentStatus,deliveryStatus, confirmStatus, completeStatus, paymentMethod } = order;
 
     const alertForPayment = (status) => {
         if(window.confirm('Are you sure want to update payment status for order id # '+orderId + ' ?')){
@@ -38,7 +38,7 @@ const OrderShortListDetail = ({ order, getPaymentStatus, getDeliveryStatus,getOr
     return (
         <>
             <tr className="text-darl">
-                <td><small style={{ fontSize: '13px' }}> <strong>#{orderId}</strong> </small></td>
+                <td><small style={{ fontSize: '13px' }}> <strong>#{orderId} - ({paymentMethod})</strong> </small></td>
                 <td> <small style={{ fontSize: '13px' }}> <strong>{name}</strong></small></td>
                 <td><small style={{ fontSize: '13px' }}> <strong>{email}</strong></small></td>
                 <td><small style={{ fontSize: '13px' }}> <strong>{phone}</strong></small></td>

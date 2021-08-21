@@ -5,6 +5,7 @@ import OrdersTable from '../OrdersTable/OrdersTable';
 import './Orders.css';
 
 const Orders = () => {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     const [orders,setOrders] = useState([]);
     const [paymentStatus,setPaymentStatus] = useState('');
     const [deliveryStatus,setDeliveryStatus] = useState('');
@@ -31,10 +32,11 @@ const Orders = () => {
 
         if(id){
             setPaymentStatus(status);
-            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}`,{
+            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}?email=${userInfo.email}`,{
                 method:'PATCH',
                 headers: {
-                    'Content-Type' : 'application/json'
+                    'Content-Type' : 'application/json',
+                    authorization: `Bearer ${sessionStorage.getItem('token')}`
                 },
                 body: JSON.stringify({paymentStatus: status})
             })
@@ -46,10 +48,11 @@ const Orders = () => {
     const getConfirmationStatus= (id,status) => {
         console.log(id,status)
         if(id){
-            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}`,{
+            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}?email=${userInfo.email}`,{
                 method:'PATCH',
                 headers: {
-                    'Content-Type' : 'application/json'
+                    'Content-Type' : 'application/json',
+                    authorization: `Bearer ${sessionStorage.getItem('token')}`
                 },
                 body: JSON.stringify({confirmStatus: status})
             })
@@ -62,10 +65,11 @@ const Orders = () => {
         console.log(id,status)
         if(id){
             setDeliveryStatus(status);
-            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}`,{
+            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}?email=${userInfo.email}`,{
                 method:'PATCH',
                 headers: {
-                    'Content-Type' : 'application/json'
+                    'Content-Type' : 'application/json',
+                    authorization: `Bearer ${sessionStorage.getItem('token')}`
                 },
                 body: JSON.stringify({deliveryStatus: status})
             })
@@ -77,10 +81,11 @@ const Orders = () => {
     const getCompleteOrderStatus = (id,status) => {
         console.log(id,status)
         if(id){
-            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}`,{
+            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}?email=${userInfo.email}`,{
                 method:'PATCH',
                 headers: {
-                    'Content-Type' : 'application/json'
+                    'Content-Type' : 'application/json',
+                    authorization: `Bearer ${sessionStorage.getItem('token')}`
                 },
                 body: JSON.stringify({completeStatus: status})
             })
@@ -92,10 +97,11 @@ const Orders = () => {
     const getOrderStatus = (id,status) => {
         console.log(id,status)
         if(id){
-            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}`,{
+            fetch(`http://khandanifoodsbd.com:443/updateStatus/${id}?email=${userInfo.email}`,{
                 method:'PATCH',
                 headers: {
-                    'Content-Type' : 'application/json'
+                    'Content-Type' : 'application/json',
+                    authorization: `Bearer ${sessionStorage.getItem('token')}`
                 },
                 body: JSON.stringify({orderStatus: status})
             })
@@ -109,8 +115,12 @@ const Orders = () => {
 
     const deleteOrder = id => {
         if(id){
-            fetch(`http://khandanifoodsbd.com:443/deleteOrder/${id}`,{
+            fetch(`http://khandanifoodsbd.com:443/deleteOrder/${id}?email=${userInfo.email}`,{
                 method: 'DELETE',
+                headers: {
+                    'Content-Type' : 'application/json',
+                    authorization: `Bearer ${sessionStorage.getItem('token')}`
+                },
             })
             .then( res => res.json() )
             .then( data => {
@@ -125,7 +135,13 @@ const Orders = () => {
     console.log(paymentStatus,deliveryStatus);
 
     useEffect(() => {
-        fetch('http://khandanifoodsbd.com:443/getOrders')
+        fetch(`http://khandanifoodsbd.com:443/getOrders?email=${userInfo.email}`,{
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
+            },
+        })
         .then( res => res.json())
         .then( data => {
             setOrders(data);

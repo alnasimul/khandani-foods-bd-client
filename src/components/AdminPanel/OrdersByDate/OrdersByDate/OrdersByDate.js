@@ -9,6 +9,7 @@ import { faCalendarDay, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 const OrdersByDate = () => {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     const [selectedDate, setSelectedDate] = useState(new Date())
     const [orders, setOrders] = useState([])
     const handleDateChange = date => {
@@ -16,10 +17,11 @@ const OrdersByDate = () => {
     }
     useEffect(() => {
         const newDate = selectedDate.toDateString();
-        fetch('http://khandanifoodsbd.com:443/ordersByDate', {
+        fetch(`http://khandanifoodsbd.com:443/ordersByDate?email=${userInfo.email}`, {
             method: "POST",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
             },
             body: JSON.stringify({ date: newDate })
         })

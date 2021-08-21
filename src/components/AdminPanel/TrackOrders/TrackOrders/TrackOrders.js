@@ -5,6 +5,7 @@ import OrderFilterForm from '../OrderFilterForm/OrderFilterForm';
 import OrdersShortList from '../TrackOrdersShortLIst/TrackOrdersShortList';
 
 const TrackOrders = () => {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     const [searchData, setSearchData] = useState(null);
     const [trackedOrders,setTrackedOrders] = useState([])
 
@@ -12,10 +13,11 @@ const TrackOrders = () => {
         setSearchData(data);
     }
     useEffect(() => {
-        fetch('http://khandanifoodsbd.com:443/trackOrder',{
+        fetch(`http://khandanifoodsbd.com:443/trackOrder?email=${userInfo.email}`,{
         method: 'POST',
         headers: {
-            'content-type' : 'application/json'
+            'content-type' : 'application/json',
+            authorization: `Bearer ${sessionStorage.getItem('token')}`
         },
         body: JSON.stringify(searchData)
     })

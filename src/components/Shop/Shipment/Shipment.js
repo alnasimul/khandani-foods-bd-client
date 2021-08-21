@@ -58,8 +58,8 @@ const Shipment = () => {
       <div className='container'>
         <div className='row shippingContainer'>
             <div className='m-5 bg-light p-5 shippingAddress'>
-                <div className='d-flex'>
-                    <h3>Shipping Address:</h3>
+                <div className='d-flex mb-3'>
+                    <h3><strong>শিপিং এড্রেস</strong></h3>
                     {
                         userDetail.address ? <button className="btn btn-danger ms-auto" onClick={ () => openModalForUpdate() }>Edit</button> : <button className="btn btn-danger ms-auto" onClick={ () => openModal() }>Add</button> 
                     }

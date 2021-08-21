@@ -1,11 +1,9 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-
 import Sidebar from '../../Sidebar/Sidebar';
 import Blogs from '../Blogs/Blogs';
 import BlogsAccordion from '../BlogsAccordion/BlogsAccordion';
-import './Blog.css';
 
 
 
@@ -13,6 +11,7 @@ const Blog = () => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(0);
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
    
     const blogsPerPage = 5 ;
 
@@ -32,10 +31,11 @@ const Blog = () => {
 
     const getPublish = (status, id) => {
 
-        fetch(`http://khandanifoodsbd.com:443/updateBlogPublishStatus/${id}`, {
+        fetch(`http://khandanifoodsbd.com:443/updateBlogPublishStatus/${id}?email=${userInfo.email}`, {
             method: 'PATCH',
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
             },
             body: JSON.stringify({ publish: status })
         })
@@ -50,10 +50,11 @@ const Blog = () => {
 
     const getPublishHome = (status, id) => {
 
-        fetch(`http://khandanifoodsbd.com:443/updateBlogPublishHomeStatus/${id}`, {
+        fetch(`http://khandanifoodsbd.com:443/updateBlogPublishHomeStatus/${id}?email=${userInfo.email}`, {
             method: 'PATCH',
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
             },
             body: JSON.stringify({ homeBlog: status })
         })
@@ -69,8 +70,12 @@ const Blog = () => {
     const deleteBlog = id => {
         console.log(id);
 
-        fetch(`http://khandanifoodsbd.com:443/deleteBlog/${id}`, {
-            method: 'DELETE'
+        fetch(`http://khandanifoodsbd.com:443/deleteBlog/${id}?email=${userInfo.email}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
+            }
         })
             .then(res => res.json())
             .then(data => {
@@ -81,7 +86,14 @@ const Blog = () => {
     }
 
     useEffect(() => {
-        fetch('http://khandanifoodsbd.com:443/getBlogs' )
+        fetch(`http://khandanifoodsbd.com:443/getBlogs?email=${userInfo.email}`,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
+            }
+         }
+    )
             .then(res => res.json())
             .then(data => {
                 const reversedData = [...data.reverse()]

@@ -2,7 +2,7 @@ import React from 'react';
 
 const SingleOrderAccordion = ({ order, index, getPaymentStatus, getConfirmationStatus, getDeliveryStatus, getCompleteOrderStatus, deleteOrder, getOrderStatus }) => {
 
-    const { _id, orderId, name, email, phone, city, address, totalBill, shippingCost, created, cart, paymentStatus, deliveryStatus, confirmStatus, completeStatus } = order;
+    const { _id, orderId, name, email, phone, city, address, totalBill, shippingCost, created, cart, paymentStatus, deliveryStatus, confirmStatus, completeStatus, paymentMethod } = order;
 
     const alertForPayment = (status) => {
         if (window.confirm('Are you sure want to update payment status for order id # ' + orderId + ' ?')) {
@@ -39,7 +39,7 @@ const SingleOrderAccordion = ({ order, index, getPaymentStatus, getConfirmationS
             <div class="accordion-item">
                 <h2 class="accordion-header" id={`heading${index}`}>
                     <button class="accordion-button collapsed  text-danger" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${index}`} aria-expanded="false" aria-controls="collapseTwo">
-                        #{orderId}
+                        #{orderId} - ({paymentMethod})
                     </button>
                 </h2>
                 <div id={`collapse${index}`} class="accordion-collapse collapse" aria-labelledby={`heading${index}`} data-bs-parent="#accordionExample">

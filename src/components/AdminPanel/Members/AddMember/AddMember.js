@@ -4,6 +4,7 @@ import Sidebar from '../../Sidebar/Sidebar';
 
 const AddMember = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
 
     const onSubmit = data => {
         const id = Math.ceil( Math.random() * 10000 )
@@ -11,10 +12,11 @@ const AddMember = () => {
         data.id = 'KM' + Math.round(id).toString();
 
         if(window.confirm('Are you sure want to add this member to database ?')){
-            fetch('http://khandanifoodsbd.com:443/addMember',{
+            fetch(`http://khandanifoodsbd.com:443/addMember?email=${userInfo.email}`,{
                 method: 'POST',
                 headers: {
-                    'Content-Type' : 'application/json'
+                     'Content-Type' : 'application/json',
+                     authorization: `Bearer ${sessionStorage.getItem('token')}`
                 },
                 body: JSON.stringify({...data})
             })

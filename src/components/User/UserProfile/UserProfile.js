@@ -88,16 +88,16 @@ const UserProfile = () => {
             <Navbar></Navbar>
             <div className='row userProfile'>
                 <div className="col-md-5  bg-light m-5 p-5 personalProfile">
-                    <div className='d-flex'>
-                        <h3>Personal Profile</h3>
+                    <div className='d-flex mb-3'>
+                        <h3><strong>ব্যাক্তিগত প্রোফাইল</strong></h3>
                     </div>
                     <p> {userInfo.name}</p>
                     <p> {userInfo.email} </p>
                 </div>
 
                 <div className="col-md-5 bg-light m-5 p-5 billingAddress">
-                    <div className='d-flex'>
-                        <h3> Billing Addresss </h3>
+                    <div className='d-flex mb-3'>
+                        <h3> <strong>বিলিং এড্রেস</strong> </h3>
                         {
                             userDetail.email ? <button className="btn btn-danger ms-auto" onClick={() => openModalForUpdate()}> Edit </button> : <button className="btn btn-danger ms-auto" onClick={() => openModal()}>Add</button>
                         }

@@ -6,6 +6,7 @@ import ProductsAccordion from '../ProductsAccordion/ProductsAccordion';
 import ProductsTable from '../ProductsTable/ProductsTable';
 
 const Products = () => {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     const [products, setProducts] = useState([]);
     const [category, setCategory] = useState('Honey')
     const [loading, setLoading] = useState(true);
@@ -27,8 +28,12 @@ const Products = () => {
     // };
 
     const deleteProduct = id => {
-        fetch(`http://khandanifoodsbd.com:443/deleteProduct/${id}`, {
-            method: 'DELETE'
+        fetch(`http://khandanifoodsbd.com:443/deleteProduct/${id}?email=${userInfo.email}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
+            },
         })
             .then(res => res.json())
             .then(data => {
@@ -37,7 +42,13 @@ const Products = () => {
             })
     }
     useEffect(() => {
-        fetch(`http://khandanifoodsbd.com:443/getProducts/`)
+        fetch(`http://khandanifoodsbd.com:443/getProducts?email=${userInfo.email}`,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
+            },
+        })
             .then(res => res.json())
             .then(data => {
                 setProducts(data)

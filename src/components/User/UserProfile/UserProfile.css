@@ -36,17 +36,21 @@
    
     [class*="userProfile"]{
         width: 100% !important;
-        font-size: 15px;
         display: flex
+     }
+      [class*="userProfile"] h3{
+      
+        font-size: 21px;
+       
      }
     [class*="personalProfile"]{
         width: 45% !important;
-        font-size: 15px;
+        font-size: 17px;
        
      }
      
      [class*="billingAddress"]{
         width: 40% !important;
-        font-size: 15px;
+        font-size: 17px;
      }
 }

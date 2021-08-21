@@ -5,10 +5,17 @@ import Charts from './Charts/Charts';
 import TotalSalesOfCurrentMonth from './TotalSalesOfCurrentMonth/TotalSalesOfCurrentMonth';
 
 const Dashboard = () => {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     const [orders, setOrders] = useState([])
     const year = new Date().getFullYear();
     useEffect(() => {
-        fetch(`http://khandanifoodsbd.com:443/getOrdersByYear/${year}`)
+        fetch(`http://khandanifoodsbd.com:443/getOrdersByYear/${year}?email=${userInfo.email}`,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
+            },
+        })
             .then(res => res.json())
             .then(data => {
                 setOrders(data)

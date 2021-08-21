@@ -4,15 +4,13 @@ import { Link } from 'react-router-dom';
 
 const UpdateBlogInfo = ({ blog, closeModal }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
 
     const { _id, title, location, description } = blog;
 
     const onSubmit = data => {
-
-
-
-
-        if (window.confirm('Are you sure want to update this blog data ?')) {
+            
+            if (window.confirm('Are you sure want to update this blog data ?')) {
             const formData = new FormData()
 
             formData.append('title', data.title);
@@ -21,8 +19,11 @@ const UpdateBlogInfo = ({ blog, closeModal }) => {
             if (data.file.length > 0) {
                 formData.append('file', data.file[0]);
             }
-            fetch(`http://khandanifoodsbd.com:443/updateBlog/${_id}`, {
+            fetch(`http://khandanifoodsbd.com:443/updateBlog/${_id}?email=${userInfo.email}`, {
                 method: 'PATCH',
+                headers: {
+                    authorization: `Bearer ${sessionStorage.getItem('token')}`
+                },
                 body: formData
             })
                 .then(res => res.json())

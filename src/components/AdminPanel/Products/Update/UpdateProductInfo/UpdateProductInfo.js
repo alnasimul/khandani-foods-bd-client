@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const UpdateProductInfo = ({product,closeModal}) => {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     const { register, handleSubmit,formState: { errors }   } = useForm();
 
     const {_id, id, title, category, description, weight, productType, regularPrice, salePrice } = product;
@@ -22,8 +23,11 @@ const UpdateProductInfo = ({product,closeModal}) => {
         formData.append('image',data.image[0]);
 
         if(window.confirm(`Are sure want to update ${title} ${weight} ?`)){
-            fetch(`http://khandanifoodsbd.com:443/updateProduct/${_id}`,{
+            fetch(`http://khandanifoodsbd.com:443/updateProduct/${_id}?email=${userInfo.email}`,{
                 method: 'PATCH',
+                headers: {
+                    authorization: `Bearer ${sessionStorage.getItem('token')}`
+                },
                 body: formData
             })
             .then( res => res.json() )
