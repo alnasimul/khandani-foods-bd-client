@@ -33,7 +33,7 @@ const Products = ({ item }) => {
                 }
             
                 <Link to={'/product/' + id}>
-                     <button className="btn btn-danger">View Product</button>
+                     <button className="btn btn-danger">প্রোডাক্ট বিস্তারিত</button>
                 </Link>
             
         </div>

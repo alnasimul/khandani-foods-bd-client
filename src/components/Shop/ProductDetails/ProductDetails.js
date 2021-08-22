@@ -45,9 +45,9 @@ const ProductDetails = () => {
     }
 
     const getPercentage = (value1, value2) => {
-        return 100 - (value1/value2 ) * 100
-     } 
- 
+        return 100 - (value1 / value2) * 100
+    }
+
     const percent = getPercentage(salePrice, regularPrice)
 
     console.log(key);
@@ -57,12 +57,12 @@ const ProductDetails = () => {
 
             {
                 product.image ? <div className="row productDetails"  >
-                    <div className="p-3 mt-2 productDescription bg-light" style={{ borderRadius: '5px '}}>
+                    <div className="p-3 mt-2 productDescription bg-light" style={{ borderRadius: '5px ' }}>
                         <div className='d-flex justify-content-between'>
-                        <h2 className="">{title}</h2>
-                        {
-                            stock === 'In stock' ? <p className='mt-2'> <span className='rounded-pill bg-success text-white p-2'>{stock}</span> </p> : <p className='mt-2'><span className="rounded-pill bg-danger text-white p2">{stock}</span></p>
-                        }
+                            <h2 className="">{title}</h2>
+                            {
+                                stock === 'In stock' ? <p className='mt-2'> <span className='rounded-pill bg-success text-white p-2'>{stock}</span> </p> : <p className='mt-2'><span className="rounded-pill bg-danger text-white p2">{stock}</span></p>
+                            }
                         </div>
                         <br />
                         <p>{description}</p>
@@ -81,26 +81,24 @@ const ProductDetails = () => {
                             <button className="btn btn-danger" onClick={() => keyChangerFor500Gram(key)}>500 gram</button>
                         </div>
                         <br />
-                        <p> <strong>  { productType === 'Sale' ? <del className='text-danger'> Price: ৳   {parseInt(regularPrice) * quantity } টাকা । </del> : <span> Price: ৳ {parseInt(regularPrice) * quantity } টাকা । </span> }   </strong> </p>
+                        <p> <strong>  {productType === 'Sale' ? <del className='text-danger'> Price: ৳   {parseInt(regularPrice) * quantity} টাকা । </del> : <span> Price: ৳ {parseInt(regularPrice) * quantity} টাকা । </span>}   </strong> </p>
                         {
-                          productType === 'Sale' && <p> <strong className='text-success'>Sale Price: ৳ {parseInt(salePrice) * quantity} টাকা । </strong> <span className='text-danger'> Your save {regularPrice - salePrice} Taka ({ Math.round(percent)} % Off)</span></p>
+                            productType === 'Sale' && <p> <strong className='text-success'>Sale Price: ৳ {parseInt(salePrice) * quantity} টাকা । </strong> <span className='text-danger'> Your save {regularPrice - salePrice} Taka ({Math.round(percent)} % Off)</span></p>
                         }
-                        <Link to='/cart'>
-                            {
-                                stock === 'In stock' ?  <button className='btn btn-danger' onClick={() => addToCart(key)}> <FontAwesomeIcon style={{marginBottom: '1px'}} className='mx-1' icon={faShoppingBag}></FontAwesomeIcon> Add to cart</button> 
-                                : <button className='btn btn-danger disabled' onClick={() => addToCart(key)}> <FontAwesomeIcon style={{marginBottom: '1px'}} className='mx-1' icon={faShoppingBag}></FontAwesomeIcon> Add to cart</button>
-                            }
-                           
-                        </Link>
+
+                        {
+                            stock === 'In stock' ? <Link to='/cart' className='btn btn-danger' onClick={() => addToCart(key)}> <FontAwesomeIcon style={{ marginBottom: '1px' }} className='mx-1' icon={faShoppingBag}></FontAwesomeIcon>কার্টে যোগ করুন</Link>
+                                : <button className='btn btn-danger disabled'> <FontAwesomeIcon style={{ marginBottom: '1px' }} className='mx-1' icon={faShoppingBag}></FontAwesomeIcon>কার্টে যোগ করুন</button>
+                        }
                     </div>
                     <div className="text-center productBanner ">
                         <img src={`data:image/png;base64,${image.img}`} alt="" className='productImg' style={{ borderRadius: '10px', width: '440px' }} />
                     </div>
-                </div> : <div class="d-flex justify-content-center m-5 bg-light" style={{height: '500px'}}>
-                    <div class="spinner-border text-danger" style={{width: '3rem', height: '3rem', marginTop:'200px'}} role="status">
+                </div> : <div class="d-flex justify-content-center m-5" style={{ height: '500px' }}>
+                    <div class="spinner-border text-danger" style={{ width: '3rem', height: '3rem', marginTop: '200px' }} role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
-                    <div class="spinner-grow text-danger" style={{width: '3rem', height: '3rem', marginTop:'200px'}} role="status">
+                    <div class="spinner-grow text-danger" style={{ width: '3rem', height: '3rem', marginTop: '200px' }} role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
                 </div>

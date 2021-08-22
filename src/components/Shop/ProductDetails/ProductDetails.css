@@ -2,6 +2,8 @@
     [class*="productDescription"]{
         width: 100% !important;
         font-size: 13px;
+        margin-left: 5px !important;
+        margin-right: 5px !important;
     }
     [class*="productDescription"] h2{
         font-size: 17px;
@@ -9,20 +11,22 @@
     [class*="productImg"]{
         width: 350px !important;
     }
+
 }
 @media only screen and (min-width: 768px) {
-
-    
 
     [class*="productDetails"]{
         width: 100% !important;
         font-size: 13px;
         display: flex !important;
+       
     }
     [class*="productDescription"]{
         width: 50% !important;
         font-size: 13px;
         display: inline-block !important;
+        margin-left: 5px !important;
+        margin-right: 5px !important;
 
     }
     [class*="productDescription"] h2{
@@ -43,12 +47,13 @@
 @media only screen and (min-width: 992px) {
     [class*="productDetails"]{
         width: 100% !important;
-        
+      
         display: flex !important;
     }
     [class*="productDescription"]{
-        width: 50% !important;
+        width: 47% !important;
         font-size: 17px;
+        margin-left: 10px !important;
         display: inline-block !important;
 
     }

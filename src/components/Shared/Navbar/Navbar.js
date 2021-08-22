@@ -131,7 +131,7 @@ const Navbar = () => {
       <br />
       {
         userInfo && <div className='text-center bg-danger me-auto p-2 text-white rounded-pill userName' style={{ width: '250px', }} >
-          <strong> <small className='mx-3'> Welcome, {userInfo.name} </small> </strong>
+          <strong> <small className='mx-3'> স্বাগতম, {userInfo.name} </small> </strong>
         </div>
       }
       {/*       
