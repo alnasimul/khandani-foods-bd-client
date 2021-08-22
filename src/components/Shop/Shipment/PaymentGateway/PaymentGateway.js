@@ -62,7 +62,7 @@ const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
         .then( success => {
             if(success){
                 processOrder();
-                window.location.replace(`http://localhost:3000/orderIsOnWayCOD?orderId=${data.orderId}`);
+                window.location.replace(`https://khandani-foods-bd.web.app/orderIsOnWayCOD?orderId=${data.orderId}`);
             }
         })
     }
