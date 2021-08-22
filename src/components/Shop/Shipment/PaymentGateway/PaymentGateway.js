@@ -28,7 +28,7 @@ const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
     const placeOrderWithSSLCommerz = data => {
         data.paymentMethod= 'DP';
         console.log(data)
-        fetch('http://khandanifoodsbd.com:443/addOrder',{
+        fetch('https://khandanifoodsbd.herokuapp.com/addOrder',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
@@ -50,7 +50,7 @@ const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
         data.paymentMethod= 'COD';
         console.log(data)
         
-        fetch('http://khandanifoodsbd.com:443/addOrder',{
+        fetch('https://khandanifoodsbd.herokuapp.com/addOrder',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
@@ -68,7 +68,7 @@ const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
     }
 
     const redirectToSSLCommerz = (data) => {
-        fetch('http://khandanifoodsbd.com:443/ssl-payment-gateway-sandbox', {
+        fetch('https://khandanifoodsbd.herokuapp.com/ssl-payment-gateway-sandbox', {
             method: 'POST',
             // mode: "no-cors",
             headers: {

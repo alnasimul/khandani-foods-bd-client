@@ -13,7 +13,7 @@ const TrackOrders = () => {
         setSearchData(data);
     }
     useEffect(() => {
-        fetch(`http://khandanifoodsbd.com:443/trackOrder?email=${userInfo.email}`,{
+        fetch(`https://khandanifoodsbd.herokuapp.com/trackOrder?email=${userInfo.email}`,{
         method: 'POST',
         headers: {
             'content-type' : 'application/json',

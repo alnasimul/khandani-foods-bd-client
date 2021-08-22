@@ -16,7 +16,7 @@ const Navbar = () => {
 
   useEffect(() => {
 
-    fetch(`http://khandanifoodsbd.com:443/isAdmin/${userInfo ? userInfo.email : loggedInUser.email}`)
+    fetch(`https://khandanifoodsbd.herokuapp.com/isAdmin/${userInfo ? userInfo.email : loggedInUser.email}`)
       .then(res => res.json())
       .then(data => {
         checkAdmin(data)

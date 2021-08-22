@@ -28,7 +28,7 @@ const Products = () => {
     // };
 
     const deleteProduct = id => {
-        fetch(`http://khandanifoodsbd.com:443/deleteProduct/${id}?email=${userInfo.email}`, {
+        fetch(`https://khandanifoodsbd.herokuapp.com/deleteProduct/${id}?email=${userInfo.email}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ const Products = () => {
             })
     }
     useEffect(() => {
-        fetch(`http://khandanifoodsbd.com:443/getProducts?email=${userInfo.email}`,{
+        fetch(`https://khandanifoodsbd.herokuapp.com/getProducts?email=${userInfo.email}`,{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

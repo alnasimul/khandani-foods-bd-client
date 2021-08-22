@@ -15,7 +15,7 @@ const ProductDetails = () => {
     const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
-        fetch(`http://khandanifoodsbd.com:443/getProductById/${key}`)
+        fetch(`https://khandanifoodsbd.herokuapp.com/getProductById/${key}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data);

@@ -8,7 +8,7 @@ const Shop = () => {
     const [category, setCategory] = useState('Honey');
 
     useEffect(() => {
-        fetch('http://khandanifoodsbd.com:443/products')
+        fetch('https://khandanifoodsbd.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -28,7 +28,7 @@ const Shop = () => {
     console.log(products)
     return (
         <div className="container text-center " id="shopArea">
-            <h1>শপ</h1>
+            <h1 className='text-danger'>শপ</h1>
             <div className="dropdown d-flex align-items-start ">
                 <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     ক্যাটাগরি - {category === 'MixedNuts' ? 'Honey Nuts' : category}

@@ -7,7 +7,7 @@ const UpdateUserDetail = ({userDetail, closeModalForUpdate}) => {
     const onSubmit = data => {
 
         if(window.confirm('Are you sure want to proceed ?') ){
-            fetch(`http://khandanifoodsbd.com:443/updateUser/${userDetail._id}?email=${userDetail.email}`,{
+            fetch(`https://khandanifoodsbd.herokuapp.com/updateUser/${userDetail._id}?email=${userDetail.email}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

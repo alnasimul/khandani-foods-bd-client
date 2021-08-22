@@ -23,7 +23,7 @@ const UpdateProductInfo = ({product,closeModal}) => {
         formData.append('image',data.image[0]);
 
         if(window.confirm(`Are sure want to update ${title} ${weight} ?`)){
-            fetch(`http://khandanifoodsbd.com:443/updateProduct/${_id}?email=${userInfo.email}`,{
+            fetch(`https://khandanifoodsbd.herokuapp.com/updateProduct/${_id}?email=${userInfo.email}`,{
                 method: 'PATCH',
                 headers: {
                     authorization: `Bearer ${sessionStorage.getItem('token')}`

@@ -58,7 +58,7 @@ const Cart = () => {
         }
 
 
-        fetch('http://khandanifoodsbd.com:443/getCartProducts', {
+        fetch('https://khandanifoodsbd.herokuapp.com/getCartProducts', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

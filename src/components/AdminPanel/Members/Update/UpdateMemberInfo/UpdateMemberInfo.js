@@ -9,7 +9,7 @@ const UpdateMemberInfo = ({member, closeModal }) => {
 
     const onSubmit = data => {
         if(window.confirm(`Are sure want to update ${name}'s profile ?`)){
-            fetch(`http://khandanifoodsbd.com:443/updateMember/${_id}?email=${userInfo.email}`,{
+            fetch(`https://khandanifoodsbd.herokuapp.com/updateMember/${_id}?email=${userInfo.email}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type' : 'application/json',

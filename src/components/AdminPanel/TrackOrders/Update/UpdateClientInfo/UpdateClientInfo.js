@@ -12,7 +12,7 @@ const UpdateClientInfo = ({order,closeModal}) => {
         const updatedData = { ...data }
 
         if(window.confirm('Are you sure to proceed ?')){
-        fetch(`http://khandanifoodsbd.com:443/updateClientInfo/${_id}?email=${userInfo.email}`,{
+        fetch(`https://khandanifoodsbd.herokuapp.com/updateClientInfo/${_id}?email=${userInfo.email}`,{
             method: 'PATCH',
             headers: {
                 'Content-Type' : 'application/json',

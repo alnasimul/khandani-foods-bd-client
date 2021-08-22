@@ -37,7 +37,7 @@ const Shipment = () => {
 
 
     useEffect(() => {
-        fetch(`http://khandanifoodsbd.com:443/getUser?email=${userInfo.email}`, {
+        fetch(`https://khandanifoodsbd.herokuapp.com/getUser?email=${userInfo.email}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',

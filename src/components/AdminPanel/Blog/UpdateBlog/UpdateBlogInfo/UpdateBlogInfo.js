@@ -19,7 +19,7 @@ const UpdateBlogInfo = ({ blog, closeModal }) => {
             if (data.file.length > 0) {
                 formData.append('file', data.file[0]);
             }
-            fetch(`http://khandanifoodsbd.com:443/updateBlog/${_id}?email=${userInfo.email}`, {
+            fetch(`https://khandanifoodsbd.herokuapp.com/updateBlog/${_id}?email=${userInfo.email}`, {
                 method: 'PATCH',
                 headers: {
                     authorization: `Bearer ${sessionStorage.getItem('token')}`

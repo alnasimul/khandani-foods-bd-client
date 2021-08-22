@@ -31,7 +31,7 @@ const Blog = () => {
 
     const getPublish = (status, id) => {
 
-        fetch(`http://khandanifoodsbd.com:443/updateBlogPublishStatus/${id}?email=${userInfo.email}`, {
+        fetch(`https://khandanifoodsbd.herokuapp.com/updateBlogPublishStatus/${id}?email=${userInfo.email}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const Blog = () => {
 
     const getPublishHome = (status, id) => {
 
-        fetch(`http://khandanifoodsbd.com:443/updateBlogPublishHomeStatus/${id}?email=${userInfo.email}`, {
+        fetch(`https://khandanifoodsbd.herokuapp.com/updateBlogPublishHomeStatus/${id}?email=${userInfo.email}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const Blog = () => {
     const deleteBlog = id => {
         console.log(id);
 
-        fetch(`http://khandanifoodsbd.com:443/deleteBlog/${id}?email=${userInfo.email}`, {
+        fetch(`https://khandanifoodsbd.herokuapp.com/deleteBlog/${id}?email=${userInfo.email}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ const Blog = () => {
     }
 
     useEffect(() => {
-        fetch(`http://khandanifoodsbd.com:443/getBlogs?email=${userInfo.email}`,{
+        fetch(`https://khandanifoodsbd.herokuapp.com/getBlogs?email=${userInfo.email}`,{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
