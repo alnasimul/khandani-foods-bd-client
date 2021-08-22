@@ -120,12 +120,12 @@ function App() {
               <Members></Members>
             </AdminRoute>
           </Switch>
-          {/* <MessengerCustomerChat
+          <MessengerCustomerChat
             pageId="102797561559766"
             appId="1039933163425478"
             shouldShowDialog={true}
             // htmlRef="<REF_STRING>"
-          /> */}
+          />
         </Router>
       </UserContext.Provider>
     </div>
