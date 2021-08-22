@@ -119,9 +119,9 @@ const Navbar = () => {
               <li className="nav-item mx-3">
                 {
                   (userInfo || loggedInUser.email) ? <a className="nav-link btn btn-danger rounded-pill text-white px-3 py-2 loginBtn" href="#" onClick={() => signOut()}  >লগ আউট</a>
-                  : <Link to='/login' className='text-decoration-none'>
-                  <a className="nav-link btn btn-danger rounded-pill text-white px-3 py-2 loginBtn" href="#">লগ ইন</a>
-                  </Link>
+                    : <Link to='/login' className='text-decoration-none'>
+                      <a className="nav-link btn btn-danger rounded-pill text-white px-3 py-2 loginBtn" href="#">লগ ইন</a>
+                    </Link>
                 }
               </li>
             </ul>
@@ -130,7 +130,7 @@ const Navbar = () => {
       </nav>
       <br />
       {
-        userInfo && <div className='text-center bg-danger me-auto p-2 text-white rounded-pill userName' style={{ width: '250px', }} >
+        userInfo && <div className='bg-danger p-2 text-white rounded-pill d-flex justify-content-center userName' style={{ width: '250px', }} >
           <strong> <small className='mx-3'> স্বাগতম, {userInfo.name} </small> </strong>
         </div>
       }

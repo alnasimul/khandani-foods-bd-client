@@ -93,13 +93,14 @@ const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
             {
                 (userDetail.address && orderInfo) ?
                     <div>
-                        <button className='btn btn-warning mt-3' onClick={() => placeOrderWithSSLCommerz(orderData)} >অর্ডার কনফার্ম করুন এবং পেমেন্ট সম্পন্ন করুন SSLCOMMERZ এর মাধ্যমে</button>
-                        <button className='btn btn-warning mt-3' onClick={() => placeOrderCashOn(orderData)} >ক্যাশ অন ডেলিভারি (শুধু মাত্র সিলেট সিটি এর জন্য) </button>
+                        <button className='btn btn-warning mt-3' onClick={() => placeOrderWithSSLCommerz(orderData)} >অর্ডার কনফার্ম করুন এবং পেমেন্ট সম্পন্ন করুন SSLCOMMERZ এর মাধ্যমে ।</button>
+                        <button className='btn btn-warning mt-3 mb-3' onClick={() => placeOrderCashOn(orderData)} >ক্যাশ অন ডেলিভারি (শুধু মাত্র সিলেট সিটি এর জন্য) ।</button>
                     </div>
-                    : <div>
-                        <button className={`btn btn-warning mt-3 ${disabled}`}  >অর্ডার কনফার্ম করুন এবং পেমেন্ট সম্পন্ন করুন SSLCOMMERZ এর মাধ্যমে</button>
-                        <button className={`btn btn-warning mt-3 ${disabled}`}  >ক্যাশ অন ডেলিভারি (শুধু মাত্র সিলেট সিটি এর জন্য) </button>
-                         <br /> <br />  <span className='text-danger'> আপনার ঠিকানা সেট করা হয়নি অথবা আপনার শপিং কার্ট সম্পূর্ণ খালি, আপনার ঠিকানা সেট করে এবং শপিং কার্টে পণ্য যোগ করে পুনরায় চেষ্টা করুন ধন্যবাদ ।</span>
+                    :
+                     <div>
+                        <button className={`btn btn-warning mt-3 ${disabled}`}  >অর্ডার কনফার্ম করুন এবং পেমেন্ট সম্পন্ন করুন SSLCOMMERZ এর মাধ্যমে ।</button>
+                        <button className={`btn btn-warning mt-3 mb-3 ${disabled}`}  >ক্যাশ অন ডেলিভারি (শুধু মাত্র সিলেট সিটি এর জন্য) ।</button>
+                        <br />  <span className='text-danger'> আপনার ঠিকানা সেট করা হয়নি অথবা আপনার শপিং কার্ট সম্পূর্ণ খালি, আপনার ঠিকানা সেট করে এবং শপিং কার্টে পণ্য যোগ করে পুনরায় চেষ্টা করুন ধন্যবাদ ।</span>
                     </div>
             }
         </div>

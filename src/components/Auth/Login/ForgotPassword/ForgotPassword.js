@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import logo from '../../../../images/logo.png';
 import { resetPassword } from '../loginManager';
 
 const ForgotPassword = () => {
@@ -17,7 +16,7 @@ const ForgotPassword = () => {
     return (
         <div className="container">
             <div className="row">
-                <div className='d-flex justify-content-center align-items-center' style={{ marginTop: '260px'}}>
+                <div className='d-flex justify-content-center align-items-center' style={{ marginTop: '150px'}}>
                 <div className="col-md-8 shadow p-5" >
                     <Link to='/login'>
                         <button className="btn btn-danger">লগইন পেইজ</button>
