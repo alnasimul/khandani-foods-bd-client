@@ -11,7 +11,7 @@ const Blogs = ({ blogs, getPublish, getPublishHome, deleteBlog, pageCount, chang
     return (
 
         <>
-            <div className='col-md-10 col-sm-12 col-12  mt-5 table-responsive' style={{width: '82%'}}>
+            <div className='col-md-10 col-sm-12 col-12  mt-5 table-responsive' id='blogTable' style={{width: '82%'}}>
                 <h1 className='text-center'>Blog Area</h1>
                 <div class="btn-group text-white mb-3 blogsBtn" role="group" aria-label="Basic example">
                     <Link to='/admin-panel/blog' className="btn btn-danger bx bx-news nav_link p-2  ">

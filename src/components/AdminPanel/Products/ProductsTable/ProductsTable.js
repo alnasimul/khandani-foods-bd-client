@@ -7,7 +7,7 @@ const ProductsTable = ({ products, deleteProduct, loading, category, setCategory
     console.log(products)
     return (
         <>
-             <div className='col-md-10 table-responsive' style={{width:'83%'}}>
+             <div className='col-md-10 table-responsive' id='productsTable' style={{width:'83%'}}>
              <div className="dropdown  mt-5 mb-3 ">
                         <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             ক্যাটাগরি - {(category === null && 'All Products') || (category === 'MixedNuts' ? 'Honey Nuts' : category)}

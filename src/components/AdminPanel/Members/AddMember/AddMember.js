@@ -37,7 +37,7 @@ const AddMember = () => {
     return (
         <div className='row' style={{ width:'100.6%' }}>
             <Sidebar></Sidebar>
-            <div className="col-md-10 col-sm-12 col-12 mt-5 mb-5 bg-light p-5 " style={{ width: widthValue , position: 'relative' }}>
+            <div className="col-md-10 col-sm-12 col-12 mt-5 mb-5 bg-light p-4 " style={{ width: widthValue }}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h2 className='text-center text-success'> <strong>Add New Member</strong> </h2>
                     <div className="form-group">

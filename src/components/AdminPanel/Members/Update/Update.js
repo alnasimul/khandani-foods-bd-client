@@ -8,7 +8,7 @@ const customStyles = {
         left: '50%',
         right: 'auto',
         width: '80%',
-        height: '95%',
+        height: '90%',
         padding: '20px',
         bottom: 'auto',
         marginRight: '-50%',

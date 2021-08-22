@@ -4,7 +4,7 @@ import './MembersTable.css';
 
 const MembersTable = ({ members, loading, deleteMember }) => {
     return (
-        <div className='col-md-10 col-12 col-sm-12 table-responsive my-3'>
+        <div className='col-md-10 col-12 col-sm-12 table-responsive my-3' id='membersTable'>
             <h4 className='text-center mb-3'>Khandani Team Members</h4>
             {
                 loading ?

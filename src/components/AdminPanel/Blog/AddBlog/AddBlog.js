@@ -1,3 +1,5 @@
+import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
@@ -50,10 +52,10 @@ const AddBlog = () => {
         <div>
              <div className='row' style={{ width:'100.6%' }}>
                     <Sidebar></Sidebar>
-                    <div className="col-md-10 col-sm-12 col-12 mt-5 bg-light p-5 addBlog" style={{width:widthValue}}>
+                    <div className="col-md-10 col-sm-12 col-12 mt-5 bg-light p-4 " style={{width:widthValue}}>
                         <div class="btn-group text-white" role="group" aria-label="Basic example">
-                            <Link to='/admin-panel/blog' className="btn btn-danger bx bx-news nav_link p-2  ">
-                                Blogs
+                            <Link to='/admin-panel/blog' className="p-2 btn btn-danger">
+                              <FontAwesomeIcon icon={faNewspaper}/>  Blogs
                             </Link>
                         </div>
                     <form onSubmit={handleSubmit(onSubmit)}>
