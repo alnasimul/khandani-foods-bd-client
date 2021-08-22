@@ -5,7 +5,7 @@ import './BlogsAccordion.css';
 
 const BlogsAccordion = ({ blogs, getPublish, getPublishHome, deleteBlog, pageCount, changePage, loading }) => {
     return (
-        <div className="col-md-12 col-12 col-sm-12 ms-2 mt-4" id='blogAccordion'>
+        <div className="col-md-12 col-12 col-sm-12 ms-3 mt-4 mb-3" id='blogAccordion'>
         {
             loading ? <div className={` d-flex justify-content-center m-5`} style={{ height: '500px' }}>
                 <div class="spinner-border text-danger" style={{ width: '3rem', height: '3rem', marginTop: '200px' }} role="status">

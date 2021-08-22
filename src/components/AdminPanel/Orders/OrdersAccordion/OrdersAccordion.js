@@ -5,7 +5,7 @@ import './OrdersAccordion.css';
 
 const OrdersAccordion = ({ orders, getPaymentStatus, getConfirmationStatus, getDeliveryStatus, getCompleteOrderStatus, deleteOrder, getOrderStatus, pageCount, changePage, loading }) => {
     return (
-        <div className="col-md-12 col-10 col-sm-10 ms-2 mt-4 ordersAccordion">
+        <div className="col-md-12 col-10 col-sm-10 ms-3 mb-3 mt-4 ordersAccordion">
             {
                 loading ? <div className={` d-flex justify-content-center m-5`} style={{ height: '500px' }}>
                     <div class="spinner-border text-danger" style={{ width: '3rem', height: '3rem', marginTop: '200px' }} role="status">

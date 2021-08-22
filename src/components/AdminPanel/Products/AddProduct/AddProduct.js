@@ -65,7 +65,7 @@ const AddProduct = () => {
         <div>
             <div className="row" style={{height:'100vh', width:'100.6%'}}>
                 <Sidebar></Sidebar>
-                <div className="col-md-10 col-sm-12 col-12 mt-5 bg-light p-5 addProduct" style={{width:'82%'}}>
+                <div className="col-md-10 col-sm-12 col-12 mt-5 ms-2 bg-light p-5 addProduct" style={{width:'82%'}}>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <h2 className='text-center text-success'> <strong> Add New Product </strong> </h2>
                         <div className="form-group">

@@ -4,7 +4,7 @@ import './ProductsAccordion.css';
 
 const ProductsAccordion = ({ products, deleteProduct, loading, category, setCategory }) => {
     return (
-        <div className='col-md-12 col-sm-12 col-12 productsAccordion table-responsive'>
+        <div className='col-md-12 col-sm-12 ms-3 col-12 mb-3 productsAccordion'>
              <div className="dropdown ms-3  mt-5 mb-3 ">
                         <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             ক্যাটাগরি - {(category === null && 'All Products') || (category === 'MixedNuts' ? 'Honey Nuts' : category)}
