@@ -32,6 +32,7 @@ import AddMember from './components/AdminPanel/Members/AddMember/AddMember';
 import Members from './components/AdminPanel/Members/Members/Members';
 import AdminRoute from './components/Auth/AdminRoute/AdminRoute';
 import ForgotPassword from './components/Auth/Login/ForgotPassword/ForgotPassword';
+import OrderISOnWayCOD from './components/User/OrderIsOnWayCOD/OrderISOnWayCOD';
 
 
 
@@ -83,6 +84,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path='/orderIsOnWay'>
               <OrderIsOnAway></OrderIsOnAway>
+            </PrivateRoute>
+            <PrivateRoute path='/orderIsOnWayCOD'>
+              <OrderISOnWayCOD></OrderISOnWayCOD>
             </PrivateRoute>
              {/* admin panel routes */}
             <AdminRoute path='/admin-panel/dashboard'>

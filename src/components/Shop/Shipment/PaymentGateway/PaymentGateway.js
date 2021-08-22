@@ -63,6 +63,7 @@ const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
             if(success){
                 processOrder();
                 alert(`ধন্যবাদ ${userDetail.name}, আমরা আপনার অর্ডারটি পেয়েছি, অতিসত্তর আপনার প্রোডাক্ট আপনার ঠিকানায় পৌছে যাবে ধন্যবাদ ।`)
+                window.location.replace(`http://localhost:3000/orderIsOnWayCOD?orderId=${data.orderId}`);
             }
         })
     }
