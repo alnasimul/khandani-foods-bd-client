@@ -41,11 +41,11 @@ const Sidebar = () => {
     }
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light ms-3 topNavbar">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light ms-3 topNavbar p-4">
                 <div className="container-fluid">
                     <div>
                         <FontAwesomeIcon icon={faUsers} className='me-3'></FontAwesomeIcon>
-                        <span>Khandani team</span>
+                        <span>Khandani team {userInfo && <small className='text-danger'>({userInfo.name})</small>}</span>
                     </div>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -100,11 +100,6 @@ const Sidebar = () => {
                         </ul>
                     </div>
                 </div>
-                {
-                    userInfo && <div className='text-center me-auto p-2 text-danger rounded-pill border border-danger userName mt-4' style={{ width: '250px', }} >
-                        <strong> <small className='mx-3'> Welcome, {userInfo.name} </small> </strong>
-                    </div>
-                }
             </nav>
             <div className="col-md-2">
                 <div className="sidebar d-flex flex-column justify-content-between col-md-2-special py-5 px-4" style={{ height: "100vh" }}>
