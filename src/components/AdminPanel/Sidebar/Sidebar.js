@@ -41,58 +41,59 @@ const Sidebar = () => {
     }
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light ms-3 topNavbar p-4">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light ms-3 topNavbar p-2">
                 <div className="container-fluid">
                     <div>
-                        <FontAwesomeIcon icon={faUsers} className='me-3'></FontAwesomeIcon>
+                        <FontAwesomeIcon icon={faUsers} className='me-3' style={{marginLeft: '7px'}}></FontAwesomeIcon>
                         <span>Khandani team {userInfo && <small className='text-danger'>({userInfo.name})</small>}</span>
                     </div>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse mx-2 text-dark " id="navbarNav">
-                        <ul className="navbar-nav ms-auto ">
-                            <li className="nav-item mx-3">
+                        <ul className="navbar-nav mt-2">
+                            <hr />
+                            <li className="nav-item ">
                                 <Link to="/" className='text-decoration-none'>
                                     <a className="nav-link text-dark" aria-current="page" > <FontAwesomeIcon icon={faHome} /> Home </a>
                                 </Link>
                             </li>
-                            <li className="nav-item mx-3">
+                            <li className="nav-item ">
                                 <Link to='/admin-panel/dashboard' className='text-decoration-none'>
                                     <a className="nav-link text-dark" aria-current="page" > <FontAwesomeIcon icon={faGripHorizontal} /> Dashboard</a>
                                 </Link>
                             </li>
-                            <li className="nav-item mx-3">
+                            <li className="nav-item ">
                                 <Link to='/admin-panel/orders' className='text-decoration-none'>
                                     <a className="nav-link text-dark " href=""> <FontAwesomeIcon icon={faShopify} /> Orders </a>
                                 </Link>
                             </li>
-                            <li className="nav-item mx-3">
+                            <li className="nav-item ">
                                 <Link to='/admin-panel/products' className='text-decoration-none'>
                                     <a className="nav-link text-dark" href="#"> <FontAwesomeIcon icon={faProductHunt} /> Products</a>
                                 </Link>
                             </li>
-                            <li className="nav-item mx-3">
+                            <li className="nav-item ">
                                 <Link to='/admin-panel/addProduct' className='text-decoration-none'>
                                     <a className="nav-link text-dark" href="#"> <FontAwesomeIcon icon={faFolderPlus} />  Add Product</a>
                                 </Link>
                             </li>
-                            <li className="nav-item mx-3">
+                            <li className="nav-item ">
                                 <Link to='/admin-panel/blog' className='text-decoration-none'>
                                     <a className="nav-link text-dark" href="#"> <FontAwesomeIcon icon={faNewspaper} />  Blogs </a>
                                 </Link>
                             </li>
-                            <li className="nav-item mx-3">
+                            <li className="nav-item ">
                                 <Link to='/admin-panel/addBlog' className='text-decoration-none'>
                                     <a className="nav-link text-dark" href="#"> <FontAwesomeIcon icon={faPlusSquare} /> Add blog </a>
                                 </Link>
                             </li>
-                            <li className="nav-item mx-3">
+                            <li className="nav-item">
                                 <Link to='/admin-panel/addMember' className='text-decoration-none'>
                                     <a className="nav-link text-dark" href="#"> <FontAwesomeIcon icon={faUserPlus} /> Add Member </a>
                                 </Link>
                             </li>
-                            <li className="nav-item mx-3">
+                            <li className="nav-item">
                                 <Link to='/admin-panel/members' className='text-decoration-none'>
                                     <a className="nav-link text-dark" href="#"> <FontAwesomeIcon icon={faUsers} /> Members </a>
                                 </Link>
