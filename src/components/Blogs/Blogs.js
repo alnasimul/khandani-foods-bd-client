@@ -24,7 +24,7 @@ const Blogs = () => {
     };
 
     useEffect(() => {
-        fetch('https://khandanifoodsbd.herokuapp.com/blogs')
+        fetch('https://www.webserver.khandanifoodsbd.com/blogs')
         .then(res => res.json() )
         .then( data => setBlogs(data))
     },[])

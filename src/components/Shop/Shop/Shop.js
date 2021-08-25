@@ -8,7 +8,7 @@ const Shop = () => {
     const [category, setCategory] = useState('Honey');
 
     useEffect(() => {
-        fetch('https://khandanifoodsbd.herokuapp.com/products')
+        fetch('https://www.webserver.khandanifoodsbd.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])

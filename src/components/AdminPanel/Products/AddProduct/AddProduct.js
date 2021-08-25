@@ -33,7 +33,7 @@ const AddProduct = () => {
        // formData.append('file',file);
 
        if(window.confirm('Are you sure want to add this product to database ?')){
-        fetch(`https://khandanifoodsbd.herokuapp.com/addProduct?email=${userInfo.email}`, {
+        fetch(`https://www.webserver.khandanifoodsbd.com/addProduct?email=${userInfo.email}`, {
             method: 'POST',
             headers: {
                 authorization: `Bearer ${sessionStorage.getItem('token')}`

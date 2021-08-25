@@ -7,7 +7,7 @@ const AddUserDetail = ({userInfo, closeModal}) => {
     const onSubmit = data => {
 
       if(window.confirm('Are you sure want to proceed ?') ){
-        fetch(`https://khandanifoodsbd.herokuapp.com/addUser?email=${userInfo.email}`,{
+        fetch(`https://www.webserver.khandanifoodsbd.com/addUser?email=${userInfo.email}`,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

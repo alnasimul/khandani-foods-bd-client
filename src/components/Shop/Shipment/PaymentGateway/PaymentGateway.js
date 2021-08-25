@@ -28,7 +28,7 @@ const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
     const placeOrderWithSSLCommerz = data => {
         data.paymentMethod= 'DP';
         console.log(data)
-        fetch('https://khandanifoodsbd.herokuapp.com/addOrder',{
+        fetch('https://www.webserver.khandanifoodsbd.com/addOrder',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
@@ -50,9 +50,10 @@ const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
         data.paymentMethod= 'COD';
         console.log(data)
         
-        fetch('https://khandanifoodsbd.herokuapp.com/addOrder',{
+        fetch('https://www.webserver.khandanifoodsbd.com/addOrder',{
             method: 'POST',
             headers: {
+                'Access-Control-Allow-Origin': '*',
                 'content-type' : 'application/json'
             },
             body: JSON.stringify(data)
@@ -68,10 +69,10 @@ const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
     }
 
     const redirectToSSLCommerz = (data) => {
-        fetch('https://khandanifoodsbd.herokuapp.com/ssl-payment-gateway-sandbox', {
+        fetch('https://www.webserver.khandanifoodsbd.com/ssl-payment-gateway-sandbox', {
             method: 'POST',
-            // mode: "no-cors",
             headers: {
+                'Access-Control-Allow-Origin': '*',
                 'content-type': 'application/json',
 
             },
@@ -93,7 +94,7 @@ const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
             {
                 (userDetail.address && orderInfo) ?
                     <div>
-                        <button className='btn btn-warning mt-3' onClick={() => placeOrderWithSSLCommerz(orderData)} >অর্ডার কনফার্ম করুন এবং পেমেন্ট সম্পন্ন করুন SSLCOMMERZ এর মাধ্যমে ।</button>
+                        <button className={`btn btn-warning mt-3 ${disabled}`} onClick={() => placeOrderWithSSLCommerz(orderData)} >অর্ডার কনফার্ম করুন এবং পেমেন্ট সম্পন্ন করুন SSLCOMMERZ এর মাধ্যমে (this service is off, will open soon... ) ।</button>
                         <button className='btn btn-warning mt-3 mb-3' onClick={() => placeOrderCashOn(orderData)} >ক্যাশ অন ডেলিভারি (শুধু মাত্র সিলেট সিটি এর জন্য) ।</button>
                     </div>
                     :

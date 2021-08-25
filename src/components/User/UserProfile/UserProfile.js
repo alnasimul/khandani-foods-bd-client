@@ -50,7 +50,7 @@ const UserProfile = () => {
 
 
     useEffect(() => {
-        fetch(`https://khandanifoodsbd.herokuapp.com/userOrders?email=${userInfo.email}`, {
+        fetch(`https://www.webserver.khandanifoodsbd.com/userOrders?email=${userInfo.email}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ const UserProfile = () => {
                 setOrders(newData)
             })
 
-        fetch(`https://khandanifoodsbd.herokuapp.com/getUser?email=${userInfo.email}`, {
+        fetch(`https://www.webserver.khandanifoodsbd.com/getUser?email=${userInfo.email}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',

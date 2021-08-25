@@ -17,7 +17,7 @@ const OrdersByDate = () => {
     }
     useEffect(() => {
         const newDate = selectedDate.toDateString();
-        fetch(`https://khandanifoodsbd.herokuapp.com/ordersByDate?email=${userInfo.email}`, {
+        fetch(`https://www.webserver.khandanifoodsbd.com/ordersByDate?email=${userInfo.email}`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

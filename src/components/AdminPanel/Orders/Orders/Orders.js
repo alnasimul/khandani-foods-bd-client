@@ -32,7 +32,7 @@ const Orders = () => {
 
         if(id){
             setPaymentStatus(status);
-            fetch(`https://khandanifoodsbd.herokuapp.com/updateStatus/${id}?email=${userInfo.email}`,{
+            fetch(`https://www.webserver.khandanifoodsbd.com/updateStatus/${id}?email=${userInfo.email}`,{
                 method:'PATCH',
                 headers: {
                     'Content-Type' : 'application/json',
@@ -48,7 +48,7 @@ const Orders = () => {
     const getConfirmationStatus= (id,status) => {
         console.log(id,status)
         if(id){
-            fetch(`https://khandanifoodsbd.herokuapp.com/updateStatus/${id}?email=${userInfo.email}`,{
+            fetch(`https://www.webserver.khandanifoodsbd.com/updateStatus/${id}?email=${userInfo.email}`,{
                 method:'PATCH',
                 headers: {
                     'Content-Type' : 'application/json',
@@ -65,7 +65,7 @@ const Orders = () => {
         console.log(id,status)
         if(id){
             setDeliveryStatus(status);
-            fetch(`https://khandanifoodsbd.herokuapp.com/updateStatus/${id}?email=${userInfo.email}`,{
+            fetch(`https://www.webserver.khandanifoodsbd.com/updateStatus/${id}?email=${userInfo.email}`,{
                 method:'PATCH',
                 headers: {
                     'Content-Type' : 'application/json',
@@ -81,7 +81,7 @@ const Orders = () => {
     const getCompleteOrderStatus = (id,status) => {
         console.log(id,status)
         if(id){
-            fetch(`https://khandanifoodsbd.herokuapp.com/updateStatus/${id}?email=${userInfo.email}`,{
+            fetch(`https://www.webserver.khandanifoodsbd.com/updateStatus/${id}?email=${userInfo.email}`,{
                 method:'PATCH',
                 headers: {
                     'Content-Type' : 'application/json',
@@ -97,7 +97,7 @@ const Orders = () => {
     const getOrderStatus = (id,status) => {
         console.log(id,status)
         if(id){
-            fetch(`https://khandanifoodsbd.herokuapp.com/updateStatus/${id}?email=${userInfo.email}`,{
+            fetch(`https://www.webserver.khandanifoodsbd.com/updateStatus/${id}?email=${userInfo.email}`,{
                 method:'PATCH',
                 headers: {
                     'Content-Type' : 'application/json',
@@ -115,7 +115,7 @@ const Orders = () => {
 
     const deleteOrder = id => {
         if(id){
-            fetch(`https://khandanifoodsbd.herokuapp.com/deleteOrder/${id}?email=${userInfo.email}`,{
+            fetch(`https://www.webserver.khandanifoodsbd.com/deleteOrder/${id}?email=${userInfo.email}`,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type' : 'application/json',
@@ -135,7 +135,7 @@ const Orders = () => {
     console.log(paymentStatus,deliveryStatus);
 
     useEffect(() => {
-        fetch(`https://khandanifoodsbd.herokuapp.com/getOrders?email=${userInfo.email}`,{
+        fetch(`https://www.webserver.khandanifoodsbd.com/getOrders?email=${userInfo.email}`,{
             method: 'GET',
             headers: {
                 'Content-Type' : 'application/json',
