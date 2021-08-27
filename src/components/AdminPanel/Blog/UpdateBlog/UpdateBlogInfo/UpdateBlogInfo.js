@@ -6,25 +6,26 @@ const UpdateBlogInfo = ({ blog, closeModal }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
 
-    const { _id, title, location, description } = blog;
+    const { _id, title, location, description, img } = blog;
 
     const onSubmit = data => {
-            
-            if (window.confirm('Are you sure want to update this blog data ?')) {
-            const formData = new FormData()
+        data.updated = new Date().toDateString();
 
-            formData.append('title', data.title);
-            formData.append('location', data.location);
-            formData.append('description', data.description);
-            if (data.file.length > 0) {
-                formData.append('file', data.file[0]);
-            }
+        if (window.confirm('Are you sure want to update this blog data ?')) {
+            // const formData = new FormData()
+
+            // formData.append('title', data.title);
+            // formData.append('location', data.location);
+            // formData.append('description', data.description);
+            // formData.append('file', data.file[0]);
+        
             fetch(`https://www.webserver.khandanifoodsbd.com/updateBlog/${_id}?email=${userInfo.email}`, {
                 method: 'PATCH',
                 headers: {
+                    'Content-Type': 'application/json',
                     authorization: `Bearer ${sessionStorage.getItem('token')}`
                 },
-                body: formData
+                body: JSON.stringify(data)
             })
                 .then(res => res.json())
                 .then(data => {
@@ -67,11 +68,11 @@ const UpdateBlogInfo = ({ blog, closeModal }) => {
                         </div>
                         <br />
                         <div className="form-group">
-                            <label className='mb-3 text-success' for="exampleFormControProductDescription"> <strong> Upload File </strong></label>
+                            <label className='mb-3 text-success' for="exampleFormControProductDescription"> <strong> Image Link / Name </strong></label>
                             <br />
-                            <input type='file' className="form-control-file mb-2" {...register('file', { required: true })} />
+                            <input type='text' className="form-control-file mb-2" placeholder='Image Link / Name' {...register('img', { required: true })} defaultValue={img} />
                             <br />
-                            {errors.file && <span className='text-danger' >file is required</span>}
+                            {errors.img && <span className='text-danger' >Image Link / Name is required</span>}
                         </div>
                         <br />
                         <input type="submit" className='btn btn-danger' value='Submit Blog' />

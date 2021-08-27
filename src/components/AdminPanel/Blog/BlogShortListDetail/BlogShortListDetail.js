@@ -3,7 +3,7 @@ import BlogDetail from '../BlogDetail/BlogDetail';
 import UpdateBlog from '../UpdateBlog/UpdateBlog';
 
 const BlogShortListDetail = ({blog, getPublish, deleteBlog, getPublishHome}) => {
-    const { _id, title, location, image, description, created } = blog;
+    const { _id, title, location,  description, created, img } = blog;
     const [modalIsOpen, setIsOpen] = useState(false);
 
 
@@ -62,7 +62,7 @@ const BlogShortListDetail = ({blog, getPublish, deleteBlog, getPublishHome}) => 
     return (
       <>
        <tr>
-                <td><img src={`data:image/png;base64,${image.img}`}  alt="" style={{width: '150px'}}/></td>
+                <td><img src={require(`../../../../images/Blogs/${img}`).default}  alt="" style={{width: '150px'}}/></td>
                 <td><small style={{ fontSize: '13px' }}> <strong>{created}</strong></small></td>
                 <td> <small style={{ fontSize: '13px' }}> <strong>{title}</strong></small></td>
                 <td><small style={{ fontSize: '13px' }}> <strong>{location}</strong></small></td>

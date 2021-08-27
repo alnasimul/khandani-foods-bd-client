@@ -107,7 +107,7 @@ const Navbar = () => {
               }
               {userInfo ? <li className="nav-item mx-3">
                 <Link to='/userProfile' className='text-decoration-none'>
-                  <a className="nav-link text-dark" href="#">ইউজার প্রোফাইল </a>
+                  <a className="nav-link text-dark" href="#">ইউজার প্রোফাইল (<span className='text-secondary'> {userInfo.name} </span>) </a>
                 </Link>
               </li> : <li></li>
               }
@@ -129,17 +129,6 @@ const Navbar = () => {
         </div>
       </nav>
       <br />
-      {
-        userInfo && <div className='bg-danger p-2 text-white rounded-pill d-flex justify-content-center userName' style={{ width: '250px', }} >
-          <strong> <small className='mx-3'> স্বাগতম, {userInfo.name} </small> </strong>
-        </div>
-      }
-      {/*       
-      {loggedInUser.email &&
-        <div className='text-center bg-danger me-auto p-2 text-white center' style={{ width: '300px', borderRadius: '5px', marginRight: '50px' }} >
-         <strong> <small className='mx-3'> Welcome, {loggedInUser.name ? loggedInUser.name : loggedInUser.email} </small> </strong>
-        </div>
-      } */}
       <hr className="me-3" />
     </div>
   );

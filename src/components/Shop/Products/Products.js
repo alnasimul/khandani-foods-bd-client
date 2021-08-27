@@ -1,21 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Products.css'
-import sale from '../../../images/sale.png'
+import './Products.css';
+const  pic = require('../../../images/Products/azwa~1-min.png')
 
 const Products = ({ item }) => {
-    let { title, image, regularPrice, id, salePrice, productType, stock } = item;
+    let { title, regularPrice, id, salePrice, productType, stock, img } = item;
 
 
     const getPercentage = (value1, value2) => {
        return 100 - (value1/value2 ) * 100
     } 
 
-   const percent = getPercentage(salePrice, regularPrice)
+    const percent = getPercentage(salePrice, regularPrice)
     
+    //img ? : `data:image/png;base64,${image.img}`
     return (
         <div className="col-md-4 my-3 productContainer">
-            <img src={`data:image/png;base64,${image.img}`}  alt="" style={{ width: '320px', borderRadius: '7px' }} />
+            <img src={ require('../../../images/Products/'+img).default }  alt="" style={{ width: '320px', borderRadius: '7px' }} />
             <br />
             <br />
             <h6><strong>{title}</strong></h6>

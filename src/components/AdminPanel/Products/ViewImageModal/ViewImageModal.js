@@ -16,7 +16,7 @@ const customStyles = {
 
 Modal.setAppElement('#root')
 const ViewImageModal = ({ product, modalForProduct, closeModalForProduct }) => {
-    const { image, title, weight, productType, regularPrice, salePrice } = product;
+    const { title, weight, productType, regularPrice, salePrice, img } = product;
     return (
         <div className='mt-3'>
             <Modal
@@ -27,7 +27,7 @@ const ViewImageModal = ({ product, modalForProduct, closeModalForProduct }) => {
 
             >
                 <div className='text-center text-success bg-light p-3'>
-                    <img src={`data:image/png;base64,${image.img}`} alt="" style={{ width: '400px' }} />
+                    <img src={require('../../../../images/Products/'+img).default} alt="" style={{ width: '400px' }} />
                     <div className=' mt-3'>
                         <p className=''>Title: <strong>  {title}</strong></p>
                         <p className=''>Product Type: <strong>  {productType}</strong></p>

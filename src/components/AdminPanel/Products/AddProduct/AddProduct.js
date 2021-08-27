@@ -16,29 +16,32 @@ const AddProduct = () => {
     // }
 
     const onSubmit = data => {
+
+        data.added = new Date().toDateString();
         
-        const formData = new FormData()
+        // const formData = new FormData()
 
     
-        formData.append('id',data.id);
-        formData.append('title',data.title);
-        formData.append('category',data.category);
-        formData.append('description',data.description);
-        formData.append('weight',data.weight);
-        formData.append('productType',data.productType);
-        formData.append('stock',data.stock);
-        formData.append('regularPrice',data.regularPrice);
-        formData.append('salePrice',data.salePrice);
-        formData.append('image',data.image[0]);
+        // formData.append('id',data.id);
+        // formData.append('title',data.title);
+        // formData.append('category',data.category);
+        // formData.append('description',data.description);
+        // formData.append('weight',data.weight);
+        // formData.append('productType',data.productType);
+        // formData.append('stock',data.stock);
+        // formData.append('regularPrice',data.regularPrice);
+        // formData.append('salePrice',data.salePrice);
+        // formData.append('image',data.image[0]);
        // formData.append('file',file);
 
        if(window.confirm('Are you sure want to add this product to database ?')){
         fetch(`https://www.webserver.khandanifoodsbd.com/addProduct?email=${userInfo.email}`, {
             method: 'POST',
             headers: {
+                'Content-Type' : 'application/json',
                 authorization: `Bearer ${sessionStorage.getItem('token')}`
             },
-            body: formData
+            body: JSON.stringify(data)
         })
             .then(response => response.json())
             .then(data => {
@@ -128,11 +131,11 @@ const AddProduct = () => {
                         </div>
                         <br />
                         <div className="form-group">
-                            <label className='mb-3 text-success' for="exampleFormControProductDescription"> <strong> Upload Product Image</strong></label>
+                            <label className='mb-3 text-success' for="exampleFormControProductDescription"> <strong> Image Link / Name </strong></label>
                             <br />
-                            <input type='file' className="form-control-file mb-2" {...register('image', { required: true })}  />
+                            <input type='text' className="form-control-file mb-2" placeholder='Image Link / Name' {...register('img', { required: true })}  />
                             <br />
-                            {errors.image && <span className='text-danger' >Image is required</span>}
+                            {errors.img && <span className='text-danger' >Image Link / Name is required</span>}
                         </div>
                         <br />
                         <input type="submit" className='btn btn-danger'/>

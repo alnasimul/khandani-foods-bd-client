@@ -23,7 +23,7 @@ const ProductDetails = () => {
 
     }, [key]);
 
-    const { title, image, regularPrice, description, productType, salePrice, category, stock } = product;
+    const { title,  regularPrice, description, productType, salePrice, category, stock, img } = product;
 
 
     const keyChangerFor250Gram = (key) => {
@@ -56,7 +56,7 @@ const ProductDetails = () => {
         <div className="container">
 
             {
-                product.image ? <div className="row productDetails"  >
+                img ? <div className="row productDetails"  >
                     <div className="p-3 mt-2 productDescription bg-light" style={{ borderRadius: '5px ' }}>
                         <div className='d-flex justify-content-between'>
                             <h2 className="">{title}</h2>
@@ -92,7 +92,7 @@ const ProductDetails = () => {
                         }
                     </div>
                     <div className="text-center productBanner ">
-                        <img src={`data:image/png;base64,${image.img}`} alt="" className='productImg' style={{ borderRadius: '10px', width: '440px' }} />
+                        <img src={require('../../../images/Products/'+img).default} alt="" className='productImg' style={{ borderRadius: '10px', width: '440px' }} />
                     </div>
                 </div> : <div class="d-flex justify-content-center m-5" style={{ height: '500px' }}>
                     <div class="spinner-border text-danger" style={{ width: '3rem', height: '3rem', marginTop: '200px' }} role="status">

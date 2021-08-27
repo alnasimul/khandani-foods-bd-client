@@ -3,7 +3,7 @@ import fakeData from '../../../../fakeData';
 import { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart } from '../../../../utilities/databaseManager';
 
 const CartItem = ({ item, cartPlusChange, cartSubChange }) => {
-    const { title, image, quantity, id, regularPrice, salePrice } = item;
+    const { title,  quantity, id, regularPrice, salePrice, img } = item;
 
     const [quantityCount, setQuantityCount] = useState(quantity);
 
@@ -58,7 +58,7 @@ const CartItem = ({ item, cartPlusChange, cartSubChange }) => {
     return (
         <div className="d-flex my-3" >
             <div>
-                <img src={`data:image/png;base64,${image.img}`}  alt="" style={{ width: '100px' }} />
+                <img src={require('../../../../images/Products/'+img).default}  alt="" style={{ width: '100px' }} />
             </div>
             <div className='ms-3' >
                 <h4>{title}</h4>

@@ -1,25 +1,25 @@
 import React from 'react';
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faInstagram, faGooglePlusG, faGooglePlus, faMailchimp, faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { faLocationArrow, faMailBulk, faPhone, faEnvelope, faTruck } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faLocationArrow, faPhone, faEnvelope, faTruck } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../../images/logo.png';
 
 const Footer = () => {
     return (
-        <footer className="container footerContainer bg-dark pt-5 pb-2 px-5 text-white my-2" >
-            <div className="row" >
-                <div className="col-md-3 my-5 mx-3 companyLogo">
+        <footer className="container footerContainer bg-dark pt-5 pb-2 px-5 text-white mt-2" >
+            <div className="row ms-1" >
+                <div className="col-md-3 my-5 mx-1 companyLogo">
                     <img src={logo} alt="" style={{ width: '250px', height: '250px' }} className="img-fluid" />
                 </div>
-                <div className="col-md-3 my-3 mx-2 followSection ">
-                    <h3 className="mx-3 my-3">Follow us on</h3>
+                <div className="col-md-3 my-3 ms-2 followSection ">
+                    <h3 className="mx-3 my-3">Follow us</h3>
                     <br />
                     <a className="nav-link text-white d-flex" href="https://www.facebook.com/khandaniFoodsBd/?ref=pages_you_manage" target="_blank"><FontAwesomeIcon icon={faFacebookF} className="mx-2"></FontAwesomeIcon>fb.com/khandaniFoodsBd</a>
                     <br />
                     <a className="nav-link text-white " href="https://www.instagram.com/khandanifoodsbd" target="_blank" ><FontAwesomeIcon icon={faInstagram} className="mx-2" ></FontAwesomeIcon>Khandani Foods BD</a>
                 </div>
-                <div className="col-md-3 my-3 mx-3 contactSection">
+                <div className="col-md-3 my-3 ms-3 contactSection">
                     <h3 className="my-3">Contact us</h3>
                     <br />
                     <div className="d-flex">
@@ -37,7 +37,7 @@ const Footer = () => {
             </div>
             <div className="d-flex my-3 justify-content-center copyrightSection ">
                 <br />
-                <FontAwesomeIcon icon={faTruck} className=" mx-2 mt-1"></FontAwesomeIcon> <p> <strong> Home delivery available </strong> </p>
+                <FontAwesomeIcon icon={faTruck} className=" ms-2 mt-1"></FontAwesomeIcon> <p> <strong> Home delivery available </strong> </p>
             </div>
             <p className="text-center text-white mt-3 copyrightSection"> © Copyright {(new Date()).getFullYear()} - Khandani Foods BD All Rights Reserved</p>
         </footer>

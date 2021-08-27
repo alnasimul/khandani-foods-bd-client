@@ -4,11 +4,11 @@ import React from 'react';
 import './Blog.css';
 
 const Blog = ({ blog }) => {
-    const { title, image, description, location, created } = blog;
+    const { title, description, location, created, img } = blog;
     return (
-        <div className='row bg-light p-4 d-flex jusity-content-center align-items-around blog'>
+        <div className='row bg-light p-4 d-flex jusity-content-center align-items-around blog ms-1'>
         <div className='blogBanner mt-3' >
-            <img src={`data:image/png;base64,${image.img}`} alt="" style={{ width: '500px', borderRadius: '7px' }} className='img-fluid blogImg' />
+            <img src={require(`../../../../images/Blogs/${img}`).default} alt="" style={{ width: '500px', borderRadius: '7px' }} className='img-fluid blogImg' />
         </div>
         <div className="blogDetails mt-3">
             <h5> <strong>{title}</strong> </h5>
