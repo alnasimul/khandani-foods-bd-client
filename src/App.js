@@ -80,9 +80,6 @@ function App() {
             <Route path='/forgotPassword'>
                 <ForgotPassword></ForgotPassword>
             </Route>
-            <Route path='*'>
-                <NotFound></NotFound>
-            </Route>
             <PrivateRoute path='/userProfile'>
               <UserProfile></UserProfile>
             </PrivateRoute>
@@ -123,6 +120,9 @@ function App() {
             <AdminRoute path='/admin-panel/members'>
               <Members></Members>
             </AdminRoute>
+            <Route path='*'>
+                <NotFound></NotFound>
+            </Route>
           </Switch>
           <MessengerCustomerChat
             pageId="102797561559766"
