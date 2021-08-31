@@ -33,6 +33,7 @@ import Members from './components/AdminPanel/Members/Members/Members';
 import AdminRoute from './components/Auth/AdminRoute/AdminRoute';
 import ForgotPassword from './components/Auth/Login/ForgotPassword/ForgotPassword';
 import OrderISOnWayCOD from './components/User/OrderIsOnWayCOD/OrderISOnWayCOD';
+import NotFound from './components/NotFound/NotFound';
 
 
 
@@ -78,6 +79,9 @@ function App() {
             </Route>
             <Route path='/forgotPassword'>
                 <ForgotPassword></ForgotPassword>
+            </Route>
+            <Route path='*'>
+                <NotFound></NotFound>
             </Route>
             <PrivateRoute path='/userProfile'>
               <UserProfile></UserProfile>
