@@ -29,7 +29,7 @@ const AddMember = () => {
         console.log(data)
     }
     if(window.innerWidth > 991 ){
-        var widthValue = '83%';
+        var widthValue = '82%';
     }
     else{
         widthValue = '100%'

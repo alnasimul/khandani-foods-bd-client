@@ -150,7 +150,7 @@ const Login = () => {
                         </div>
                         <hr />
                     </form>
-                   
+                    
                     <button className="btn btn-success text-white" onClick={googleSignIn}>গুগল সাইন ইন</button>
                     {(user.success && newUser) && <p style={{ color: 'green' }}>User Created Successfully </p>}
                     {user.isSignedIn && <p className='text-success'>User Logged in successfully</p>}

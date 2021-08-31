@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Update from '../Update/Update';
-import ViewImageModal from '../ViewImageModal/ViewImageModal';
 
 const SingleProductAccordion = ({ product, index, deleteProduct }) => {
-    const { _id, id, image, title, category, description, weight, productType, regularPrice, salePrice } = product;
+    const { _id, id, title, category, description, weight, productType, regularPrice, salePrice, img } = product;
 
     const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -49,7 +48,7 @@ const SingleProductAccordion = ({ product, index, deleteProduct }) => {
                     </div>
                         <div>
                             <div className='text-center mb-3'>
-                                <img src={`data:image/png;base64,${image.img}`} alt="" className='img-fluid' />
+                                <img src={require('../../../../images/Products/'+img).default }alt="" className='img-fluid' />
                             </div>
                             <p><strong>Title: </strong>{title}</p>
                             <p><strong>Category: </strong> {category}</p>
