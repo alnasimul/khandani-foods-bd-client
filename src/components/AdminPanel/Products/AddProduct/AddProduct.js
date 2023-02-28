@@ -35,7 +35,7 @@ const AddProduct = () => {
        // formData.append('file',file);
 
        if(window.confirm('Are you sure want to add this product to database ?')){
-        fetch(`https://www.webserver.khandanifoodsbd.com/addProduct?email=${userInfo.email}`, {
+        fetch(`https://khandani-foods-bd-server-render.onrender.com/addProduct?email=${userInfo.email}`, {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json',

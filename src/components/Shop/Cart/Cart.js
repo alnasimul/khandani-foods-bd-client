@@ -58,7 +58,7 @@ const Cart = () => {
         }
 
 
-        fetch('https://www.webserver.khandanifoodsbd.com/getCartProducts', {
+        fetch('https://khandani-foods-bd-server-render.onrender.com/getCartProducts', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

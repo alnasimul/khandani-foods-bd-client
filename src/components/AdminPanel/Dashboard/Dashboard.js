@@ -9,7 +9,7 @@ const Dashboard = () => {
     const [orders, setOrders] = useState([])
     const year = new Date().getFullYear();
     useEffect(() => {
-        fetch(`https://www.webserver.khandanifoodsbd.com/getOrdersByYear/${year}?email=${userInfo.email}`,{
+        fetch(`https://khandani-foods-bd-server-render.onrender.com/getOrdersByYear/${year}?email=${userInfo.email}`,{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

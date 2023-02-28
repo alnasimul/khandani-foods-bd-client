@@ -13,7 +13,7 @@ const TrackOrders = () => {
         setSearchData(data);
     }
     useEffect(() => {
-        fetch(`https://www.webserver.khandanifoodsbd.com/trackOrder?email=${userInfo.email}`,{
+        fetch(`https://khandani-foods-bd-server-render.onrender.com/trackOrder?email=${userInfo.email}`,{
         method: 'POST',
         headers: {
             'content-type' : 'application/json',

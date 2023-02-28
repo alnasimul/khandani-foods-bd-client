@@ -16,7 +16,7 @@ const Navbar = () => {
 
   useEffect(() => {
 
-    fetch(`https://www.webserver.khandanifoodsbd.com/isAdmin/${userInfo ? userInfo.email : loggedInUser.email}`)
+    fetch(`https://khandani-foods-bd-server-render.onrender.com/isAdmin/${userInfo ? userInfo.email : loggedInUser.email}`)
       .then(res => res.json())
       .then(data => {
         checkAdmin(data)

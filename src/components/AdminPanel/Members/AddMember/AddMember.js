@@ -12,7 +12,7 @@ const AddMember = () => {
         data.id = 'KM' + Math.round(id).toString();
 
         if(window.confirm('Are you sure want to add this member to database ?')){
-            fetch(`https://www.webserver.khandanifoodsbd.com/addMember?email=${userInfo.email}`,{
+            fetch(`https://khandani-foods-bd-server-render.onrender.com/addMember?email=${userInfo.email}`,{
                 method: 'POST',
                 headers: {
                      'Content-Type' : 'application/json',

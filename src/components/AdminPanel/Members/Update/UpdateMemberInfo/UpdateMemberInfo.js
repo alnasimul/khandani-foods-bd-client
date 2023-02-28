@@ -9,7 +9,7 @@ const UpdateMemberInfo = ({member, closeModal }) => {
 
     const onSubmit = data => {
         if(window.confirm(`Are sure want to update ${name}'s profile ?`)){
-            fetch(`https://www.webserver.khandanifoodsbd.com/updateMember/${_id}?email=${userInfo.email}`,{
+            fetch(`https://khandani-foods-bd-server-render.onrender.com/updateMember/${_id}?email=${userInfo.email}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type' : 'application/json',

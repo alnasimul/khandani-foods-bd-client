@@ -15,7 +15,7 @@ const ProductDetails = () => {
     const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
-        fetch(`https://www.webserver.khandanifoodsbd.com/getProductById/${key}`)
+        fetch(`https://khandani-foods-bd-server-render.onrender.com/getProductById/${key}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data);

@@ -9,7 +9,7 @@ const Members = () => {
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
 
     useEffect(() => {
-        fetch(`https://www.webserver.khandanifoodsbd.com/members?email=${userInfo.email}`, {
+        fetch(`https://khandani-foods-bd-server-render.onrender.com/members?email=${userInfo.email}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const Members = () => {
     }, [])
 
     const deleteMember = id => {
-        fetch(`https://www.webserver.khandanifoodsbd.com/deleteMember/${id}?email=${userInfo.email}`, {
+        fetch(`https://khandani-foods-bd-server-render.onrender.com/deleteMember/${id}?email=${userInfo.email}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

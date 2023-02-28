@@ -19,7 +19,7 @@ const UpdateBlogInfo = ({ blog, closeModal }) => {
             // formData.append('description', data.description);
             // formData.append('file', data.file[0]);
         
-            fetch(`https://www.webserver.khandanifoodsbd.com/updateBlog/${_id}?email=${userInfo.email}`, {
+            fetch(`https://khandani-foods-bd-server-render.onrender.com/updateBlog/${_id}?email=${userInfo.email}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

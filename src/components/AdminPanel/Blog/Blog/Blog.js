@@ -31,7 +31,7 @@ const Blog = () => {
 
     const getPublish = (status, id) => {
 
-        fetch(`https://www.webserver.khandanifoodsbd.com/updateBlogPublishStatus/${id}?email=${userInfo.email}`, {
+        fetch(`https://khandani-foods-bd-server-render.onrender.com/updateBlogPublishStatus/${id}?email=${userInfo.email}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const Blog = () => {
 
     const getPublishHome = (status, id) => {
 
-        fetch(`https://www.webserver.khandanifoodsbd.com/updateBlogPublishHomeStatus/${id}?email=${userInfo.email}`, {
+        fetch(`https://khandani-foods-bd-server-render.onrender.com/updateBlogPublishHomeStatus/${id}?email=${userInfo.email}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const Blog = () => {
     const deleteBlog = id => {
         console.log(id);
 
-        fetch(`https://www.webserver.khandanifoodsbd.com/deleteBlog/${id}?email=${userInfo.email}`, {
+        fetch(`https://khandani-foods-bd-server-render.onrender.com/deleteBlog/${id}?email=${userInfo.email}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ const Blog = () => {
     }
 
     useEffect(() => {
-        fetch(`https://www.webserver.khandanifoodsbd.com/getBlogs?email=${userInfo.email}`,{
+        fetch(`https://khandani-foods-bd-server-render.onrender.com/getBlogs?email=${userInfo.email}`,{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

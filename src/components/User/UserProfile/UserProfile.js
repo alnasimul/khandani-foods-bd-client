@@ -50,7 +50,7 @@ const UserProfile = () => {
 
 
     useEffect(() => {
-        fetch(`https://www.webserver.khandanifoodsbd.com/userOrders?email=${userInfo.email}`, {
+        fetch(`https://khandani-foods-bd-server-render.onrender.com/userOrders?email=${userInfo.email}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ const UserProfile = () => {
                 setOrders(newData)
             })
 
-        fetch(`https://www.webserver.khandanifoodsbd.com/getUser?email=${userInfo.email}`, {
+        fetch(`https://khandani-foods-bd-server-render.onrender.com/getUser?email=${userInfo.email}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',

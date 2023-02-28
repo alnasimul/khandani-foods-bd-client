@@ -17,7 +17,7 @@ const OrdersByDate = () => {
     }
     useEffect(() => {
         const newDate = selectedDate.toDateString();
-        fetch(`https://www.webserver.khandanifoodsbd.com/ordersByDate?email=${userInfo.email}`, {
+        fetch(`https://khandani-foods-bd-server-render.onrender.com/ordersByDate?email=${userInfo.email}`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

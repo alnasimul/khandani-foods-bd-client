@@ -37,7 +37,7 @@ const Shipment = () => {
 
 
     useEffect(() => {
-        fetch(`https://www.webserver.khandanifoodsbd.com/getUser?email=${userInfo.email}`, {
+        fetch(`https://khandani-foods-bd-server-render.onrender.com/getUser?email=${userInfo.email}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',

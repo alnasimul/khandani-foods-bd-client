@@ -28,7 +28,7 @@ const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
     const placeOrderWithSSLCommerz = data => {
         data.paymentMethod= 'DP';
         console.log(data)
-        fetch('https://www.webserver.khandanifoodsbd.com/addOrder',{
+        fetch('https://khandani-foods-bd-server-render.onrender.com/addOrder',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
@@ -50,7 +50,7 @@ const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
         data.paymentMethod= 'COD';
         console.log(data)
         
-        fetch('https://www.webserver.khandanifoodsbd.com/addOrder',{
+        fetch('https://khandani-foods-bd-server-render.onrender.com/addOrder',{
             method: 'POST',
             headers: {
                 'Access-Control-Allow-Origin': '*',
@@ -69,7 +69,7 @@ const PaymentGateway = ({ orderInfo, userDetail, disabled }) => {
     }
 
     const redirectToSSLCommerz = (data) => {
-        fetch('https://www.webserver.khandanifoodsbd.com/ssl-payment-gateway-sandbox', {
+        fetch('https://khandani-foods-bd-server-render.onrender.com/ssl-payment-gateway-sandbox', {
             method: 'POST',
             headers: {
                 'Access-Control-Allow-Origin': '*',

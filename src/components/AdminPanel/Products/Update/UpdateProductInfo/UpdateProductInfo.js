@@ -24,7 +24,7 @@ const UpdateProductInfo = ({ product, closeModal }) => {
         // formData.append('image',data.image[0]);
 
         if (window.confirm(`Are sure want to update ${title} ${weight} ?`)) {
-            fetch(`https://www.webserver.khandanifoodsbd.com/updateProduct/${_id}?email=${userInfo.email}`, {
+            fetch(`https://khandani-foods-bd-server-render.onrender.com/updateProduct/${_id}?email=${userInfo.email}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

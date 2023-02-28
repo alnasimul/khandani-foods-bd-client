@@ -24,7 +24,7 @@ const AddBlog = () => {
         // formData.append('file',data.file[0]);
 
         if(window.confirm('Are you sure want to add this blog to database ?')){
-            fetch(`https://www.webserver.khandanifoodsbd.com/addBlog?email=${userInfo.email}`, {
+            fetch(`https://khandani-foods-bd-server-render.onrender.com/addBlog?email=${userInfo.email}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type' : 'application/json',

@@ -25,7 +25,7 @@ const HomeBlogs = () => {
     };
 
     useEffect(() => {
-        fetch('https://www.webserver.khandanifoodsbd.com/homeBlogs')
+        fetch('https://khandani-foods-bd-server-render.onrender.com/homeBlogs')
         .then(res => res.json() )
         .then( data => setBlogs(data))
     },[])
