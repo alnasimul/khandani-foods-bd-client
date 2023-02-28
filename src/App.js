@@ -26,7 +26,7 @@ import Blog from './components/AdminPanel/Blog/Blog/Blog';
 import AddBlog from './components/AdminPanel/Blog/AddBlog/AddBlog';
 import UserProfile from './components/User/UserProfile/UserProfile';
 import OrderIsOnAway from './components/User/OrderIsOnAway/OrderIsOnAway';
-import MessengerCustomerChat from 'react-messenger-customer-chat';
+//import MessengerCustomerChat from 'react-messenger-customer-chat';
 import Blogs from './components/Blogs/Blogs';
 import AddMember from './components/AdminPanel/Members/AddMember/AddMember';
 import Members from './components/AdminPanel/Members/Members/Members';
@@ -124,12 +124,12 @@ function App() {
                 <NotFound></NotFound>
             </Route>
           </Switch>
-          <MessengerCustomerChat
+          {/* <MessengerCustomerChat
             pageId="102797561559766"
             appId="1039933163425478"
             shouldShowDialog={true}
             // htmlRef="<REF_STRING>"
-          />
+          /> */}
         </Router>
       </UserContext.Provider>
     </div>
